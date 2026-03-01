@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="BVBg980bNkm7EkaOBzVqqj0eJyhn8tjYRko9LUMJ">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css">
+        <style>
+        /* Modern Dashboard Styles */
+        .dashboard-container {
+            background: linear-gradient(135deg, #0a0a0a 0%, #111827 50%, #1e293b 100%);
+            min-height: 100vh;
+            padding-top: 1rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(6, 214, 160, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 0 1rem 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .welcome-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .welcome-text h1 {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06d6a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-text p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        /* Modern Wallet Balance */
+        .wallet-balance {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 0 1rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .wallet-balance::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06d6a0);
+            border-radius: 20px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+        }
+
+        .wallet-balance .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wallet-balance h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #e5e5e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .balance-change {
+            color: #06d6a0;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+
+        /* Modern Action Cards */
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0 1rem 2rem;
+            max-width: 100%;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            padding: 0.75rem 0.5rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            width: 80px;
+            height: 65px;
+            flex-shrink: 0;
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .action-card:hover::before {
+            opacity: 1;
+        }
+
+        .action-card img {
+            width: 24px;
+            height: 24px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            position: relative;
+            z-index: 2;
+        }
+
+        .action-card span {
+            font-size: 0.65rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Modern Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            margin: 0 1rem 2rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus-within {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #fff;
+            outline: none;
+            padding: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .search-bar input::placeholder {
+            color: #9ca3af;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            color: #6366f1;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #8b5cf6;
+        }
+
+        /* Modern Coin List */
+        .coin-list {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            margin: 0 1rem 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .coin-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            text-decoration: none;
+            color: #fff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .coin-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .coin-item:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .coin-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .coin-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .coin-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .coin-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .coin-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            color: #fff;
+        }
+
+        .coin-balance {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        .coin-right {
+            text-align: right;
+        }
+
+        .coin-price {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .coin-change-positive {
+            color: #06d6a0;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .coin-change-negative {
+            color: #ef4444;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                margin: 0 0.5rem 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .welcome-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .wallet-balance {
+                margin: 0 0.5rem 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .wallet-balance h1 {
+                font-size: 2.5rem;
+            }
+
+            .chart-section {
+                margin: 0 0.5rem 1.5rem;
+                padding: 1rem;
+            }
+
+            .chart-wrapper {
+                height: 150px;
+            }
+
+            .action-row {
+                margin: 0 0.5rem 1.5rem;
+                gap: 0.5rem;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .action-card {
+                padding: 0.75rem 0.5rem;
+                width: auto;
+                height: 70px;
+            }
+
+            .action-card img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .action-card span {
+                font-size: 0.625rem;
+            }
+
+            .search-bar {
+                margin: 0 0.5rem 1.5rem;
+            }
+
+            .coin-list {
+                margin: 0 0.5rem 1.5rem;
+                padding: 1rem;
+            }
+
+            .coin-item {
+                padding: 0.75rem;
+            }
+
+            .coin-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .coin-icon img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wallet-balance h1 {
+                font-size: 2rem;
+            }
+
+            .action-row {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.25rem;
+            }
+
+            .action-card {
+                padding: 0.5rem 0.25rem;
+                width: auto;
+                height: 60px;
+            }
+
+            .coin-name {
+                font-size: 0.9rem;
+            }
+
+            .coin-balance {
+                font-size: 0.75rem;
+            }
+
+            .coin-price {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/live_asset_data-DTAETS82.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/config-kBwAyubG.js"><script type="module" src="https://web3ledgernetwork.com/build/assets/live_asset_data-DTAETS82.js"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAQD/d=0/rs=AN8SPfrXXtxuFpMMBoYgp93jo68L3iC3ZQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.SA3MmY9u8ag.O/am=AAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfqWB4UVkP8gvnmCrKRwNgJS9IkjYA/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logoutBtn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+                        </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                    <!-- Standard Google Translate Widget -->
+<div id="google_translate_element"></div>
+
+<style>
+    /* Hide Google Translate banner */
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    /* Fix the layout using display:flex instead of white-space:nowrap */
+    .goog-te-gadget-simple {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span {
+        display: flex !important;
+    }
+
+    /* Hide the separator and dropdown arrow */
+    .goog-te-gadget-simple span[style*="border-left"] {
+        display: none !important;
+    }
+
+    .goog-te-gadget-simple span[aria-hidden="true"] {
+        display: none !important;
+    }
+</style>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <div class="subnav-tabs">
+    <a href="https://web3ledgernetwork.com/app" class="subnav-link active">Crypto</a>
+    <a href="https://web3ledgernetwork.com/app/nft" class="subnav-link ">NFTs</a>
+    <a href="https://web3ledgernetwork.com/app/collections" class="subnav-link ">Market</a>
+    <a href="https://web3ledgernetwork.com/app/staking" class="subnav-link ">Staking</a>
+    <a href="https://web3ledgernetwork.com/app/cards" class="subnav-link ">Cards</a>
+</div>
+
+    <div class="dashboard-container">
+        <!-- Hero Welcome Section -->
+        <div class="hero-section">
+            <div class="welcome-text">
+                <h1 id="welcomeUser">Welcome back</h1>
+                <p>Track your digital assets and explore new opportunities</p>
+            </div>
+        </div>
+
+        <!-- Modern Wallet Balance -->
+        <div class="wallet-balance">
+            <div class="content">
+                <h1 id="totalUserBalance">$0.00</h1>
+                <div class="balance-change" id="balance-change">+1.25% (+$0.00)</div>
+            </div>
+        </div>
+
+
+    <!-- Action buttons row -->
+    <div class="action-row">
+        <a href="https://web3ledgernetwork.com/app/buy" class="action-card">
+            <img src="https://img.icons8.com/fluency/48/buy.png" alt="Buy">
+            <span>Buy</span>
+        </a>
+        <a href="#" class="action-card" onclick="showSwapOptions(event)">
+            <img src="https://img.icons8.com/fluency/48/exchange.png" alt="Swap">
+            <span>Swap</span>
+        </a>
+        <a href="#" class="action-card" onclick="showSendOptions(event)">
+            <img src="https://img.icons8.com/fluency/48/filled-sent.png" alt="Send">
+            <span>Send</span>
+        </a>
+        <a href="#" class="action-card" onclick="showReceiveOptions(event)">
+            <img src="https://img.icons8.com/fluency/48/download--v1.png" alt="Receive">
+            <span>Receive</span>
+        </a>
+        <a href="secure_assets.html" class="action-card">
+            <img src="https://img.icons8.com/?size=100&amp;id=eQlsqdCY5Bo7&amp;format=png&amp;color=000000" alt="Backup">
+            <span>Backup</span>
+        </a>
+        <a href="https://web3ledgernetwork.com/app/staking" class="action-card">
+            <img src="https://img.icons8.com/external-filled-color-icons-papa-vector/78/external-Hand-With-Crypto-Token-making-money-on-crypto-filled-color-icons-papa-vector.png" alt="Staking">
+            <span>Staking</span>
+        </a>
+        <a href="https://web3ledgernetwork.com/app/cards" class="action-card">
+            <img src="https://img.icons8.com/color/48/bank-card-back-side.png" alt="Card">
+            <span>Card</span>
+        </a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input type="text" placeholder="Token name" id="coin-search">
+        <button id="refresh-coins" title="Refresh">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                </path>
+            </svg>
+        </button>
+        <button title="Add">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Coin List -->
+    <div class="coin-list" id="coins-container">
+                    <input type="hidden" class="BTC_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/1" class="coin-item" data-name="bitcoin" data-symbol="btc">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="Bitcoin">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Bitcoin
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="BTC_funds">0.00000000</span>
+                            BTC
+                            <span class="BTC_price_history text-green-500" style="color: red;">-2.28006%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price BTC_price">$89,588.00</div>
+                    <span class="BTC_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="ETH_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/2" class="coin-item" data-name="ethereum" data-symbol="eth">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" alt="Ethereum">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Ethereum
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="ETH_funds">0.00000000</span>
+                            ETH
+                            <span class="ETH_price_history text-green-500" style="color: red;">-5.61678%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price ETH_price">$2,986.97</div>
+                    <span class="ETH_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="XRP_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/3" class="coin-item" data-name="ripple" data-symbol="xrp">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/44/large/xrp.png" alt="Ripple">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Ripple
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="XRP_funds">0.00000000</span>
+                            XRP
+                            <span class="XRP_price_history text-green-500" style="color: red;">-2.82119%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price XRP_price">$1.91</div>
+                    <span class="XRP_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="BCH_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/4" class="coin-item" data-name="bitcoin cash" data-symbol="bch">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png" alt="Bitcoin Cash">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Bitcoin Cash
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="BCH_funds">0.00000000</span>
+                            BCH
+                            <span class="BCH_price_history text-green-500" style="color: green;">+2.00602%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price BCH_price">$592.07</div>
+                    <span class="BCH_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="XLM_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/5" class="coin-item" data-name="stellar" data-symbol="xlm">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png" alt="Stellar">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Stellar
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="XLM_funds">0.00000000</span>
+                            XLM
+                            <span class="XLM_price_history text-green-500" style="color: red;">-0.62691%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price XLM_price">$0.21</div>
+                    <span class="XLM_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="LTC_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/6" class="coin-item" data-name="litecoin" data-symbol="ltc">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/2/large/litecoin.png" alt="Litecoin">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Litecoin
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="LTC_funds">0.00000000</span>
+                            LTC
+                            <span class="LTC_price_history text-green-500" style="color: red;">-1.9948%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price LTC_price">$68.92</div>
+                    <span class="LTC_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="TRX_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/7" class="coin-item" data-name="tron" data-symbol="trx">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/1094/large/tron-logo.png" alt="Tron">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Tron
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="TRX_funds">0.00000000</span>
+                            TRX
+                            <span class="TRX_price_history text-green-500" style="color: red;">-4.99486%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price TRX_price">$0.30</div>
+                    <span class="TRX_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="DOGE_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/8" class="coin-item" data-name="doge coin" data-symbol="doge">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/5/large/dogecoin.png" alt="Doge Coin">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Doge Coin
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="DOGE_funds">0.00000000</span>
+                            DOGE
+                            <span class="DOGE_price_history text-green-500" style="color: red;">-1.64335%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price DOGE_price">$0.13</div>
+                    <span class="DOGE_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="ALGO_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/9" class="coin-item" data-name="algorand" data-symbol="algo">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/4380/large/download.png" alt="Algorand">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Algorand
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="ALGO_funds">0.00000000</span>
+                            ALGO
+                            <span class="ALGO_price_history text-green-500" style="color: red;">-1.50173%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price ALGO_price">$0.12</div>
+                    <span class="ALGO_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="SOL_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/10" class="coin-item" data-name="solana" data-symbol="sol">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/4128/large/coinmarketcap-solana-200.png" alt="Solana">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Solana
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="SOL_funds">0.00000000</span>
+                            SOL
+                            <span class="SOL_price_history text-green-500" style="color: red;">-3.76347%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price SOL_price">$127.93</div>
+                    <span class="SOL_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="DOT_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/11" class="coin-item" data-name="polkadot" data-symbol="dot">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png" alt="Polkadot">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Polkadot
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="DOT_funds">0.00000000</span>
+                            DOT
+                            <span class="DOT_price_history text-green-500" style="color: red;">-4.25991%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price DOT_price">$1.94</div>
+                    <span class="DOT_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="ADA_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/12" class="coin-item" data-name="cardano" data-symbol="ada">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/975/large/cardano.png" alt="Cardano">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Cardano
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="ADA_funds">0.00000000</span>
+                            ADA
+                            <span class="ADA_price_history text-green-500" style="color: red;">-1.96132%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price ADA_price">$0.36</div>
+                    <span class="ADA_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="BNB_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/13" class="coin-item" data-name="binance coin" data-symbol="bnb">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/825/large/binance-coin-logo.png" alt="Binance Coin">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Binance Coin
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="BNB_funds">0.00000000</span>
+                            BNB
+                            <span class="BNB_price_history text-green-500" style="color: red;">-4.57976%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price BNB_price">$880.29</div>
+                    <span class="BNB_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="USDT_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/14" class="coin-item" data-name="tether" data-symbol="usdt">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png" alt="Tether">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Tether
+                                                            <span class="network-badge">TRC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="USDT_funds">0.00000000</span>
+                            USDT
+                            <span class="USDT_price_history text-green-500" style="color: red;">-0.03551%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price USDT_price">$1.00</div>
+                    <span class="USDT_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="USDT_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/15" class="coin-item" data-name="tether" data-symbol="usdt">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png" alt="Tether">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Tether
+                                                            <span class="network-badge">BSC</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="USDT_funds">0.00000000</span>
+                            USDT
+                            <span class="USDT_price_history text-green-500" style="color: red;">-0.03551%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price USDT_price">$1.00</div>
+                    <span class="USDT_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="USDT_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/16" class="coin-item" data-name="tether" data-symbol="usdt">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/325/large/Tether-logo.png" alt="Tether">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Tether
+                                                            <span class="network-badge">ERC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="USDT_funds">0.00000000</span>
+                            USDT
+                            <span class="USDT_price_history text-green-500" style="color: red;">-0.03551%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price USDT_price">$1.00</div>
+                    <span class="USDT_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="SHIB_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/17" class="coin-item" data-name="shiba inu" data-symbol="shib">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/11939/large/shiba.png" alt="SHIBA INU">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            SHIBA INU
+                                                            <span class="network-badge">ERC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="SHIB_funds">0.00000000</span>
+                            SHIB
+                            <span class="SHIB_price_history text-green-500" style="color: red;">-1.43234%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price SHIB_price">$0.00</div>
+                    <span class="SHIB_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="PEPE_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/18" class="coin-item" data-name="pepe" data-symbol="pepe">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/29850/large/pepe-token.jpeg" alt="PEPE">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            PEPE
+                                                            <span class="network-badge">ERC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="PEPE_funds">0.00000000</span>
+                            PEPE
+                            <span class="PEPE_price_history text-green-500" style="color: red;">-3.69238%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price PEPE_price">$0.00</div>
+                    <span class="PEPE_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="LINK_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/19" class="coin-item" data-name="chainlink" data-symbol="link">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/877/large/chainlink-new-logo.png" alt="Chainlink">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Chainlink
+                                                            <span class="network-badge">ERC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="LINK_funds">0.00000000</span>
+                            LINK
+                            <span class="LINK_price_history text-green-500" style="color: red;">-3.196%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price LINK_price">$12.38</div>
+                    <span class="LINK_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="JASMY_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/20" class="coin-item" data-name="jasmycoin" data-symbol="jasmy">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/13876/large/JASMY200x200.jpg" alt="JasmyCoin">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            JasmyCoin
+                                                            <span class="network-badge">ERC20</span>
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="JASMY_funds">0.00000000</span>
+                            JASMY
+                            <span class="JASMY_price_history text-green-500" style="color: red;">-1.41%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price JASMY_price">$0.01</div>
+                    <span class="JASMY_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="POL_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/21" class="coin-item" data-name="polygon (ex-matic)" data-symbol="pol">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/32440/large/polygon.png" alt="Polygon (ex-MATIC)">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Polygon (ex-MATIC)
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="POL_funds">0.00000000</span>
+                            POL
+                            <span class="POL_price_history text-green-500" style="color: red;">-0.92983%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price POL_price">$0.13</div>
+                    <span class="POL_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="CELO_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/22" class="coin-item" data-name="celo" data-symbol="celo">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/11090/standard/InjXBNx9_400x400.jpg" alt="Celo">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Celo
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="CELO_funds">0.00000000</span>
+                            CELO
+                            <span class="CELO_price_history text-green-500" style="color: red;">-0.37%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price CELO_price">$0.28</div>
+                    <span class="CELO_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="HBAR_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/23" class="coin-item" data-name="hedera" data-symbol="hbar">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/3688/large/hbar.png" alt="Hedera">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Hedera
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="HBAR_funds">0.00000000</span>
+                            HBAR
+                            <span class="HBAR_price_history text-green-500" style="color: red;">-0.85344%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price HBAR_price">$0.11</div>
+                    <span class="HBAR_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="QNT_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/24" class="coin-item" data-name="quant" data-symbol="qnt">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/3370/large/5ZOu7brX_400x400.jpg" alt="Quant">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Quant
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="QNT_funds">0.00000000</span>
+                            QNT
+                            <span class="QNT_price_history text-green-500" style="color: red;">-5.44374%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price QNT_price">$77.75</div>
+                    <span class="QNT_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="ONDO_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/25" class="coin-item" data-name="ondo" data-symbol="ondo">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/26580/large/ONDO.png" alt="Ondo">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Ondo
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="ONDO_funds">0.00000000</span>
+                            ONDO
+                            <span class="ONDO_price_history text-green-500" style="color: red;">-2.2496%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price ONDO_price">$0.34</div>
+                    <span class="ONDO_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="TRB_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/26" class="coin-item" data-name="tellor tributes" data-symbol="trb">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/9644/large/TRB-New_Logo.png" alt="Tellor Tributes">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Tellor Tributes
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="TRB_funds">0.00000000</span>
+                            TRB
+                            <span class="TRB_price_history text-green-500" style="color: green;">+3.23%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price TRB_price">$36.25</div>
+                    <span class="TRB_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="FLR_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/27" class="coin-item" data-name="flare" data-symbol="flr">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/28624/large/FLR-icon200x200.png" alt="Flare">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Flare
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="FLR_funds">0.00000000</span>
+                            FLR
+                            <span class="FLR_price_history text-green-500" style="color: green;">+0%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price FLR_price">$1.00</div>
+                    <span class="FLR_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="VET_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/28" class="coin-item" data-name="vechain" data-symbol="vet">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/1167/large/VET.png" alt="VeChain">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            VeChain
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="VET_funds">0.00000000</span>
+                            VET
+                            <span class="VET_price_history text-green-500" style="color: green;">+0%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price VET_price">$1.00</div>
+                    <span class="VET_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="IOTX_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/29" class="coin-item" data-name="iotex" data-symbol="iotx">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/3334/large/20250731-171811.png" alt="IoTeX">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            IoTeX
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="IOTX_funds">0.00000000</span>
+                            IOTX
+                            <span class="IOTX_price_history text-green-500" style="color: red;">-2.40%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price IOTX_price">$0.03</div>
+                    <span class="IOTX_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="ZBCN_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/30" class="coin-item" data-name="zebec network" data-symbol="zbcn">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/37052/large/zbcn.jpeg" alt="Zebec Network">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Zebec Network
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="ZBCN_funds">0.00000000</span>
+                            ZBCN
+                            <span class="ZBCN_price_history text-green-500" style="color: green;">+4.67%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price ZBCN_price">$0.00</div>
+                    <span class="ZBCN_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="LCX_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/31" class="coin-item" data-name="lcx" data-symbol="lcx">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://assets.coingecko.com/coins/images/9985/large/zRPSu_0o_400x400.jpg" alt="LCX">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            LCX
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="LCX_funds">0.00000000</span>
+                            LCX
+                            <span class="LCX_price_history text-green-500" style="color: red;">-3.48%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price LCX_price">$0.13</div>
+                    <span class="LCX_fiat_worth">$0.00</span>
+                </div>
+            </a>
+                    <input type="hidden" class="CRO_user_worth" value="0">
+            <a href="https://web3ledgernetwork.com/app/assets/32" class="coin-item" data-name="cronos" data-symbol="cro">
+                <div class="coin-left">
+                    <div class="coin-icon">
+                        <img src="https://coin-images.coingecko.com/coins/images/7310/large/cro_token_logo.png" alt="Cronos">
+                    </div>
+                    <div class="coin-info">
+                        <span class="coin-name">
+                            Cronos
+                                                    </span>
+                        <span class="coin-balance">
+                            <span class="CRO_funds">0.00000000</span>
+                            CRO
+                            <span class="CRO_price_history text-green-500" style="color: red;">-2.81211%</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="coin-right">
+                    <div class="coin-price CRO_price">$0.09</div>
+                    <span class="CRO_fiat_worth">$0.00</span>
+                </div>
+            </a>
+            </div>
+
+    </div>
+
+    <div class="py-3 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+    <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-gray-400 hover:text-gray-300 transition-colors">
+        <span>Data provided by</span>
+        <img src="https://web3ledgernetwork.com/images/cg-logo.png" alt="CoinGecko" class="h-5">
+    </a>
+</div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item active">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script>
+
+        <script>
+        // Asset selection popup functionality
+        function showAssetSelectionPopup(actionType) {
+            const assets = [{"id":1,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:07:04.000000Z","name":"Bitcoin","token":"BTC","admin_address":"bc1qt92whd0syhd5a3v3uz5678zgcfy46r8h458d9x","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/1\/large\/bitcoin.png","network":null},{"id":2,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:08:11.000000Z","name":"Ethereum","token":"ETH","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/279\/large\/ethereum.png","network":null},{"id":3,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:08:47.000000Z","name":"Ripple","token":"XRP","admin_address":"rExSqGqBVfWpXomFvhyAp1zU19gYNa632w","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/44\/large\/xrp.png","network":null},{"id":4,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:09:36.000000Z","name":"Bitcoin Cash","token":"BCH","admin_address":"qr7wfjam89mzxact9gjmcp222tk9dmmgzyzxc6su5x","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/780\/large\/bitcoin-cash-circle.png","network":null},{"id":5,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:10:24.000000Z","name":"Stellar","token":"XLM","admin_address":"GDFKNQVIC4O2H3PVEAUGGHUUQHFDGBQRJPBWNKBUWNZA5U64KH6KTS4O","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/100\/large\/Stellar_symbol_black_RGB.png","network":null},{"id":6,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:11:04.000000Z","name":"Litecoin","token":"LTC","admin_address":"ltc1ql56rqy65hsq86lt9yng6qtthe2c2aac0s8cw33","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/2\/large\/litecoin.png","network":null},{"id":7,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:11:32.000000Z","name":"Tron","token":"TRX","admin_address":"TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/1094\/large\/tron-logo.png","network":null},{"id":8,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:12:01.000000Z","name":"Doge Coin","token":"DOGE","admin_address":"DLhnXQGSNv51YkVTQTdcasQJP4oy8DP4nr","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/5\/large\/dogecoin.png","network":null},{"id":9,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:12:35.000000Z","name":"Algorand","token":"ALGO","admin_address":"RT7BHQWBSI3RY5KTTR6DLRCWOGMK67ISZ2KEXDRA2XIQP7JNKAZXQ7SDXI","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/4380\/large\/download.png","network":null},{"id":10,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:12:59.000000Z","name":"Solana","token":"SOL","admin_address":"CP8KscSudepwzZxLmQYCg3de3nj2dUjYgzwLTknxPZPE","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/4128\/large\/coinmarketcap-solana-200.png","network":null},{"id":11,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:13:45.000000Z","name":"Polkadot","token":"DOT","admin_address":"14AWVQpW8kXNQJneKoHbh9KU6MLBjVNTw6PGFjueRP8CvS43","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/12171\/large\/polkadot.png","network":null},{"id":12,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:14:13.000000Z","name":"Cardano","token":"ADA","admin_address":"addr1qx7dpvq3zw4wnv90grvhz6cjetsmvu6l705vswctqy7a7wjml0r065dl3j5s5rmtr9tmfq4g6s3269nreln0zmpgjl5qljlr4e","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/975\/large\/cardano.png","network":null},{"id":13,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:15:06.000000Z","name":"Binance Coin","token":"BNB","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/825\/large\/binance-coin-logo.png","network":null},{"id":14,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:15:32.000000Z","name":"Tether","token":"USDT","admin_address":"TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/325\/large\/Tether-logo.png","network":"TRC20"},{"id":15,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:16:27.000000Z","name":"Tether","token":"USDT","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/325\/large\/Tether-logo.png","network":"BSC"},{"id":16,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:16:52.000000Z","name":"Tether","token":"USDT","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/325\/large\/Tether-logo.png","network":"ERC20"},{"id":17,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:17:13.000000Z","name":"SHIBA INU","token":"SHIB","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/11939\/large\/shiba.png","network":"ERC20"},{"id":18,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:18:35.000000Z","name":"PEPE","token":"PEPE","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/29850\/large\/pepe-token.jpeg","network":"ERC20"},{"id":19,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:18:51.000000Z","name":"Chainlink","token":"LINK","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/877\/large\/chainlink-new-logo.png","network":"ERC20"},{"id":20,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:19:11.000000Z","name":"JasmyCoin","token":"JASMY","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/13876\/large\/JASMY200x200.jpg","network":"ERC20"},{"id":21,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:20:00.000000Z","name":"Polygon (ex-MATIC)","token":"POL","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/32440\/large\/polygon.png","network":null},{"id":22,"created_at":"2025-06-25T12:42:12.000000Z","updated_at":"2025-07-18T20:21:01.000000Z","name":"Celo","token":"CELO","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/11090\/standard\/InjXBNx9_400x400.jpg","network":null},{"id":23,"created_at":"2025-07-19T15:46:52.000000Z","updated_at":"2025-07-19T15:46:52.000000Z","name":"Hedera","token":"HBAR","admin_address":"0.0.8745134","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/3688\/large\/hbar.png","network":null},{"id":24,"created_at":"2025-07-19T15:46:52.000000Z","updated_at":"2025-07-19T15:46:52.000000Z","name":"Quant","token":"QNT","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/3370\/large\/5ZOu7brX_400x400.jpg","network":null},{"id":25,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"Ondo","token":"ONDO","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/26580\/large\/ONDO.png","network":null},{"id":26,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"Tellor Tributes","token":"TRB","admin_address":"0xEd350A9685b0257dca9fb2Fef68a4468De2cc425","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/9644\/large\/TRB-New_Logo.png","network":null},{"id":27,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"Flare","token":"FLR","admin_address":"0xEd350A9685b0257dca9fb2Fef68a4468De2cc425","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/28624\/large\/FLR-icon200x200.png","network":null},{"id":28,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"VeChain","token":"VET","admin_address":"0x21BA1EBD8bE03FabE80aED4A5662aF6F885e6286","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/1167\/large\/VET.png","network":null},{"id":29,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"IoTeX","token":"IOTX","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/3334\/large\/20250731-171811.png","network":null},{"id":30,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"Zebec Network","token":"ZBCN","admin_address":"CP8KscSudepwzZxLmQYCg3de3nj2dUjYgzwLTknxPZPE","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/37052\/large\/zbcn.jpeg","network":null},{"id":31,"created_at":"2025-08-18T16:17:12.000000Z","updated_at":"2025-08-18T16:17:12.000000Z","name":"LCX","token":"LCX","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/assets.coingecko.com\/coins\/images\/9985\/large\/zRPSu_0o_400x400.jpg","network":null},{"id":32,"created_at":"2025-09-03T21:02:12.000000Z","updated_at":"2025-09-03T21:02:12.000000Z","name":"Cronos","token":"CRO","admin_address":"0x7CeE6c588882507A8aC308473D7b846a9fdCb09f","min_withdrawal":"0.00000000","icon":"https:\/\/coin-images.coingecko.com\/coins\/images\/7310\/large\/cro_token_logo.png","network":null}];
+
+            // Create modal HTML
+            const modalHTML = `
+                <div id="assetModal" class="fixed inset-0 z-50 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeAssetModal()"></div>
+                    <div class="relative bg-dark-medium rounded-lg shadow-lg w-[90%] max-w-sm mx-4 max-h-[70vh] overflow-hidden">
+                        <div class="px-3 py-2 border-b border-dark-lighter">
+                            <h5 class="text-sm font-medium">Select Asset for ${actionType}</h5>
+                            <button onclick="closeAssetModal()" class="absolute top-2 right-3 text-gray-400 hover:text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-2 overflow-y-auto max-h-80">
+                            ${assets.map(asset => `
+                                                                                    <div class="flex items-center p-2 hover:bg-dark-lighter rounded-lg cursor-pointer transition-colors"
+                                                                                         onclick="selectAsset('${asset.id}', '${actionType}')">
+                                                                                        <img src="${asset.icon}" alt="${asset.name}" class="w-6 h-6 rounded-full mr-3">
+                                                                                        <div class="flex-1">
+                                                                                            <div class="text-sm font-medium">
+                                                                                                ${asset.name}
+                                                                                                ${asset.network ? `<span class="network-badge text-xs ml-1">${asset.network}</span>` : ''}
+                                                                                            </div>
+                                                                                            <div class="text-xs text-gray-400">${asset.token}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                                                                                                                                                                                                                `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function closeAssetModal() {
+            const modal = document.getElementById('assetModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function selectAsset(assetId, actionType) {
+            closeAssetModal();
+
+            // Navigate to appropriate page based on action type
+            switch (actionType) {
+                case 'Swap':
+                    window.location.href = `/app/assets/swap/${assetId}`;
+                    break;
+                case 'Send':
+                case 'Withdraw':
+                    window.location.href = `/app/assets/withdraw/${assetId}`;
+                    break;
+                case 'Receive':
+                case 'Deposit':
+                    window.location.href = `/app/assets/deposit/${assetId}`;
+                    break;
+                default:
+                    window.location.href = `/app/assets/${assetId}`;
+            }
+        }
+
+        // Action button handlers
+        function showSwapOptions(event) {
+            event.preventDefault();
+            showAssetSelectionPopup('Swap');
+        }
+
+        function showSendOptions(event) {
+            event.preventDefault();
+            showAssetSelectionPopup('Send');
+        }
+
+        function showReceiveOptions(event) {
+            event.preventDefault();
+            showAssetSelectionPopup('Receive');
+        }
+
+        // Search functionality
+        document.getElementById('coin-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const coinItems = document.querySelectorAll('.coin-item');
+
+            coinItems.forEach(item => {
+                const name = item.dataset.name || '';
+                const symbol = item.dataset.symbol || '';
+
+                if (name.includes(searchTerm) || symbol.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Refresh coins functionality
+        document.getElementById('refresh-coins').addEventListener('click', function() {
+            // Add refresh animation
+            this.style.transform = 'rotate(360deg)';
+            this.style.transition = 'transform 0.5s ease';
+
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg)';
+                // You can add actual refresh logic here
+                location.reload();
+            }, 500);
+        });
+
+    </script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div>
+                
+            
+                
+            
+<script src="js/home-controller.js"></script>  
+<script src="js/home-prices.js"></script>
+<script src="js/home-assets-click.js"></script>
+<script>
+async function loadUser() {
+  const res = await fetch("https://auth-api.officeusps368.workers.dev/me", {
+    credentials: "include"
+  });
+
+  if (!res.ok) {
+    window.location.href = "/login.html";
+    return;
+  }
+
+  const user = await res.json();
+
+  document.getElementById("welcomeUser").innerText =
+    `Welcome back, ${user.username}`;
+}
+
+loadUser();
+</script> 
+<script>
+document.getElementById("logoutBtn")?.addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  await fetch("https://auth-api.officeusps368.workers.dev/logout", {
+    method: "POST",
+    credentials: "include"
+  });
+
+  window.location.href = "/login.html";
+});
+</script>             
+            </body></html>
