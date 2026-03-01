@@ -459,9 +459,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="logoutBtn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
-                        Logout
-                    </a>
+                    <a href="#" id="logoutBtn"
+   onclick="event.preventDefault(); logoutUser();"
+   class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+   Logout
+</a>
                 </li>
                             </ul>
                         </form>
@@ -1567,5 +1569,20 @@ document.getElementById("logoutBtn")?.addEventListener("click", async function (
 
   window.location.href = "/login.html";
 });
-</script>             
+</script>    
+<script>
+function logoutUser() {
+    fetch('/api/logout', {
+        method: 'POST',
+        credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(() => {
+        window.location.href = '/login.html';
+    })
+    .catch(err => {
+        console.error('Logout failed:', err);
+    });
+}
+</script>         
             </body></html>
