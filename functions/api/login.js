@@ -2,7 +2,7 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   const body = await request.json();
 
-  const { email, password } = body;
+  const { email, password } = body; // this field can be email OR username
 
   if (!email || !password) {
     return new Response(JSON.stringify({ error: "Missing fields" }), {
@@ -11,11 +11,11 @@ export async function onRequestPost(context) {
     });
   }
 
-  // Fetch user from D1
+  // Search by email OR username
   const user = await env.DB.prepare(
-    "SELECT * FROM users WHERE email = ?"
+    "SELECT * FROM users WHERE email = ? OR username = ?"
   )
-  .bind(email)
+  .bind(email, email)
   .first();
 
   // RAW password comparison
