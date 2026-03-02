@@ -268,7 +268,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     return;
   }
 
-  const res = await fetch("/api/register", {
+  const res = await fetch("/api/signup", {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
