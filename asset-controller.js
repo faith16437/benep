@@ -107,10 +107,7 @@
   // =========================
   const tvContainer = document.getElementById("tradingview-widget-container");
   if (tvContainer && !tvContainer.dataset.loaded) {
-    const tvSymbol =
-      asset.symbol === "BTC"
-        ? "COINBASE:BTCUSD"
-        : `COINBASE:${asset.symbol}USD`;
+    const tvSymbol = "BINANCE:BTCUSDT";
 
     tvContainer.innerHTML = `
       <iframe
@@ -142,3 +139,4 @@
   updateAsset();
   setInterval(updateAsset, 30000);
 })();
+
