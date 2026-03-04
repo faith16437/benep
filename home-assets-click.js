@@ -34,8 +34,9 @@
       );
 
       // go to your local template page
-      window.location.href = "assets.html";
+      window.location.href = "/assets.html";
     },
     true // capture phase so we beat other handlers
   );
 })();
+
