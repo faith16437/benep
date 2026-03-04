@@ -11,9 +11,7 @@
 
       // hard stop original navigation
       e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-
+      
       const name =
         (coinItem.getAttribute("data-name") || "").trim() ||
         (coinItem.querySelector(".coin-name")?.textContent || "").trim();
@@ -39,4 +37,5 @@
     true // capture phase so we beat other handlers
   );
 })();
+
 
