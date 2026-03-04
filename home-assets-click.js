@@ -3,7 +3,7 @@
     "click",
     function (e) {
       // ✅ ONLY target the big list (not the modal)
-      const coinItem = e.target.closest("#coins-container a.coin-item");
+      const coinItem = e.target.closest("a.coin-item");
       if (!coinItem) return;
 
       // 🚫 ignore modal items if they ever end up inside DOM overlaps
