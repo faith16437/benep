@@ -1605,7 +1605,7 @@ function logoutUser() {
 </script> 
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script> 
-<script src="home-assets-click.js"></script>
+<script src="/home-assets-click.js"></script>
 <script src="/asset-controller.js"></script>
 <script>
 function selectAsset(e, el) {
@@ -1624,5 +1624,15 @@ function selectAsset(e, el) {
   localStorage.setItem("SELECTED_ASSET", JSON.stringify(asset));
   window.location.href = "/assets";
 }
+</script>
+<script>
+  // change selector to your BTC row/card button
+  const btcEl = document.querySelector('[data-coin="btc"]') || document.querySelector('#btcRow');
+  if (btcEl) {
+    btcEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '/assets.html?a=btc';
+    });
+  }
 </script>
             </body></html>
