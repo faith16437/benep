@@ -1603,4 +1603,10 @@ function logoutUser() {
 </script> 
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script> 
+<script>
+document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
+  const symbol = (a.dataset.symbol || "").toLowerCase();
+  if (symbol) a.href = `/assets?a=${symbol}`;
+});
+</script>
             </body></html>
