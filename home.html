@@ -249,17 +249,19 @@
         }
 
         .coin-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-            text-decoration: none;
-            color: #fff;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            margin-bottom: 0.5rem;
-        }
+    display: flex;
+    position: relative;
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    text-decoration: none;
+    color: #fff;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
 
         .coin-item:last-child {
             border-bottom: none;
@@ -585,7 +587,7 @@
     <!-- Coin List -->
     <div class="coin-list" id="coins-container">
                     <input type="hidden" class="BTC_user_worth" value="0">
-            <a href="/assets.html?a=btc" class="coin-item" data-name="bitcoin" data-symbol="btc" style="display:block; position:relative; z-index:9999;">
+            <a href="/assets.html?a=btc" class="coin-item" data-name="bitcoin" data-symbol="btc">
                 <div class="coin-left">
                     <div class="coin-icon">
                         <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="Bitcoin">
