@@ -1606,7 +1606,10 @@ function logoutUser() {
 <script>
 document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
   const symbol = (a.dataset.symbol || "").toLowerCase();
-  if (symbol) a.href = `/assets?a=${symbol}`;
+  if (!symbol) return;
+
+  a.href = `/assets?a=${encodeURIComponent(symbol)}`;
+  a.removeAttribute("onclick");
 });
 </script>
             </body></html>
