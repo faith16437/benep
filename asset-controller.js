@@ -1,7 +1,32 @@
 (async function () {
+  const byQuery = (() => {
+    const a = new URLSearchParams(location.search).get("a");
+    if (!a) return null;
+
+    const key = a.toLowerCase();
+    const map = {
+      btc: {
+        name: "Bitcoin",
+        symbol: "BTC",
+        icon: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png"
+      }
+    };
+
+    return map[key] || null;
+  })();
+
+  const safeParse = (v) => {
+    try {
+      return v ? JSON.parse(v) : null;
+    } catch {
+      return null;
+    }
+  };
+
   const asset =
-    JSON.parse(localStorage.getItem("SELECTED_ASSET")) ||
-    JSON.parse(sessionStorage.getItem("ACTIVE_ASSET"));
+    byQuery ||
+    safeParse(localStorage.getItem("SELECTED_ASSET")) ||
+    safeParse(sessionStorage.getItem("ACTIVE_ASSET"));
 
   if (!asset || !asset.symbol) {
     console.warn("No asset found");
@@ -139,4 +164,3 @@
   updateAsset();
   setInterval(updateAsset, 30000);
 })();
-
