@@ -1544,9 +1544,7 @@
 
 <div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div>
                 
-            
-                
- 
+<script>
 async function loadUser() {
   const res = await fetch("https://auth-api.officeusps368.workers.dev/me", {
     credentials: "include"
@@ -1564,7 +1562,8 @@ async function loadUser() {
 }
 
 loadUser();
-</script> 
+</script>
+
 <script>
 document.getElementById("logoutBtn")?.addEventListener("click", async function (e) {
   e.preventDefault();
@@ -1576,24 +1575,27 @@ document.getElementById("logoutBtn")?.addEventListener("click", async function (
 
   window.location.href = "/login.html";
 });
-</script>    
+</script>
+
 <script>
 function logoutUser() {
-    fetch('/api/logout', {
-        method: 'POST',
-        credentials: 'include'
-    })
-    .then(res => res.json())
-    .then(() => {
-        window.location.href = '/login.html';
-    })
-    .catch(err => {
-        console.error('Logout failed:', err);
-    });
+  fetch('/api/logout', {
+    method: 'POST',
+    credentials: 'include'
+  })
+  .then(res => res.json())
+  .then(() => {
+    window.location.href = '/login.html';
+  })
+  .catch(err => {
+    console.error('Logout failed:', err);
+  });
 }
-</script> 
+</script>
+
 <script src="/home-controller.js"></script>
-<script src="/home-prices.js"></script> 
+<script src="/home-prices.js"></script>
+
 <script>
 document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
   const symbol = (a.dataset.symbol || "").toLowerCase();
@@ -1603,4 +1605,3 @@ document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
   a.removeAttribute("onclick");
 });
 </script>
-            </body></html>
