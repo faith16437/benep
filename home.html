@@ -585,11 +585,7 @@
     <!-- Coin List -->
     <div class="coin-list" id="coins-container">
                     <input type="hidden" class="BTC_user_worth" value="0">
-            <a href="/assets.html"
-   onclick="selectAsset(event, this)"
-   class="coin-item"
-   data-name="bitcoin"
-   data-symbol="btc">
+            <a href="/assets.html?a=btc" class="coin-item" data-name="bitcoin" data-symbol="btc">
                 <div class="coin-left">
                     <div class="coin-icon">
                         <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="Bitcoin">
@@ -1605,34 +1601,4 @@ function logoutUser() {
 </script> 
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script> 
-<script src="/home-assets-click.js"></script>
-<script src="/asset-controller.js"></script>
-<script>
-function selectAsset(e, el) {
-  e.preventDefault();
-
-  const name = el.dataset.name;
-  const symbol = el.dataset.symbol;
-  const icon = el.querySelector("img")?.src;
-
-  const asset = {
-    name,
-    symbol: symbol.toUpperCase(),
-    icon
-  };
-
-  localStorage.setItem("SELECTED_ASSET", JSON.stringify(asset));
-  window.location.href = "/assets";
-}
-</script>
-<script>
-  // change selector to your BTC row/card button
-  const btcEl = document.querySelector('[data-coin="btc"]') || document.querySelector('#btcRow');
-  if (btcEl) {
-    btcEl.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.href = '/assets.html?a=btc';
-    });
-  }
-</script>
             </body></html>
