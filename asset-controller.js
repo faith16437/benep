@@ -268,16 +268,20 @@
   }
 
   const tvContainer = document.getElementById("tradingview-widget-container");
-  if (tvContainer && !tvContainer.dataset.loaded) {
-    tvContainer.innerHTML = `
-      <iframe
-        src="https://s.tradingview.com/widgetembed/?symbol=${asset.tv}&interval=D&theme=dark"
-        style="width:100%;height:380px;border:0"
-        loading="lazy">
-      </iframe>
-    `;
-    tvContainer.dataset.loaded = "1";
-  }
+if (tvContainer) {
+  tvContainer.innerHTML = "";
+  tvContainer.removeAttribute("data-loaded");
+
+  tvContainer.innerHTML = `
+    <iframe
+      src="https://s.tradingview.com/widgetembed/?symbol=${encodeURIComponent(asset.tv)}&interval=D&theme=dark"
+      style="width:100%;height:380px;border:0"
+      loading="lazy">
+    </iframe>
+  `;
+
+  tvContainer.dataset.loaded = "1";
+}
 
   const observer = new MutationObserver(() => applyIcon());
   observer.observe(document.body, { childList: true, subtree: true });
