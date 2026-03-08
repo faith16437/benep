@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="wgOLKhe5mxekjq7Ct0Q25Xogq50nZXn3Zvc69Azt">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
+        <link rel="stylesheet" href="https://web3ledgernetwork.com/css/modern-dashboard.css">
+    <link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/live_swap_asset-B_cyngU7.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/config-kBwAyubG.js"><script type="module" src="https://web3ledgernetwork.com/build/assets/live_swap_asset-B_cyngU7.js"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAQD/d=0/rs=AN8SPfrXXtxuFpMMBoYgp93jo68L3iC3ZQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.SA3MmY9u8ag.O/am=AAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfqWB4UVkP8gvnmCrKRwNgJS9IkjYA/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
+                <input type="hidden" name="_token" value="wgOLKhe5mxekjq7Ct0Q25Xogq50nZXn3Zvc69Azt" autocomplete="off">            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                    <!-- Standard Google Translate Widget -->
+<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+
+<style>
+    /* Hide Google Translate banner */
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    /* Fix the layout using display:flex instead of white-space:nowrap */
+    .goog-te-gadget-simple {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span {
+        display: flex !important;
+    }
+
+    /* Hide the separator and dropdown arrow */
+    .goog-te-gadget-simple span[style*="border-left"] {
+        display: none !important;
+    }
+
+    .goog-te-gadget-simple span[aria-hidden="true"] {
+        display: none !important;
+    }
+</style>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <div class="min-h-screen modern-container">
+        <!-- Back Button -->
+        <div class="max-w-md mx-auto px-4 pt-4">
+            <a onclick="history.back()" class="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10.707 3.293a1 1 0 010 1.414L6.414 9H17a1 1 0 110 2H6.414l4.293 4.293a1 1 0 01-1.414 1.414l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm">Swap BTC</span>
+            </a>
+        </div>
+
+        <!-- Swap Form -->
+        <div class="max-w-md mx-auto px-4 py-6">
+            <div class="bg-dark-medium rounded-xl p-4 modern-card">
+                <input type="hidden" value="0.00000000" id="cryptoAmount">
+                <input type="hidden" value="BTC" id="coinSymbol">
+
+                <!-- Balance Display -->
+                <div class="flex justify-between items-center mb-4">
+                    <h5 class="text-lg font-semibold">Swap</h5>
+                    <div class="text-xs text-gray-400">
+                        Balance: <span class="text-white">0.00000000
+                            BTC</span>
+                    </div>
+                </div>
+
+                <form id="form" method="POST" action="https://web3ledgernetwork.com/app/assets/swap_token/1" class="space-y-4 modern-form">
+                    <input type="hidden" name="_token" value="wgOLKhe5mxekjq7Ct0Q25Xogq50nZXn3Zvc69Azt" autocomplete="off">
+                    <!-- From Token -->
+                    <div class="bg-dark rounded-lg p-3">
+                        <div class="swapbox">
+                            <div class="swapbox_select" id="from_token_select">
+                                <span id="from_token_text" class="text-sm text-white">
+                                    Bitcoin (BTC)
+                                                                    </span>
+                                <input type="hidden" name="from_token_id" value="1">
+                            </div>
+                            <div class="relative mt-2">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="" class="w-4 h-4 rounded-full">
+                                </div>
+                                <input type="number" name="from_amount" id="from_amount" class="w-full pl-12 pr-3 py-2 bg-dark-lighter rounded-lg border-0 text-sm text-gray-300 focus:outline-none focus:ring-1 focus:ring-primary transition-colors modern-input" placeholder="Enter amount" step=".00000001" max="0.00000000" oninput="checkPrice()" required="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Swap Direction Indicator -->
+                    <div class="flex justify-center">
+                        <div class="bg-dark-lighter px-3 py-1 rounded-full text-xs text-gray-400">TO</div>
+                    </div>
+
+                    <!-- To Token -->
+                    <div class="bg-dark rounded-lg p-3">
+                        <div class="swapbox">
+                            <div class="swapbox_select token_select" id="to_token_select">
+                                <select name="to_token_id" id="toTokenId" class="w-full bg-dark-lighter rounded-lg border-0 px-3 py-2 text-sm text-gray-300 focus:outline-none focus:ring-1 focus:ring-primary transition-colors modern-input" onchange="checkPrice()">
+                                                                                                                                                                                                    <option value="2" data-coin_id="ETH">
+                                                Ethereum (ETH)
+                                                                                            </option>
+                                                                                                                                                                <option value="3" data-coin_id="XRP">
+                                                Ripple (XRP)
+                                                                                            </option>
+                                                                                                                                                                <option value="4" data-coin_id="BCH">
+                                                Bitcoin Cash (BCH)
+                                                                                            </option>
+                                                                                                                                                                <option value="5" data-coin_id="XLM">
+                                                Stellar (XLM)
+                                                                                            </option>
+                                                                                                                                                                <option value="6" data-coin_id="LTC">
+                                                Litecoin (LTC)
+                                                                                            </option>
+                                                                                                                                                                <option value="7" data-coin_id="TRX">
+                                                Tron (TRX)
+                                                                                            </option>
+                                                                                                                                                                <option value="8" data-coin_id="DOGE">
+                                                Doge Coin (DOGE)
+                                                                                            </option>
+                                                                                                                                                                <option value="9" data-coin_id="ALGO">
+                                                Algorand (ALGO)
+                                                                                            </option>
+                                                                                                                                                                <option value="10" data-coin_id="SOL">
+                                                Solana (SOL)
+                                                                                            </option>
+                                                                                                                                                                <option value="11" data-coin_id="DOT">
+                                                Polkadot (DOT)
+                                                                                            </option>
+                                                                                                                                                                <option value="12" data-coin_id="ADA">
+                                                Cardano (ADA)
+                                                                                            </option>
+                                                                                                                                                                <option value="13" data-coin_id="BNB">
+                                                Binance Coin (BNB)
+                                                                                            </option>
+                                                                                                                                                                <option value="14" data-coin_id="USDT">
+                                                Tether (USDT)
+                                                                                                    - TRC20
+                                                                                            </option>
+                                                                                                                                                                <option value="15" data-coin_id="USDT">
+                                                Tether (USDT)
+                                                                                                    - BSC
+                                                                                            </option>
+                                                                                                                                                                <option value="16" data-coin_id="USDT">
+                                                Tether (USDT)
+                                                                                                    - ERC20
+                                                                                            </option>
+                                                                                                                                                                <option value="17" data-coin_id="SHIB">
+                                                SHIBA INU (SHIB)
+                                                                                                    - ERC20
+                                                                                            </option>
+                                                                                                                                                                <option value="18" data-coin_id="PEPE">
+                                                PEPE (PEPE)
+                                                                                                    - ERC20
+                                                                                            </option>
+                                                                                                                                                                <option value="19" data-coin_id="LINK">
+                                                Chainlink (LINK)
+                                                                                                    - ERC20
+                                                                                            </option>
+                                                                                                                                                                <option value="20" data-coin_id="JASMY">
+                                                JasmyCoin (JASMY)
+                                                                                                    - ERC20
+                                                                                            </option>
+                                                                                                                                                                <option value="21" data-coin_id="POL">
+                                                Polygon (ex-MATIC) (POL)
+                                                                                            </option>
+                                                                                                                                                                <option value="22" data-coin_id="CELO">
+                                                Celo (CELO)
+                                                                                            </option>
+                                                                                                                                                                <option value="23" data-coin_id="HBAR">
+                                                Hedera (HBAR)
+                                                                                            </option>
+                                                                                                                                                                <option value="24" data-coin_id="QNT">
+                                                Quant (QNT)
+                                                                                            </option>
+                                                                                                                                                                <option value="25" data-coin_id="ONDO">
+                                                Ondo (ONDO)
+                                                                                            </option>
+                                                                                                                                                                <option value="26" data-coin_id="TRB">
+                                                Tellor Tributes (TRB)
+                                                                                            </option>
+                                                                                                                                                                <option value="27" data-coin_id="FLR">
+                                                Flare (FLR)
+                                                                                            </option>
+                                                                                                                                                                <option value="28" data-coin_id="VET">
+                                                VeChain (VET)
+                                                                                            </option>
+                                                                                                                                                                <option value="29" data-coin_id="IOTX">
+                                                IoTeX (IOTX)
+                                                                                            </option>
+                                                                                                                                                                <option value="30" data-coin_id="ZBCN">
+                                                Zebec Network (ZBCN)
+                                                                                            </option>
+                                                                                                                                                                <option value="31" data-coin_id="LCX">
+                                                LCX (LCX)
+                                                                                            </option>
+                                                                                                                                                                <option value="32" data-coin_id="CRO">
+                                                Cronos (CRO)
+                                                                                            </option>
+                                                                                                            </select>
+                            </div>
+                            <div class="mt-2">
+                                <input type="number" name="to_amount" id="to_amount" class="w-full focus:ring-primary bg-dark-lighter rounded-lg border-0 px-3 py-2 text-sm text-gray-300 modern-input" placeholder="Calculated amount" readonly="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quote Display -->
+                    <div class="text-xs text-gray-400 flex items-center space-x-2">
+                        <span>Quote:</span>
+                        <span>1 BTC ≈ <span class="fromTokenFiatPrice text-white">$89,844.00</span></span>
+                        <input type="hidden" class="fromAssetFiatValue" value="89844">
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="swapError" class="text-red-500 text-xs"><div class="text-red-500">Please enter an amount</div></div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="swapButton" disabled="" class="w-full bg-primary text-white py-2 px-3 rounded-lg hover:bg-primary-dark transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed modern-btn">
+                        Swap
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="py-3 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+    <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-gray-400 hover:text-gray-300 transition-colors">
+        <span>Data provided by</span>
+        <img src="https://web3ledgernetwork.com/images/cg-logo.png" alt="CoinGecko" class="h-5">
+    </a>
+</div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+    
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="VIpgJd-ZVi9od-xl07Ob-OEVmcd skiptranslate" title="Language Translate Widget" style="visibility: visible; box-sizing: content-box; width: 2622px; height: 266px; display: none;"></iframe>
+<script src="js/swap-controller.js"></script>
+</body></html>
