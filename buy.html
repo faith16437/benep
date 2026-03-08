@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="jzKB4gZLyc03jjdYqA7Hoaw0IiHkP5aJIoQAXni8">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
+        <link rel="stylesheet" href="https://web3ledgernetwork.com/css/modern-dashboard.css">
+    <style>
+        /* Buy Crypto Section */
+        .buy-crypto-section {
+            margin: 2rem 1rem;
+        }
+
+        .buy-crypto-section h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .exchange-card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #333;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .exchange-card:hover {
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+
+        .exchange-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #333;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exchange-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .exchange-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Powered by section */
+        .powered-by {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin: 2rem 0 0;
+            opacity: 0.9;
+        }
+
+        .powered-by img {
+            height: 16px;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .buy-crypto-section {
+                margin: 1rem 0.5rem;
+            }
+
+            .exchange-card {
+                padding: 0.75rem;
+            }
+
+            .exchange-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAgG/d=0/rs=AN8SPfrhKfLNQThwPXviXzekz-H_oLcqkw/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.JjZfSChOVLA.O/am=AABA/d=1/exm=el_conf/ed=1/rs=AN8SPfoJonLzh6Z_4y19rFRA-Us8KTHTJg/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
+                <input type="hidden" name="_token" value="jzKB4gZLyc03jjdYqA7Hoaw0IiHkP5aJIoQAXni8" autocomplete="off">            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                                        <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <!-- Buy Crypto Section -->
+    <div class="buy-crypto-section">
+        <h4>Buy Crypto</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <a href="https://kraken.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLwMK7TZuwfjv5NSC68Zdl7k_Fa1KT1YY4WhKDaWxDHtZ5tArNlVVNSfUutalefeYqA3c&amp;usqp=CAU" alt="Kraken">
+                </div>
+                <div>
+                    <span class="exchange-name">kraken.com</span>
+                </div>
+            </a>
+
+            
+            <a href="https://binance.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS1-GXCPtta7pLlgeM4ScRdE2oLMJJCRPFOU2IdTufcRhSExSgTQgUzGcFzDMNJNupmYw&amp;usqp=CAU" alt="Binance">
+                </div>
+                <div>
+                    <span class="exchange-name">Binance.com</span>
+                </div>
+            </a>
+
+            
+            <a href="https://coinbase.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="data:image/png;base64,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" alt="Coinbase">
+                </div>
+                <div>
+                    <span class="exchange-name">Coinbase.com</span>
+                </div>
+            </a>
+
+            
+            <a href="https://crypto.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="data:image/jpeg;base64,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" alt="Crypto.com">
+                </div>
+                <div>
+                    <span class="exchange-name">Crypto.com</span>
+                </div>
+            </a>
+
+            
+            <a href="https://robinhood.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="data:image/jpeg;base64,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" alt="Robinhood">
+                </div>
+                <div>
+                    <span class="exchange-name">Robinhood.com</span>
+                </div>
+            </a>
+
+            
+            <a href="https://bitget.com" target="_blank" class="exchange-card">
+                <div class="exchange-icon">
+                    <img src="data:image/png;base64,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" alt="Bitget">
+                </div>
+                <div>
+                    <span class="exchange-name">Bitget.com</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+    
+
+
+<div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="VIpgJd-ZVi9od-xl07Ob-OEVmcd skiptranslate" title="Language Translate Widget" style="visibility: visible; box-sizing: content-box; width: 2622px; height: 266px; display: none;"></iframe></body></html>
