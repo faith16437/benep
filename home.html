@@ -1472,25 +1472,28 @@
         }
 
         function selectAsset(assetId, actionType) {
-            closeAssetModal();
 
-            // Navigate to appropriate page based on action type
-            switch (actionType) {
-                case 'Swap':
-                    window.location.href = `/app/assets/swap/${assetId}`;
-                    break;
-                case 'Send':
-                case 'Withdraw':
-                    window.location.href = `/app/assets/withdraw/${assetId}`;
-                    break;
-                case 'Receive':
-                case 'Deposit':
-                    window.location.href = `/app/assets/deposit/${assetId}`;
-                    break;
-                default:
-                    window.location.href = `/app/assets/${assetId}`;
-            }
-        }
+    const asset = assets.find(a => a.id == assetId);
+
+    if (!asset) return;
+
+    const symbol = asset.token.toLowerCase();
+
+    closeAssetModal();
+
+    if (actionType === "Swap") {
+        window.location.href = "/swap.html?a=" + symbol;
+    }
+
+    if (actionType === "Send") {
+        window.location.href = "/send.html?a=" + symbol;
+    }
+
+    if (actionType === "Receive") {
+        window.location.href = "/receive.html?a=" + symbol;
+    }
+
+}
 
         // Action button handlers
         function showSwapOptions(event) {
