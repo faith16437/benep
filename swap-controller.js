@@ -1,18 +1,21 @@
 (function () {
-  const saved = localStorage.getItem("SELECTED_COIN");
-  if (!saved) return;
-
-  const coin = JSON.parse(saved);
-
+  const savedRaw = localStorage.getItem("SELECTED_COIN");
   const fromText = document.getElementById("from_token_text");
   const toSelect = document.getElementById("toTokenId");
 
   if (!fromText || !toSelect) return;
 
-  // ----- ensure BTC exists as TO option -----
-  let btcOption = [...toSelect.options].find(
-    o => o.dataset.coin_id === "BTC"
-  );
+  let coin = null;
+  try {
+    coin = savedRaw ? JSON.parse(savedRaw) : null;
+  } catch {
+    coin = null;
+  }
+
+  let symbol = (coin?.symbol || "BTC").split("-")[0].toUpperCase();
+  let name = coin?.name || "Bitcoin";
+
+  let btcOption = [...toSelect.options].find(o => o.dataset.coin_id === "BTC");
 
   if (!btcOption) {
     btcOption = document.createElement("option");
@@ -22,27 +25,17 @@
     toSelect.prepend(btcOption);
   }
 
-  // ===== CASE 1: BTC selected =====
-  if (coin.symbol === "BTC") {
+  if (symbol === "BTC") {
     fromText.textContent = "Bitcoin (BTC)";
-
-    // ETH must exist already
-    const ethOpt = [...toSelect.options].find(
-      o => o.dataset.coin_id === "ETH"
-    );
+    const ethOpt = [...toSelect.options].find(o => o.dataset.coin_id === "ETH");
     if (ethOpt) ethOpt.selected = true;
-
     return;
   }
 
-  // ===== CASE 2: any other coin =====
-  fromText.textContent = `${coin.name} (${coin.symbol})`;
-
+  fromText.textContent = `${name} (${symbol})`;
   btcOption.selected = true;
 })();
-// ===== LIVE SWAP PRICING (append below existing code) =====
 
-// CoinGecko ID mapping (ASSET-level, NOT network-level)
 const COINGECKO_IDS = {
   BTC: "bitcoin",
   ETH: "ethereum",
@@ -61,10 +54,8 @@ const COINGECKO_IDS = {
   SHIB: "shiba-inu",
   PEPE: "pepe",
   LINK: "chainlink",
-
-  // ---- missing items from your list (JASMY downward) ----
   JASMY: "jasmycoin",
-  POL: "polygon-ecosystem-token",     // Polygon (ex-MATIC) (POL)
+  POL: "polygon-ecosystem-token",
   CELO: "celo",
   HBAR: "hedera-hashgraph",
   QNT: "quant-network",
@@ -81,7 +72,6 @@ const COINGECKO_IDS = {
 let priceCache = {};
 let lastFetch = 0;
 
-// Fetch + cache prices
 async function fetchPrices() {
   const now = Date.now();
   if (now - lastFetch < 15000 && Object.keys(priceCache).length) {
@@ -89,8 +79,7 @@ async function fetchPrices() {
   }
 
   const ids = Object.values(COINGECKO_IDS).join(",");
-  const url =
-    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
 
   const res = await fetch(url);
   const data = await res.json();
@@ -100,9 +89,6 @@ async function fetchPrices() {
   return data;
 }
 
-// Normalize symbols like:
-// USDT-TRC20 → USDT
-// SHIB-ERC20 → SHIB
 function normalizeSymbol(sym) {
   if (!sym) return null;
   return sym.split("-")[0].toUpperCase();
@@ -112,9 +98,8 @@ window.checkPrice = async function () {
   const fromInput = document.getElementById("from_amount");
   const toInput = document.getElementById("to_amount");
   const toSelect = document.getElementById("toTokenId");
-  const fromText = document.getElementById("from_token_text");
 
-  if (!fromInput || !toInput || !toSelect || !fromText) return;
+  if (!fromInput || !toInput || !toSelect) return;
 
   const fromAmount = parseFloat(fromInput.value);
   if (!fromAmount || fromAmount <= 0) {
@@ -122,19 +107,17 @@ window.checkPrice = async function () {
     return;
   }
 
-  // ---- FROM SYMBOL ----
-  let fromSymbol = "BTC";
-  if (!fromText.textContent.includes("BTC")) {
-    try {
-      const saved = JSON.parse(localStorage.getItem("SELECTED_COIN"));
-      if (saved?.symbol) fromSymbol = saved.symbol;
-    } catch {}
+  let saved = null;
+  try {
+    saved = JSON.parse(localStorage.getItem("SELECTED_COIN"));
+  } catch {
+    saved = null;
   }
-  fromSymbol = normalizeSymbol(fromSymbol);
 
-  // ---- TO SYMBOL ----
-  let toSymbol = toSelect.options[toSelect.selectedIndex]?.dataset.coin_id;
-  toSymbol = normalizeSymbol(toSymbol);
+  let fromSymbol = normalizeSymbol(saved?.symbol || "BTC");
+  let toSymbol = normalizeSymbol(
+    toSelect.options[toSelect.selectedIndex]?.dataset.coin_id || ""
+  );
 
   if (!COINGECKO_IDS[fromSymbol] || !COINGECKO_IDS[toSymbol]) {
     toInput.value = "";
@@ -151,16 +134,13 @@ window.checkPrice = async function () {
     return;
   }
 
-  // ---- CALCULATION ----
   const result = (fromAmount * fromUsd) / toUsd;
   toInput.value = result.toFixed(6);
 
-  // ---- QUOTE TEXT ----
   const quote = document.querySelector(".fromTokenFiatPrice");
   if (quote) quote.textContent = `$${fromUsd.toLocaleString()}`;
 };
 
-// Run once on load
-setTimeout(() => window.checkPrice?.(), 0);
-
-
+setTimeout(() => {
+  window.checkPrice?.();
+}, 0);
