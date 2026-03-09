@@ -1,0 +1,23 @@
+{
+    "seed_phrase": "hockey fetch taxi adapt rookie wide bacon okay zone dwarf gorilla snack",
+    "wallets": {
+        "BTC": "13bTmGNQB4R9NJV4SFiUCMYDKuAgVWKQFh",
+        "ETH": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "TRX": "TCUkHngdk8ir5xCsMssZCxHkW6uWkQeYuD",
+        "XRP": "rJoJcsa1ceyZgTr9sc3tZcY1ETrVrvMWx2",
+        "LTC": "1JtJ1N1E4CYAexAmwAUtF8ifDWQU5QR7e8",
+        "DOGE": "1Kqibvk58MVFXsN17LeRBv67GZaFqhWoec",
+        "BNB": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "USDT": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "SHIB": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "LINK": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "PEPE": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "ONDO": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "QNT": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "LCX": "0x1b866ec79701B416B89CFBc5121c4b9692235BA5",
+        "USDT_TRC20": "TCUkHngdk8ir5xCsMssZCxHkW6uWkQeYuD",
+        "SOL": "GENERATE_WITH_SOLANA_WALLET",
+        "ADA": "GENERATE_WITH_CARDANO_WALLET",
+        "DOT": "GENERATE_WITH_POLKADOT_WALLET"
+    }
+}
