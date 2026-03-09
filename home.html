@@ -1591,15 +1591,7 @@ function logoutUser() {
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script>
 
-<script>
-document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
-  const symbol = (a.dataset.symbol || "").toLowerCase();
-  if (!symbol) return;
 
-  a.href = `/assets?a=${encodeURIComponent(symbol)}`;
-  a.removeAttribute("onclick");
-});
-</script>
 <script>
 document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
   a.addEventListener("click", function (e) {
