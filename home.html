@@ -1595,24 +1595,6 @@ function logoutUser() {
 <script src="/home-prices.js"></script>
 
 
-<script>
-document.querySelectorAll(".coin-item[data-symbol]").forEach(a => {
-  a.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const symbol = (this.dataset.symbol || "").toUpperCase();
-    const name = this.querySelector(".coin-name")?.childNodes[0]?.textContent?.trim() || this.dataset.name || symbol;
-
-    if (!symbol) return;
-
-    localStorage.setItem("SELECTED_COIN", JSON.stringify({
-      name: name,
-      symbol: symbol
-    }));
-
-    window.location.href = "/swap.html";
-  });
-});
 </script>
 </body>
 </html>
