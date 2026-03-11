@@ -350,24 +350,22 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        // User Menu Toggle with click outside to close
-        const userMenu = document.getElementById('userMenu');
-        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+const userMenu = document.getElementById('userMenu');
 
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.showBox')) {
-                userMenu.classList.remove('hidden');
-            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
-                userMenu.classList.add('hidden');
-            }
-        });
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.showBox')) {
+        userMenu.classList.remove('hidden');
+    } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+        userMenu.classList.add('hidden');
+    }
+});
 
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                userMenu.classList.add('hidden');
-            }
-        });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        userMenu.classList.add('hidden');
+    }
+});
+</script>
 
-        <script src="/swap-controller.js"></script>
+<script src="/swap-controller.js"></script>
 </body></html>
