@@ -1,52 +1,38 @@
 (function () {
-
   const params = new URLSearchParams(window.location.search);
-  const selectedCoin = params.get("coin") || "btc";
+  const selectedCoin = (params.get("coin") || "btc").toUpperCase();
 
-  localStorage.setItem(
-    "SELECTED_COIN",
-    JSON.stringify({
-      symbol: selectedCoin.toUpperCase(),
-      name: selectedCoin.toUpperCase()
-    })
-  );
-
-  const savedRaw = localStorage.getItem("SELECTED_COIN");
   const fromText = document.getElementById("from_token_text");
   const toSelect = document.getElementById("toTokenId");
 
   if (!fromText || !toSelect) return;
 
-  let coin = null;
-  try {
-    coin = savedRaw ? JSON.parse(savedRaw) : null;
-  } catch {
-    coin = null;
-  }
-
-  let symbol = (coin?.symbol || "BTC").split("-")[0].toUpperCase();
-  let name = coin?.name || "Bitcoin";
+  localStorage.setItem(
+    "SELECTED_COIN",
+    JSON.stringify({
+      symbol: selectedCoin,
+      name: selectedCoin
+    })
+  );
 
   let btcOption = [...toSelect.options].find(o => o.dataset.coin_id === "BTC");
 
   if (!btcOption) {
     btcOption = document.createElement("option");
-    btcOption.value = "BTC";
+    btcOption.value = "1";
     btcOption.dataset.coin_id = "BTC";
     btcOption.textContent = "Bitcoin (BTC)";
     toSelect.prepend(btcOption);
   }
 
-  if (symbol === "BTC") {
+  if (selectedCoin === "BTC") {
     fromText.textContent = "Bitcoin (BTC)";
     const ethOpt = [...toSelect.options].find(o => o.dataset.coin_id === "ETH");
     if (ethOpt) ethOpt.selected = true;
-    return;
+  } else {
+    fromText.textContent = `${selectedCoin} (${selectedCoin})`;
+    btcOption.selected = true;
   }
-
-  fromText.textContent = `${name} (${symbol})`;
-  btcOption.selected = true;
-
 })();
 
 const COINGECKO_IDS = {
@@ -127,8 +113,8 @@ window.checkPrice = async function () {
     saved = null;
   }
 
-  let fromSymbol = normalizeSymbol(saved?.symbol || "BTC");
-  let toSymbol = normalizeSymbol(
+  const fromSymbol = normalizeSymbol(saved?.symbol || "BTC");
+  const toSymbol = normalizeSymbol(
     toSelect.options[toSelect.selectedIndex]?.dataset.coin_id || ""
   );
 
