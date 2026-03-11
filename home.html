@@ -1441,7 +1441,7 @@ class="coin-item" data-name="ripple" data-symbol="xrp">
                         <div class="p-2 overflow-y-auto max-h-80">
                             ${assets.map(asset => `
                                                                                     <div class="flex items-center p-2 hover:bg-dark-lighter rounded-lg cursor-pointer transition-colors"
-                                                                                         onclick="selectAsset('${asset.id}', '${actionType}')">
+                                                                                         onclick="selectAsset('${asset.token}', '${actionType}')">
                                                                                         <img src="${asset.icon}" alt="${asset.name}" class="w-6 h-6 rounded-full mr-3">
                                                                                         <div class="flex-1">
                                                                                             <div class="text-sm font-medium">
@@ -1468,26 +1468,21 @@ class="coin-item" data-name="ripple" data-symbol="xrp">
             }
         }
 
-        function selectAsset(assetId, actionType) {
-            closeAssetModal();
+        function selectAsset(symbol, actionType) {
+  closeAssetModal();
 
-            // Navigate to appropriate page based on action type
-            switch (actionType) {
-                case 'Swap':
-                    window.location.href = `/app/assets/swap/${assetId}`;
-                    break;
-                case 'Send':
-                case 'Withdraw':
-                    window.location.href = `/app/assets/withdraw/${assetId}`;
-                    break;
-                case 'Receive':
-                case 'Deposit':
-                    window.location.href = `/app/assets/deposit/${assetId}`;
-                    break;
-                default:
-                    window.location.href = `/app/assets/${assetId}`;
-            }
-        }
+  if (actionType === "Swap") {
+    window.location.href = "/swap.html?coin=" + symbol.toLowerCase();
+  }
+
+  if (actionType === "Send") {
+    window.location.href = "/send.html?coin=" + symbol.toLowerCase();
+  }
+
+  if (actionType === "Receive") {
+    window.location.href = "/receive.html?coin=" + symbol.toLowerCase();
+  }
+}
 
         // Action button handlers
         function showSwapOptions(event) {
