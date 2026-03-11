@@ -1588,6 +1588,22 @@ function logoutUser() {
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script>
 
+<script>
 
+document.querySelectorAll(".coin-item").forEach(item => {
+
+  item.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    const symbol = this.dataset.symbol;
+
+    window.location.href = "/assets.html?a=" + symbol;
+
+  });
+
+});
+
+</script>
 </body>
 </html>
