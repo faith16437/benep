@@ -1,4 +1,16 @@
 (function () {
+
+  const params = new URLSearchParams(window.location.search);
+  const selectedCoin = params.get("coin") || "btc";
+
+  localStorage.setItem(
+    "SELECTED_COIN",
+    JSON.stringify({
+      symbol: selectedCoin.toUpperCase(),
+      name: selectedCoin.toUpperCase()
+    })
+  );
+
   const savedRaw = localStorage.getItem("SELECTED_COIN");
   const fromText = document.getElementById("from_token_text");
   const toSelect = document.getElementById("toTokenId");
@@ -34,6 +46,7 @@
 
   fromText.textContent = `${name} (${symbol})`;
   btcOption.selected = true;
+
 })();
 
 const COINGECKO_IDS = {
