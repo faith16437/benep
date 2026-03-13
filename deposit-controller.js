@@ -1,57 +1,56 @@
 (async function () {
+  const params = new URLSearchParams(window.location.search);
 
-const params = new URLSearchParams(window.location.search);
-let symbol = params.get("a");
+  let symbol = params.get("coin") || params.get("a") || "btc";
+  symbol = symbol.toUpperCase();
 
-if (!symbol) symbol = "btc";
+  const res = await fetch("/wallets.json");
+  const data = await res.json();
 
-symbol = symbol.split("-")[0].toUpperCase();
+  function getWalletKey(sym) {
+    if (!sym) return "BTC";
 
-const res = await fetch("/wallets.json");
-const data = await res.json();
+    // Network-specific overrides
+    if (sym === "USDT_TRC20") return "TRX";
+    if (sym === "USDT_ERC20") return "ETH";
+    if (sym === "USDT_BSC") return "BNB";
 
-let address = data.wallets[symbol];
+    // ERC20 tokens use ETH address
+    const ERC20 = ["SHIB", "LINK", "PEPE", "ONDO", "QNT", "LCX", "JASMY"];
+    if (ERC20.includes(sym)) return "ETH";
 
-const ERC20 = ["SHIB","LINK","PEPE","ONDO","QNT","LCX","USDT","BNB"];
-const TRC20 = ["USDT_TRC20"];
+    return sym;
+  }
 
-if (ERC20.includes(symbol)) {
-address = data.wallets["ETH"];
-}
+  const walletKey = getWalletKey(symbol);
+  const address = data.wallets[walletKey] || "";
 
-if (symbol === "USDT_TRC20") {
-address = data.wallets["TRX"];
-}
+  const coinEl = document.getElementById("depositCoin");
+  const addrEl = document.getElementById("depositAddress");
+  const qrEl = document.getElementById("depositQR");
+  const copyBtn = document.getElementById("copyAddress");
 
-const coinEl = document.getElementById("depositCoin");
-const addrEl = document.getElementById("depositAddress");
-const qrEl = document.getElementById("depositQR");
-const copyBtn = document.getElementById("copyAddress");
+  if (coinEl) coinEl.textContent = symbol;
+  if (addrEl) addrEl.textContent = address || "Address not found";
 
-if (coinEl) coinEl.textContent = symbol;
+  if (qrEl && address) {
+    qrEl.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
+      encodeURIComponent(address);
+  }
 
-if (addrEl) addrEl.textContent = address;
+  if (copyBtn && address) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(address);
+        copyBtn.innerText = "Copied!";
+      } catch {
+        copyBtn.innerText = "Copy failed";
+      }
 
-if (qrEl && address) {
-qrEl.src =
-"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
-encodeURIComponent(address);
-}
-
-if (copyBtn && address) {
-
-copyBtn.addEventListener("click", () => {
-
-navigator.clipboard.writeText(address);
-
-copyBtn.innerText = "Copied!";
-
-setTimeout(() => {
-copyBtn.innerText = "Copy";
-}, 2000);
-
-});
-
-}
-
+      setTimeout(() => {
+        copyBtn.innerText = "Copy Address";
+      }, 2000);
+    });
+  }
 })();
