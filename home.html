@@ -1584,21 +1584,28 @@ function logoutUser() {
 <script src="/home-prices.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".coin-item").forEach(function (item) {
+    const oldOnclick = item.getAttribute("onclick") || "";
+    const symbol = (item.dataset.symbol || "").toLowerCase();
 
-document.querySelectorAll(".coin-item").forEach(item => {
+    if (!symbol) return;
 
-  item.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    const symbol = this.dataset.symbol;
-
-    window.location.href = "/assets.html?a=" + symbol;
-
+    if (oldOnclick.includes("selectAsset(event, this)")) {
+      item.removeAttribute("onclick");
+      item.setAttribute("href", "/assets.html?a=" + encodeURIComponent(symbol));
+    }
   });
 
-});
+  document.querySelectorAll(".coin-item").forEach(function (item) {
+    item.addEventListener("click", function (e) {
+      const symbol = (this.dataset.symbol || "").toLowerCase();
+      if (!symbol) return;
 
-</script>
-</body>
+      e.preventDefault();
+      window.location.href = "/assets.html?a=" + encodeURIComponent(symbol);
+    });
+  });
+});
+</script></body>
 </html>
