@@ -41,14 +41,14 @@
       );
 
       if (actionType === "Swap") {
-        window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-      } else if (actionType === "Send") {
-        window.location.href = "send.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-      } else if (actionType === "Receive") {
-        window.location.href = "receive.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-      } else {
-        window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-      }
+  window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
+} else if (actionType === "Send") {
+  window.location.href = "withdraw.html?coin=" + encodeURIComponent(symbol.toLowerCase());
+} else if (actionType === "Receive") {
+  window.location.href = "receive.html?coin=" + encodeURIComponent(symbol.toLowerCase());
+} else {
+  window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
+}
     },
     true
   );
