@@ -427,4 +427,24 @@ async function loadProfile() {
 }
 
 loadProfile();
+</script><script>
+async function enforceProfileGate() {
+  const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/status", {
+    credentials: "include"
+  });
+
+  if (!res.ok) {
+    window.location.href = "/login.html";
+    return;
+  }
+
+  const data = await res.json();
+
+  if (!data.hasPin) {
+    sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
+    window.location.href = "/create.html";
+  }
+}
+
+enforceProfileGate();
 </script></body></html>
