@@ -1441,7 +1441,7 @@ class="coin-item" data-name="ripple" data-symbol="xrp">
                         <div class="p-2 overflow-y-auto max-h-80">
                             ${assets.map(asset => `
                                                                                     <div class="flex items-center p-2 hover:bg-dark-lighter rounded-lg cursor-pointer transition-colors"
-                                                                                         onclick="selectAsset('${asset.token}', '${actionType}')">
+                                                                                         onclick="handleAssetSelect('${asset.token}', '${actionType}')">
                                                                                         <img src="${asset.icon}" alt="${asset.name}" class="w-6 h-6 rounded-full mr-3">
                                                                                         <div class="flex-1">
                                                                                             <div class="text-sm font-medium">
@@ -1477,7 +1477,7 @@ function goToCreatePin() {
   window.location.href = "/create.html";
 }
 
-function selectAsset(symbol, actionType) {
+function handleAssetSelect(symbol, actionType) {
   closeAssetModal();
 
   if (actionType === "Swap") {
@@ -1487,7 +1487,8 @@ function selectAsset(symbol, actionType) {
 
   if (actionType === "Send") {
     if (!hasUserPin()) {
-      goToCreatePin();
+      sessionStorage.setItem("PIN_RETURN_TO", "/home.html");
+      window.location.href = "/create.html";
       return;
     }
 
