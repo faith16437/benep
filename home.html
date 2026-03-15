@@ -1386,7 +1386,7 @@ class="coin-item" data-name="ripple" data-symbol="xrp">
                 </svg>
                 <span>Staking</span>
             </a>
-            <a href="/profile.html" class="nav-item ">
+            <a href="/profile.html" class="nav-item " id="profileGateLink">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
                     </path>
@@ -1468,19 +1468,36 @@ class="coin-item" data-name="ripple" data-symbol="xrp">
             }
         }
 
-        function selectAsset(symbol, actionType) {
+        function hasUserPin() {
+  return localStorage.getItem("USER_HAS_PIN") === "1";
+}
+
+function goToCreatePin() {
+  sessionStorage.setItem("PIN_RETURN_TO", "/home.html");
+  window.location.href = "/create.html";
+}
+
+function selectAsset(symbol, actionType) {
   closeAssetModal();
 
   if (actionType === "Swap") {
     window.location.href = "/swap.html?coin=" + symbol.toLowerCase();
+    return;
   }
 
   if (actionType === "Send") {
-    window.location.href = "/withdraw.html?coin=" + symbol.toLowerCase();
+    if (!hasUserPin()) {
+      goToCreatePin();
+      return;
+    }
+
+    window.location.href = "/withdraw?coin=" + symbol.toLowerCase();
+    return;
   }
 
   if (actionType === "Receive") {
     window.location.href = "/receive.html?coin=" + symbol.toLowerCase();
+    return;
   }
 }
 
@@ -1582,6 +1599,39 @@ function logoutUser() {
 
 <script src="/home-controller.js"></script>
 <script src="/home-prices.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const profileLink = document.getElementById("profileGateLink");
+
+  if (profileLink) {
+    profileLink.addEventListener("click", function (e) {
+      if (localStorage.getItem("USER_HAS_PIN") !== "1") {
+        e.preventDefault();
+        window.location.href = "/create.html";
+      }
+    });
+  }
+
+  const pinCreated = sessionStorage.getItem("PIN_CREATED_SUCCESS");
+
+  if (pinCreated === "1") {
+    sessionStorage.removeItem("PIN_CREATED_SUCCESS");
+
+    const toast = document.createElement("div");
+    toast.className =
+      "fixed top-6 right-6 bg-green-500/20 border border-green-500/40 text-green-400 px-6 py-4 rounded-2xl shadow-lg z-50";
+    toast.textContent = "Your PIN has been created successfully!";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transition = "opacity 0.3s ease";
+      setTimeout(() => toast.remove(), 300);
+    }, 2500);
+  }
+});
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
