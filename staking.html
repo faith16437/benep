@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="n9jPUmPK9nTXOL8V7eIIehTm62xQerG1QMikdEdq">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAgG/d=0/rs=AN8SPfrhKfLNQThwPXviXzekz-H_oLcqkw/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.JjZfSChOVLA.O/am=AABA/d=1/exm=el_conf/ed=1/rs=AN8SPfoJonLzh6Z_4y19rFRA-Us8KTHTJg/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
+                <input type="hidden" name="_token" value="n9jPUmPK9nTXOL8V7eIIehTm62xQerG1QMikdEdq" autocomplete="off">            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                    <!-- Standard Google Translate Widget -->
+<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+
+<style>
+    /* Hide Google Translate banner */
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    /* Fix the layout using display:flex instead of white-space:nowrap */
+    .goog-te-gadget-simple {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span {
+        display: flex !important;
+    }
+
+    /* Hide the separator and dropdown arrow */
+    .goog-te-gadget-simple span[style*="border-left"] {
+        display: none !important;
+    }
+
+    .goog-te-gadget-simple span[aria-hidden="true"] {
+        display: none !important;
+    }
+</style>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <!-- Header Section -->
+    <div class="bg-dark-lighter border-b border-dark-border">
+        <div class="text-center py-8 px-4">
+            <h1 class="text-2xl font-semibold text-white mb-4">Stake Your Crypto</h1>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto px-4">
+                Earn passive income by staking your crypto assets. Choose from multiple staking plans with competitive APR rates.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-2xl mx-auto p-4 pb-20">
+        
+        <!-- Current Stakings (if any) -->
+        
+        <!-- Staking Plans -->
+        <h3 class="text-lg font-semibold text-white mb-4">Choose a Staking Plan</h3>
+        
+        <form id="stakingForm" action="https://web3ledgernetwork.com/app/staking" method="POST">
+            <input type="hidden" name="_token" value="n9jPUmPK9nTXOL8V7eIIehTm62xQerG1QMikdEdq" autocomplete="off">            
+            <!-- Plans -->
+            <div class="space-y-3 mb-6">
+                <div class="plan-card active bg-dark-lighter border border-primary rounded-lg p-4 cursor-pointer transition-colors" data-days="30" data-rate="5">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">30 Days</div>
+                            <small class="text-gray-400">Flexible unlock</small>
+                        </div>
+                        <div class="text-primary text-xl font-bold">5% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+
+                <div class="plan-card bg-dark-lighter border border-dark-border rounded-lg p-4 cursor-pointer transition-colors hover:border-gray-500" data-days="60" data-rate="9">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">60 Days</div>
+                            <small class="text-gray-400">Locked term</small>
+                        </div>
+                        <div class="text-white text-xl font-bold">9% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+
+                <div class="plan-card bg-dark-lighter border border-dark-border rounded-lg p-4 cursor-pointer transition-colors hover:border-gray-500" data-days="90" data-rate="12">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">90 Days</div>
+                            <small class="text-gray-400">Locked term</small>
+                        </div>
+                        <div class="text-white text-xl font-bold">12% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+
+                <div class="plan-card bg-dark-lighter border border-dark-border rounded-lg p-4 cursor-pointer transition-colors hover:border-gray-500" data-days="120" data-rate="15">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">120 Days</div>
+                            <small class="text-gray-400">Locked term</small>
+                        </div>
+                        <div class="text-white text-xl font-bold">15% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+
+                <div class="plan-card bg-dark-lighter border border-dark-border rounded-lg p-4 cursor-pointer transition-colors hover:border-gray-500" data-days="180" data-rate="18">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">180 Days</div>
+                            <small class="text-gray-400">Locked term</small>
+                        </div>
+                        <div class="text-white text-xl font-bold">18% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+
+                <div class="plan-card bg-dark-lighter border border-dark-border rounded-lg p-4 cursor-pointer transition-colors hover:border-gray-500" data-days="365" data-rate="25">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-white font-medium">365 Days</div>
+                            <small class="text-gray-400">Locked term</small>
+                        </div>
+                        <div class="text-white text-xl font-bold">25% <small class="text-sm font-normal">APR</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amount Input -->
+            <div class="mb-4">
+                <label class="block text-white text-sm font-medium mb-2">Amount to Stake (USDT)</label>
+                <input type="number" name="amount" id="stakeAmount" min="1" step="0.01" class="w-full px-3 py-3 bg-dark-lighter border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter amount" required="">
+            </div>
+
+            <!-- Estimated Return -->
+            <div id="estReturn" class="text-primary text-sm mb-6 hidden"></div>
+
+            <!-- Hidden inputs for selected plan -->
+            <input type="hidden" name="days" id="selectedDays" value="30">
+            <input type="hidden" name="rate" id="selectedRate" value="5">
+
+            <!-- Submit Button -->
+            <button type="submit" id="stakeBtn" class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+                Stake Now
+            </button>
+        </form>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-dark-lighter rounded-lg shadow-xl max-w-md w-full border border-dark-border">
+                <div class="p-4 border-b border-dark-border">
+                    <h5 class="text-white text-lg font-medium">Confirm Staking</h5>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-300 mb-2">Amount + Reward: <strong id="confirmTotal" class="text-white"></strong> USDT</p>
+                    <p class="text-gray-300 mb-4">Duration: <strong id="confirmDays" class="text-white"></strong> days</p>
+                    <p class="text-primary text-sm">
+                        Click "Proceed" to continue to payment.
+                    </p>
+                </div>
+                <div class="flex gap-3 p-4 border-t border-dark-border">
+                    <button type="button" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors" onclick="closeModal()">
+                        Cancel
+                    </button>
+                    <button type="button" id="proceedBtn" class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 rounded-lg transition-colors">
+                        Proceed
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item active">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script>
+
+    <script>
+    let selectedPlan = document.querySelector('.plan-card.active');
+    let stakingFormData = {};
+
+    // Plan selection
+    document.querySelectorAll('.plan-card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Remove active class from all cards
+            document.querySelectorAll('.plan-card').forEach(c => {
+                c.classList.remove('active', 'border-primary');
+                c.classList.add('border-dark-border');
+                c.querySelector('.text-primary')?.classList.remove('text-primary');
+                c.querySelector('.text-xl')?.classList.add('text-white');
+            });
+            
+            // Add active class to clicked card
+            this.classList.add('active', 'border-primary');
+            this.classList.remove('border-dark-border');
+            this.querySelector('.text-xl').classList.add('text-primary');
+            this.querySelector('.text-xl').classList.remove('text-white');
+            
+            selectedPlan = this;
+            updateHiddenInputs();
+            computeReturn();
+        });
+    });
+
+    // Amount input
+    document.getElementById('stakeAmount').addEventListener('input', computeReturn);
+
+    function updateHiddenInputs() {
+        const days = selectedPlan.dataset.days;
+        const rate = selectedPlan.dataset.rate;
+        
+        document.getElementById('selectedDays').value = days;
+        document.getElementById('selectedRate').value = rate;
+    }
+
+    function computeReturn() {
+        const amount = parseFloat(document.getElementById('stakeAmount').value);
+        const rate = parseFloat(selectedPlan.dataset.rate);
+        const days = parseInt(selectedPlan.dataset.days);
+
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById('estReturn').classList.add('hidden');
+            document.getElementById('stakeBtn').disabled = true;
+            return;
+        }
+
+        const earned = amount * (rate / 100) * (days / 365);
+        const total = amount + earned;
+
+        document.getElementById('estReturn').innerHTML = 
+            `Estimated reward: $${earned.toFixed(2)} — total after ${days} days: $${total.toFixed(2)} USDT`;
+        document.getElementById('estReturn').classList.remove('hidden');
+        document.getElementById('stakeBtn').disabled = false;
+
+        // Store for modal
+        stakingFormData = { amount, rate, days, earned, total };
+    }
+
+    // Form submission
+    document.getElementById('stakingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show confirmation modal
+        document.getElementById('confirmTotal').textContent = stakingFormData.total.toFixed(2);
+        document.getElementById('confirmDays').textContent = stakingFormData.days;
+        document.getElementById('confirmModal').classList.remove('hidden');
+    });
+
+    // Modal proceed button
+    document.getElementById('proceedBtn').addEventListener('click', function() {
+        // Submit the form
+        document.getElementById('stakingForm').submit();
+    });
+
+    function closeModal() {
+        document.getElementById('confirmModal').classList.add('hidden');
+    }
+
+    // Initialize
+    updateHiddenInputs();
+</script></body></html>
