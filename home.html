@@ -237,27 +237,6 @@ function logoutUser() {
 }
 </script> <script src="/home-controller.js"></script> <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const profileLinks = [
-    document.getElementById("profileGateLink"),
-    document.getElementById("dropdownProfileLink")
-  ].filter(Boolean);
-
-  profileLinks.forEach(function (link) {
-    link.addEventListener("click", async function (e) {
-      e.preventDefault();
-
-      const hasPin = await hasUserPin();
-
-      if (!hasPin) {
-        sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
-        window.location.href = "/create.html";
-        return;
-      }
-
-      window.location.href = "/profile.html";
-    });
-  });
-
   const pinCreated = sessionStorage.getItem("PIN_CREATED_SUCCESS");
 
   if (pinCreated === "1") {
