@@ -198,13 +198,12 @@ async function loadUser() {
       credentials: "include"
     });
 
-    if (res.status === 401) {
-      window.location.href = "/login.html";
-      return;
-    }
+    console.log("loadUser origin:", window.location.origin);
+    console.log("loadUser /api/me status:", res.status);
+    console.log("loadUser /api/me url:", res.url);
 
     if (!res.ok) {
-      window.location.href = "/login.html";
+      document.getElementById("welcomeUser").innerText = "Welcome back";
       return;
     }
 
@@ -216,7 +215,7 @@ async function loadUser() {
     }
   } catch (err) {
     console.error("Failed to load user:", err);
-    window.location.href = "/login.html";
+    document.getElementById("welcomeUser").innerText = "Welcome back";
   }
 }
 
