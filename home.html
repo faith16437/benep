@@ -89,17 +89,28 @@ function closeAssetModal() {
 }
 
 async function hasUserPin() {
-  const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/status", {
-    credentials: "include"
-  });
+  try {
+    const res = await fetch("/api/pin/status", {
+      credentials: "include"
+    });
 
-  if (!res.ok) {
-    window.location.href = "/login.html";
+    if (res.status === 401) {
+      window.location.href = "/login.html";
+      return false;
+    }
+
+    if (!res.ok) {
+      return false;
+    }
+
+    const data = await res.json();
+    const hasPin = data.hasPin === true;
+    localStorage.setItem("USER_HAS_PIN", hasPin ? "1" : "0");
+    return hasPin;
+  } catch (err) {
+    console.error("PIN status check failed:", err);
     return false;
   }
-
-  const data = await res.json();
-  return data.hasPin === true;
 }
 
 function goToCreatePin(returnTo = "/home.html") {
@@ -180,7 +191,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script> <script> async function loadUser() { const res = await fetch("https://auth-api.officeusps368.workers.dev/me", { credentials: "include" }); if (!res.ok) { window.location.href = "/login.html"; return; } const user = await res.json(); document.getElementById("welcomeUser").innerText = Welcome back, ${user.username}; } loadUser(); </script> <script> document.getElementById("logoutBtn")?.addEventListener("click", async function (e) { e.preventDefault(); await fetch("https://auth-api.officeusps368.workers.dev/logout", { method: "POST", credentials: "include" }); window.location.href = "/login.html"; }); </script> <script> function logoutUser() { fetch('/api/logout', { method: 'POST', credentials: 'include' }) .then(res => res.json()) .then(() => { window.location.href = '/login.html'; }) .catch(err => { console.error('Logout failed:', err); }); } </script> <script src="/home-controller.js"></script> <script src="/home-prices.js"></script> <script>
+</script> <script>
+async function loadUser() {
+  try {
+    const res = await fetch("/api/me", {
+      credentials: "include"
+    });
+
+    if (res.status === 401) {
+      window.location.href = "/login.html";
+      return;
+    }
+
+    if (!res.ok) {
+      window.location.href = "/login.html";
+      return;
+    }
+
+    const user = await res.json();
+    const welcomeEl = document.getElementById("welcomeUser");
+
+    if (welcomeEl) {
+      welcomeEl.innerText = `Welcome back, ${user.username}`;
+    }
+  } catch (err) {
+    console.error("Failed to load user:", err);
+    window.location.href = "/login.html";
+  }
+}
+
+loadUser();
+</script>  <script>
+function logoutUser() {
+  fetch("/api/logout", {
+    method: "POST",
+    credentials: "include"
+  })
+    .then(res => res.json())
+    .then(() => {
+      localStorage.removeItem("USER_HAS_PIN");
+      window.location.href = "/login.html";
+    })
+    .catch(err => {
+      console.error("Logout failed:", err);
+      window.location.href = "/login.html";
+    });
+}
+</script> <script src="/home-controller.js"></script> <script>
 document.addEventListener("DOMContentLoaded", function () {
   const profileLinks = [
     document.getElementById("profileGateLink"),
@@ -188,12 +245,18 @@ document.addEventListener("DOMContentLoaded", function () {
   ].filter(Boolean);
 
   profileLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      if (localStorage.getItem("USER_HAS_PIN") !== "1") {
-        e.preventDefault();
+    link.addEventListener("click", async function (e) {
+      e.preventDefault();
+
+      const hasPin = await hasUserPin();
+
+      if (!hasPin) {
         sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
         window.location.href = "/create.html";
+        return;
       }
+
+      window.location.href = "/profile.html";
     });
   });
 
