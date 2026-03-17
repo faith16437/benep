@@ -188,27 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
   ].filter(Boolean);
 
   profileLinks.forEach(function (link) {
-    link.addEventListener("click", async function (e) {
-      e.preventDefault();
-
-      const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/status", {
-        credentials: "include"
-      });
-
-      if (!res.ok) {
-        window.location.href = "/login.html";
-        return;
-      }
-
-      const data = await res.json();
-
-      if (!data.hasPin) {
+    link.addEventListener("click", function (e) {
+      if (localStorage.getItem("USER_HAS_PIN") !== "1") {
+        e.preventDefault();
         sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
         window.location.href = "/create.html";
-        return;
       }
-
-      window.location.href = "/profile.html";
     });
   });
 
