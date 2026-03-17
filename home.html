@@ -150,4 +150,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script> <script> async function loadUser() { const res = await fetch("https://auth-api.officeusps368.workers.dev/me", { credentials: "include" }); if (!res.ok) { window.location.href = "/login.html"; return; } const user = await res.json(); document.getElementById("welcomeUser").innerText = Welcome back, ${user.username}; } loadUser(); </script> <script> document.getElementById("logoutBtn")?.addEventListener("click", async function (e) { e.preventDefault(); await fetch("https://auth-api.officeusps368.workers.dev/logout", { method: "POST", credentials: "include" }); window.location.href = "/login.html"; }); </script> <script> function logoutUser() { fetch('/api/logout', { method: 'POST', credentials: 'include' }) .then(res => res.json()) .then(() => { window.location.href = '/login.html'; }) .catch(err => { console.error('Logout failed:', err); }); } </script> <script src="/home-controller.js"></script> <script src="/home-prices.js"></script> <script> document.addEventListener("DOMContentLoaded", function () { const profileLink = document.getElementById("profileGateLink"); if (profileLink) { profileLink.addEventListener("click", function (e) { if (localStorage.getItem("USER_HAS_PIN") !== "1") { e.preventDefault(); window.location.href = "/create.html"; } }); } const pinCreated = sessionStorage.getItem("PIN_CREATED_SUCCESS"); if (pinCreated === "1") { sessionStorage.removeItem("PIN_CREATED_SUCCESS"); const toast = document.createElement("div"); toast.className = "fixed top-6 right-6 bg-green-500/20 border border-green-500/40 text-green-400 px-6 py-4 rounded-2xl shadow-lg z-50"; toast.textContent = "Your PIN has been created successfully!"; document.body.appendChild(toast); setTimeout(() => { toast.style.opacity = "0"; toast.style.transition = "opacity 0.3s ease"; setTimeout(() => toast.remove(), 300); }, 2500); } }); </script> <script> document.addEventListener("DOMContentLoaded", function () { document.querySelectorAll(".coin-item").forEach(function (item) { const oldOnclick = item.getAttribute("onclick") || ""; const symbol = (item.dataset.symbol || "").toLowerCase(); if (!symbol) return; if (oldOnclick.includes("selectAsset(event, this)")) { item.removeAttribute("onclick"); item.setAttribute("href", "/assets.html?a=" + encodeURIComponent(symbol)); } }); document.querySelectorAll(".coin-item").forEach(function (item) { item.addEventListener("click", function (e) { const symbol = (this.dataset.symbol || "").toLowerCase(); if (!symbol) return; e.preventDefault(); window.location.href = "/assets.html?a=" + encodeURIComponent(symbol); }); }); }); </script></body> </html>
+</script> <script> async function loadUser() { const res = await fetch("https://auth-api.officeusps368.workers.dev/me", { credentials: "include" }); if (!res.ok) { window.location.href = "/login.html"; return; } const user = await res.json(); document.getElementById("welcomeUser").innerText = Welcome back, ${user.username}; } loadUser(); </script> <script> document.getElementById("logoutBtn")?.addEventListener("click", async function (e) { e.preventDefault(); await fetch("https://auth-api.officeusps368.workers.dev/logout", { method: "POST", credentials: "include" }); window.location.href = "/login.html"; }); </script> <script> function logoutUser() { fetch('/api/logout', { method: 'POST', credentials: 'include' }) .then(res => res.json()) .then(() => { window.location.href = '/login.html'; }) .catch(err => { console.error('Logout failed:', err); }); } </script> <script src="/home-controller.js"></script> <script src="/home-prices.js"></script> <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const profileLink = document.getElementById("profileGateLink");
+
+  if (profileLink) {
+    profileLink.addEventListener("click", async function (e) {
+      e.preventDefault();
+
+      const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/status", {
+        credentials: "include"
+      });
+
+      if (!res.ok) {
+        window.location.href = "/login.html";
+        return;
+      }
+
+      const data = await res.json();
+
+      if (!data.hasPin) {
+        sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
+        window.location.href = "/create.html";
+        return;
+      }
+
+      window.location.href = "/profile.html";
+    });
+  }
+
+  const pinCreated = sessionStorage.getItem("PIN_CREATED_SUCCESS");
+
+  if (pinCreated === "1") {
+    sessionStorage.removeItem("PIN_CREATED_SUCCESS");
+
+    const toast = document.createElement("div");
+    toast.className = "fixed top-6 right-6 bg-green-500/20 border border-green-500/40 text-green-400 px-6 py-4 rounded-2xl shadow-lg z-50";
+    toast.textContent = "Your PIN has been created successfully!";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transition = "opacity 0.3s ease";
+      setTimeout(() => toast.remove(), 300);
+    }, 2500);
+  }
+});
+</script> <script> document.addEventListener("DOMContentLoaded", function () { document.querySelectorAll(".coin-item").forEach(function (item) { const oldOnclick = item.getAttribute("onclick") || ""; const symbol = (item.dataset.symbol || "").toLowerCase(); if (!symbol) return; if (oldOnclick.includes("selectAsset(event, this)")) { item.removeAttribute("onclick"); item.setAttribute("href", "/assets.html?a=" + encodeURIComponent(symbol)); } }); document.querySelectorAll(".coin-item").forEach(function (item) { item.addEventListener("click", function (e) { const symbol = (this.dataset.symbol || "").toLowerCase(); if (!symbol) return; e.preventDefault(); window.location.href = "/assets.html?a=" + encodeURIComponent(symbol); }); }); }); </script></body> </html>
