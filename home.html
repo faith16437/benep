@@ -88,16 +88,15 @@ function closeAssetModal() {
   if (modal) modal.remove();
 }
 
+<script id="replace-only-hasUserPin-function">
 async function hasUserPin() {
   try {
     const res = await fetch("/api/pin/status", {
       credentials: "include"
     });
 
-    if (res.status === 401) {
-      window.location.href = "/login.html";
-      return false;
-    }
+    console.log("hasUserPin origin:", window.location.origin);
+    console.log("hasUserPin /api/pin/status:", res.status, res.url);
 
     if (!res.ok) {
       return false;
@@ -112,7 +111,7 @@ async function hasUserPin() {
     return false;
   }
 }
-
+</script>
 function goToCreatePin(returnTo = "/home.html") {
   sessionStorage.setItem("PIN_RETURN_TO", returnTo);
   window.location.href = "/create.html";
