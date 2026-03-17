@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/create", {
+      const res = await fetch("/api/pin/create", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -50,13 +50,15 @@ document.addEventListener("DOMContentLoaded", function () {
         body: JSON.stringify({ pin, pin_confirmation })
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      console.log("PIN create response:", res.status, data);
 
       if (!res.ok) {
         showError(data.error || "Unable to create PIN.");
         return;
       }
 
+      localStorage.setItem("USER_HAS_PIN", "1");
       sessionStorage.setItem("PIN_CREATED_SUCCESS", "1");
 
       const returnTo = sessionStorage.getItem("PIN_RETURN_TO");
@@ -64,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.location.href = returnTo || "/home.html";
     } catch (err) {
+      console.error("PIN create network error:", err);
       showError("Network error. Please try again.");
     }
   });
