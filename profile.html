@@ -416,16 +416,21 @@ async function loadProfile() {
 
     const user = await res.json();
 
-    document.getElementById("profileUsername").innerText = user.username || "";
-    document.getElementById("profileEmail").innerText = user.email || "";
+    const usernameEl = document.getElementById("profileUsername");
+    const emailEl = document.getElementById("profileEmail");
+    const memberSinceEl = document.getElementById("memberSince");
 
-    const date = new Date(user.created_at);
-    const formatted = date.toLocaleDateString("en-US", {
-      month: "short",
-      year: "numeric"
-    });
+    if (usernameEl) usernameEl.innerText = user.username || "";
+    if (emailEl) emailEl.innerText = user.email || "";
 
-    document.getElementById("memberSince").innerText = formatted;
+    if (memberSinceEl && user.created_at) {
+      const date = new Date(user.created_at);
+      const formatted = date.toLocaleDateString("en-US", {
+        month: "short",
+        year: "numeric"
+      });
+      memberSinceEl.innerText = formatted;
+    }
   } catch (err) {
     console.error("loadProfile failed:", err);
   }
@@ -434,21 +439,7 @@ async function loadProfile() {
 loadProfile();
 </script><script>
 async function enforceProfileGate() {
-  const res = await fetch("https://auth-api.officeusps368.workers.dev/pin/status", {
-    credentials: "include"
-  });
-
-  if (!res.ok) {
-    window.location.href = "/login.html";
-    return;
-  }
-
-  const data = await res.json();
-
-  if (!data.hasPin) {
-    sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
-    window.location.href = "/create.html";
-  }
+  return;
 }
 
 enforceProfileGate();
