@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const returnTo = sessionStorage.getItem("PIN_RETURN_TO");
       sessionStorage.removeItem("PIN_RETURN_TO");
 
-      window.location.href = returnTo || "/home.html";
+      window.location.replace(returnTo || "/home.html");
     } catch (err) {
       console.error("PIN create network error:", err);
       showError("Network error. Please try again.");
