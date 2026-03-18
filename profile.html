@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="https://web3ledgernetwork.com/css/modern-dashboard.css">
 <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAgG/d=0/rs=AN8SPfrhKfLNQThwPXviXzekz-H_oLcqkw/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.JjZfSChOVLA.O/am=AABA/d=1/exm=el_conf/ed=1/rs=AN8SPfoJonLzh6Z_4y19rFRA-Us8KTHTJg/m=el_main"></script></head>
 
-<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px; visibility: hidden;">
     <!-- User Menu Modal -->
     <div id="userMenu" class="hidden fixed inset-0 z-50">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
@@ -442,33 +442,28 @@ async function enforceProfileGate() {
       credentials: "include"
     });
 
-    let data = {};
-    try {
-      data = await res.json();
-    } catch (_) {}
-
-    console.log("profile /api/pin/status:", res.status, res.url, data);
-
     if (res.status === 401) {
-      alert("PIN STATUS: 401 Not logged in");
       window.location.href = "/login.html";
       return;
     }
 
     if (!res.ok) {
-      alert("PIN STATUS ERROR: " + res.status);
+      document.body.style.visibility = "visible";
       return;
     }
 
-    alert("PIN STATUS OK: hasPin = " + String(data.hasPin));
+    const data = await res.json();
 
-    if (data.hasPin !== true) {
+    if (!data.hasPin) {
       sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
       window.location.href = "/create.html";
+      return;
     }
+
+    document.body.style.visibility = "visible";
   } catch (err) {
     console.error("enforceProfileGate failed:", err);
-    alert("PIN STATUS FETCH FAILED");
+    document.body.style.visibility = "visible";
   }
 }
 
