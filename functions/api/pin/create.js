@@ -29,7 +29,7 @@ export async function onRequestPost(context) {
   const pin = String(body.pin || "").trim();
   const pinConfirmation = String(body.pin_confirmation || "").trim();
 
-  if (!/^\d{4}$/.test(pin)) {
+  if (!/^[0-9]{4}$/.test(pin)) {
     return new Response(JSON.stringify({ error: "PIN must be exactly 4 digits." }), {
       status: 400,
       headers: { "Content-Type": "application/json" }
@@ -56,10 +56,12 @@ export async function onRequestPost(context) {
     });
   }
 
+  const now = new Date().toISOString();
+
   await env.DB.prepare(
-    "INSERT INTO user_pins (user_id, pin) VALUES (?, ?)"
+    "INSERT INTO user_pins (user_id, pin_hash, created_at, updated_at) VALUES (?, ?, ?, ?)"
   )
-    .bind(sessionUserId, pin)
+    .bind(sessionUserId, pin, now, now)
     .run();
 
   return new Response(JSON.stringify({ success: true }), {
