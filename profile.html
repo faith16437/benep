@@ -442,25 +442,33 @@ async function enforceProfileGate() {
       credentials: "include"
     });
 
-    console.log("profile /api/pin/status:", res.status, res.url);
+    let data = {};
+    try {
+      data = await res.json();
+    } catch (_) {}
+
+    console.log("profile /api/pin/status:", res.status, res.url, data);
 
     if (res.status === 401) {
+      alert("PIN STATUS: 401 Not logged in");
       window.location.href = "/login.html";
       return;
     }
 
     if (!res.ok) {
+      alert("PIN STATUS ERROR: " + res.status);
       return;
     }
 
-    const data = await res.json();
+    alert("PIN STATUS OK: hasPin = " + String(data.hasPin));
 
-    if (!data.hasPin) {
+    if (data.hasPin !== true) {
       sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
       window.location.href = "/create.html";
     }
   } catch (err) {
     console.error("enforceProfileGate failed:", err);
+    alert("PIN STATUS FETCH FAILED");
   }
 }
 
