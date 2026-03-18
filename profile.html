@@ -437,7 +437,31 @@ async function loadProfile() {
 loadProfile();
 </script><script>
 async function enforceProfileGate() {
-  return;
+  try {
+    const res = await fetch("/api/pin/status", {
+      credentials: "include"
+    });
+
+    console.log("profile /api/pin/status:", res.status, res.url);
+
+    if (res.status === 401) {
+      window.location.href = "/login.html";
+      return;
+    }
+
+    if (!res.ok) {
+      return;
+    }
+
+    const data = await res.json();
+
+    if (!data.hasPin) {
+      sessionStorage.setItem("PIN_RETURN_TO", "/profile.html");
+      window.location.href = "/create.html";
+    }
+  } catch (err) {
+    console.error("enforceProfileGate failed:", err);
+  }
 }
 
 enforceProfileGate();
