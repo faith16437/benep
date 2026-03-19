@@ -60,19 +60,20 @@
 
                 <!-- Right: Google Translate, Search and Settings Icons -->
                 <div class="flex items-center gap-3">
-                    <!-- Standard Google Translate Widget -->
-<div id="google_translate_element">
-                    <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </a>
-                    <button class="showBox text-white hover:text-gray-300" title="Menu">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
+    <div id="google_translate_element"></div>
+
+    <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+    </a>
+
+    <button class="showBox text-white hover:text-gray-300" title="Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+</div>
             </div>
         </div>
 
@@ -361,23 +362,54 @@ document.addEventListener('DOMContentLoaded', async function() {
         const currentTimeElement = document.getElementById('currentTime');
         const timerElement = document.getElementById('timer');
 
-        function updateTimers() {
-            if (order.status !== "pending" || timeLeft <= 0) {
-                if (currentTimeElement) currentTimeElement.textContent = '--:--';
-                if (timerElement) timerElement.textContent = '--:--';
-                return;
-            }
+        let expirySent = false;
 
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+async function expireCurrentOrder() {
+    if (expirySent) return;
+    expirySent = true;
 
-            if (currentTimeElement) currentTimeElement.textContent = timeString;
-            if (timerElement) timerElement.textContent = timeString;
+    try {
+        await fetch("/api/cards/expire", {
+            method: "POST",
+            credentials: "include"
+        });
+    } catch (err) {
+        console.error("Failed to expire order:", err);
+    }
+}
 
-            timeLeft--;
-            setTimeout(updateTimers, 1000);
+async function updateTimers() {
+    if (order.status !== "pending") {
+        if (currentTimeElement) currentTimeElement.textContent = '--:--';
+        if (timerElement) timerElement.textContent = '--:--';
+        return;
+    }
+
+    if (timeLeft <= 0) {
+        if (currentTimeElement) currentTimeElement.textContent = '--:--';
+        if (timerElement) timerElement.textContent = '--:--';
+
+        await expireCurrentOrder();
+
+        const statusValueEl = document.querySelector('.space-y-2.text-sm .flex.justify-between:nth-child(3) span:last-child');
+        if (statusValueEl) {
+            statusValueEl.textContent = "Expired";
+            statusValueEl.className = "text-yellow-400";
         }
+
+        return;
+    }
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+    if (currentTimeElement) currentTimeElement.textContent = timeString;
+    if (timerElement) timerElement.textContent = timeString;
+
+    timeLeft--;
+    setTimeout(updateTimers, 1000);
+}
 
         updateTimers();
 
@@ -466,4 +498,39 @@ function logoutUser() {
       window.location.href = "/login.html";
     });
 }
-</script></body></html>
+</script><style>
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    .goog-te-gadget-simple {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span[style*="border-left"] {
+        display: none !important;
+    }
+
+    .goog-te-gadget-simple span[aria-hidden="true"] {
+        display: none !important;
+    }
+</style>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body></html>
