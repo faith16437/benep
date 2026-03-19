@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC">
+    <title>Dashboard | Web3 Ledger Network</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://web3ledgernetwork.com/css/dark-purple-dash.css">
+
+    <!-- Styles -->
+    <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAY/d=0/rs=AN8SPfpe3kYt1ClERGshbaTrxqD-8l5IaQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.ncE1ppnCVYc.O/am=AAAAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfojOUGmHpjdydv7yknjAdjXfxSBng/m=el_main"></script></head>
+
+<body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
+    <!-- User Menu Modal -->
+    <div id="userMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
+        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+            <ul class="divide-y divide-dark-lighter">
+                <li>
+                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                        Logout
+                    </a>
+                </li>
+                            </ul>
+            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
+                <input type="hidden" name="_token" value="nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC" autocomplete="off">            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages -->
+    
+    
+    <!-- Main Content -->
+    <div class="min-h-screen bg-dark">
+        <!-- Admin Notice -->
+        
+        <!-- Header with dark purple gradient -->
+        <div class="header-gradient">
+            <div class="flex justify-between items-center w-full">
+                <!-- Left: App logo -->
+                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                    <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
+                </a>
+
+                <!-- Center: Empty space for better layout -->
+                <div></div>
+
+                <!-- Right: Google Translate, Search and Settings Icons -->
+                <div class="flex items-center gap-3">
+                    <!-- Standard Google Translate Widget -->
+<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+
+<style>
+    /* Hide Google Translate banner */
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    /* Fix the layout using display:flex instead of white-space:nowrap */
+    .goog-te-gadget-simple {
+        display: flex !important;
+    }
+
+    .goog-te-gadget-simple span {
+        display: flex !important;
+    }
+
+    /* Hide the separator and dropdown arrow */
+    .goog-te-gadget-simple span[style*="border-left"] {
+        display: none !important;
+    }
+
+    .goog-te-gadget-simple span[aria-hidden="true"] {
+        display: none !important;
+    }
+</style>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                    <button class="showBox text-white hover:text-gray-300" title="Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+            <!-- Header -->
+    <div class="bg-dark border-b border-dark-border">
+        <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="https://web3ledgernetwork.com/app/cards" class="text-gray-400 hover:text-white">
+                    <i class="bi bi-arrow-left text-xl"></i>
+                </a>
+                <span id="currentTime" class="text-white font-mono">14:28</span>
+            </div>
+            <div class="flex items-center">
+                <!-- Logo removed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-md mx-auto p-4 pb-24">
+
+        <!-- Status Messages -->
+        
+        <!-- QR Code Section -->
+                    <div class="bg-dark-lighter rounded-lg p-6 mb-6">
+                <div class="bg-white rounded-lg p-4 mx-auto w-64 h-64 flex items-center justify-center mb-4">
+                    <img id="qrImage" src="data:image/png;base64,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" alt="Payment QR Code" class="w-full h-full object-contain" style="display: block;">
+                </div>
+            </div>
+
+            <!-- Address Section -->
+            <div class="mb-4">
+                <label class="block text-gray-400 text-sm font-medium mb-2 uppercase tracking-wide">ADDRESS</label>
+                <div class="bg-dark-lighter border border-dark-border rounded-lg p-3 flex items-center justify-between">
+                    <input type="text" id="walletAddress" value="TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx" class="bg-transparent text-gray-300 text-sm flex-1 outline-none font-mono" readonly="">
+                    <div class="flex items-center gap-2 ml-3">
+                        <button class="text-gray-400 hover:text-white" onclick="generateQR('TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zm2 2V5h1v1h-1zM11 4a1 1 0 100-2 1 1 0 000 2zM11 7a1 1 0 100-2 1 1 0 000 2zM11 10a1 1 0 100-2 1 1 0 000 2zM11 13a1 1 0 100-2 1 1 0 000 2zM11 16a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <button class="text-gray-400 hover:text-white" onclick="copyToClipboard('walletAddress')">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path>
+                                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="space-y-4 mb-6">
+                <!-- Timer -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Time Left</span>
+                    <span id="timer" class="text-white font-mono text-lg">14:28</span>
+                </div>
+
+                <!-- Total Price -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Total Price</span>
+                    <span class="text-white font-semibold">$20,000.00</span>
+                </div>
+
+                <!-- Exchange Rate -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Exchange Rate</span>
+                    <span id="exchangeRate" class="text-white">1 TRX @ $0.1234</span>
+                </div>
+
+                <!-- Amount Due -->
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400">Amount Due</span>
+                    <div class="flex items-center gap-2">
+                        <span id="amountDue" class="text-white font-mono">162074.55429498 TRX</span>
+                        <button class="text-gray-400 hover:text-white" onclick="copyToClipboard('amountDueInput')">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path>
+                                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <input type="hidden" id="amountDueInput" value="162074.55429498">
+            </div>
+        
+        <!-- Instructions -->
+                    <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 mb-6">
+                <div class="flex items-start gap-3">
+                    <i class="bi bi-exclamation-circle text-yellow-400 text-xl mt-1"></i>
+                    <div class="text-gray-300 text-sm">
+                        <p class="font-medium mb-1">Payment Instructions</p>
+                        <p>Send the exact amount to the address above. Your card order will be processed once payment is
+                            confirmed.</p>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- Order Details -->
+                    <div class="bg-dark-lighter border border-dark-border rounded-lg p-4 mb-4">
+                <h3 class="text-white font-medium mb-3">Order Details</h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Order ID:</span>
+                        <span class="text-white">#RT18QDYO</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Card Type:</span>
+                        <span class="text-white">QFS Card</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Status:</span>
+                        <span class="text-primary">Payment Pending</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Preview -->
+            <div class="bg-dark-lighter border border-dark-border rounded-lg p-4">
+                <h3 class="text-white font-medium mb-3">Your Card Design</h3>
+                <div class="bg-gradient-to-br from-primary to-purple-800 rounded-2xl p-4 min-h-[120px] text-sm text-white flex flex-col justify-between relative overflow-hidden max-w-xs mx-auto">
+            <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full"></div>
+            <div class="absolute bottom-4 left-4 w-24 h-24 border border-white/20 rounded-full"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-white/10 rounded-full"></div>
+        </div>
+        
+    <!-- Card Content -->
+    <div class="relative z-10">
+        <div class="flex justify-between items-start">
+            <!-- Chip -->
+            <div class="w-11 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-md shadow-lg"></div>
+            <!-- Card Type -->
+            <div class="text-right">
+                <div class="text-xs font-bold tracking-wider">QFS</div>
+                <div class="text-xs opacity-80">VIRTUAL</div>
+            </div>
+        </div>
+        
+        <!-- Card Number -->
+        <div class="text-base mt-4 tracking-wider font-mono">••••&nbsp;••••&nbsp;••••&nbsp;9481</div>
+        
+        <!-- Card Details -->
+        <div class="flex justify-between items-center mt-3 text-xs">
+            <div>
+                <div class="text-xs opacity-70">VALID THRU</div>
+                <div class="font-semibold">12/29</div>
+            </div>
+            <div class="text-right">
+                <div class="text-xs opacity-70">CARDHOLDER</div>
+                <div class="font-semibold text-xs"></div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            </div>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="hidden fixed top-4 right-4 bg-red-500/10 text-red-400 px-4 py-3 rounded-lg border border-red-500/20 z-50">
+        <span id="errorText"></span>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                </svg>
+                <span>NFT</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                    </path>
+                </svg>
+                <span>Collections</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Staking</span>
+            </a>
+            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+                <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                    </path>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        // User Menu Toggle with click outside to close
+        const userMenu = document.getElementById('userMenu');
+        const userMenuBackdrop = document.getElementById('userMenuBackdrop');
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.showBox')) {
+                userMenu.classList.remove('hidden');
+            } else if (!e.target.closest('.userMenuContent') && !e.target.closest('.showBox')) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // Google Translate is now handled by the partial component
+    </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const decodedAmount = 20000;
+            const cardOrderId = 27;
+            const walletAddress = "TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx";
+            const paymentStatus = "active";
+
+            let coinSymbol = "TRX";
+            let coinCurrentPrice = 0;
+            let coinAmount = 0;
+
+            // Timer based on actual remaining time from server
+            let timeLeft = 889; // Actual remaining seconds
+            const currentTimeElement = document.getElementById('currentTime');
+            const timerElement = document.getElementById('timer');
+
+            function updateTimers() {
+                if (paymentStatus !== 'active') {
+                    // Don't show timer for non-active states
+                    if (currentTimeElement) currentTimeElement.textContent = '--:--';
+                    if (timerElement) timerElement.textContent = '--:--';
+                    return;
+                }
+
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                // Update both timer displays
+                if (currentTimeElement) currentTimeElement.textContent = timeString;
+                if (timerElement) timerElement.textContent = timeString;
+
+                if (timeLeft <= 0) {
+                    // Reload page when timer expires to show expired state
+                    window.location.reload();
+                    return;
+                }
+
+                timeLeft--;
+                setTimeout(updateTimers, 1000);
+            }
+
+            // Only start timer if payment is active
+            if (paymentStatus === 'active') {
+                updateTimers();
+            } else {
+                // Set static display for non-active states
+                if (currentTimeElement) currentTimeElement.textContent = '--:--';
+                if (timerElement) timerElement.textContent = '--:--';
+            }
+
+            try {
+                // Fetch coin data (you might need to adjust this path)
+                const response = await fetch('/storage/coin_data.json');
+                if (response.ok) {
+                    const coinData = await response.json();
+                    const coin = coinData.find(c => c.id === 'tron');
+
+                    if (coin) {
+                        coinSymbol = coin.symbol.toUpperCase();
+                        coinCurrentPrice = coin.current_price;
+                        coinAmount = (decodedAmount / coinCurrentPrice).toFixed(8);
+
+                        // Update UI
+                        if (document.getElementById("exchangeRate")) {
+                            document.getElementById("exchangeRate").textContent =
+                                `1 ${coinSymbol} @ $${coinCurrentPrice.toFixed(4)}`;
+                        }
+                        if (document.getElementById("amountDue")) {
+                            document.getElementById("amountDue").textContent = `${coinAmount} ${coinSymbol}`;
+                        }
+                        if (document.getElementById("amountDueInput")) {
+                            document.getElementById("amountDueInput").value = coinAmount;
+                        }
+
+                        // Generate initial QR code for wallet address
+                        if (paymentStatus === 'active') {
+                            generateQR(walletAddress);
+                        }
+                    } else {
+                        showError('Coin data not found');
+                    }
+                } else {
+                    // Fallback values
+                    coinCurrentPrice = 0.1234; // Default TRX price
+                    coinAmount = (decodedAmount / coinCurrentPrice).toFixed(8);
+                    if (document.getElementById("exchangeRate")) {
+                        document.getElementById("exchangeRate").textContent =
+                            `1 ${coinSymbol} @ $${coinCurrentPrice.toFixed(4)}`;
+                    }
+                    if (document.getElementById("amountDue")) {
+                        document.getElementById("amountDue").textContent = `${coinAmount} ${coinSymbol}`;
+                    }
+                    if (document.getElementById("amountDueInput")) {
+                        document.getElementById("amountDueInput").value = coinAmount;
+                    }
+                    if (paymentStatus === 'active') {
+                        generateQR(walletAddress);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching coin data:', error);
+                showError('Error loading payment details');
+            }
+        });
+
+        // Generate QR code via AJAX
+        function generateQR(data) {
+            fetch('https://web3ledgernetwork.com/app/cards/qr', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': 'nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC',
+                    },
+                    body: JSON.stringify({
+                        data: data
+                    }),
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        const qrImage = document.getElementById('qrImage');
+                        if (qrImage) {
+                            qrImage.src = 'data:image/png;base64,' + result.qrcode;
+                            qrImage.style.display = 'block';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error generating QR code:', error);
+                });
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const textToCopy = element.value || element.textContent;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Find the copy button and show feedback
+                const copyButtons = element.parentElement.querySelectorAll('button');
+                copyButtons.forEach(button => {
+                    if (button.innerHTML.includes('M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z')) {
+                        const originalHTML = button.innerHTML;
+                        button.innerHTML = '<span class="text-green-400">✓</span>';
+                        setTimeout(() => {
+                            button.innerHTML = originalHTML;
+                        }, 1000);
+                    }
+                });
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function showError(message) {
+            document.getElementById('errorText').textContent = message;
+            document.getElementById('errorMessage').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('errorMessage').classList.add('hidden');
+            }, 5000);
+        }
+    </script></body></html>
