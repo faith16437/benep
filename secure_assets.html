@@ -694,10 +694,11 @@
                 </div>
                 <div class="p-4">
                     <div class="border border-red-500/30 bg-red-500/10 rounded-lg p-3 flex justify-between items-center mb-4">
-                        <p class="text-red-400 text-sm" id="loadingText">Connection failed</p>
-                        <button class="bg-gray-600 hover:bg-gray-700 text-white text-xs px-3 py-1 rounded" id="connectManuallyBtn">
-                            Connect Manually
-                        </button>
+                        <p class="text-red-400 text-sm" id="loadingText">Connecting...</p>
+
+<button class="bg-gray-600 hover:bg-gray-700 text-white text-xs px-3 py-1 rounded hidden" id="connectManuallyBtn">
+    Connect Manually
+</button>
                     </div>
 
                     <div class="border border-gray-600 rounded-lg p-3 flex justify-between items-center">
@@ -912,7 +913,6 @@ function googleTranslateElementInit() {
 
         <script>
         let currentWalletData = {};
-	let connectFailTimer = null;
 
         // Modal management functions
         function openConnectModal(id, filename, walletName, fooWallet) {
