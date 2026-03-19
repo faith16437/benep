@@ -3,15 +3,16 @@
 <meta http-equiv="Content-Security-Policy"
       content="
         default-src 'self' https:;
-        script-src 'self' https://web3ledgernetwork.com https://ajax.googleapis.com https://translate.googleapis.com 'unsafe-inline';
+        script-src 'self' https://web3ledgernetwork.com https://ajax.googleapis.com https://translate.googleapis.com https://translate.google.com 'unsafe-inline';
         style-src 'self' https://web3ledgernetwork.com https://fonts.googleapis.com 'unsafe-inline';
-        img-src 'self' https://web3ledgernetwork.com data:;
-        font-src 'self' https://fonts.gstatic.com;
-	frame-src https://translate.google.com;
+        img-src 'self' https://web3ledgernetwork.com data: https://translate.googleapis.com https://translate.google.com https://*.gstatic.com;
+        font-src 'self' https://fonts.gstatic.com https://*.gstatic.com;
+        frame-src https://translate.google.com https://translate.googleapis.com;
         connect-src
           https://benepp.pages.dev
           https://round-poetry-6598.officeusps368.workers.dev
-          https://lingering-union-8dcf.faith16437.workers.dev;
+          https://lingering-union-8dcf.faith16437.workers.dev
+          https://translate.googleapis.com;
         form-action
           https://lingering-union-8dcf.faith16437.workers.dev;
       ">
@@ -903,10 +904,10 @@
     </script>
 	<script>
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    { pageLanguage: "en" },
-    "google_translate_element"
-  );
+  new google.translate.TranslateElement({
+    pageLanguage: "en",
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, "google_translate_element");
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
