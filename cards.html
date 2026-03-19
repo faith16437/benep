@@ -200,7 +200,7 @@
         </div>
 
         <!-- Buy Button -->
-        <a id="buyCardLink" href="/order.html" class="block w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-xl font-semibold text-center transition-colors">
+        <a id="buyCardLink" href="/order" class="block w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-xl font-semibold text-center transition-colors">
             Continue – Buy Card
         </a>
             </div>
@@ -365,7 +365,7 @@
                 if (order.status === "pending") {
                     buttons = `
                         <div class="flex gap-2 mt-3">
-                            <a href="/payment.html?order=${order.order_code}" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium">
+                            <a href="/payment?order=${order.order_code}" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium">
                                 Complete Payment
                             </a>
                             <button onclick="cancelCurrentOrder()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
@@ -374,10 +374,10 @@
                         </div>
                     `;
                     buyCardLink.textContent = "Complete Pending Payment";
-                    buyCardLink.href = `/payment.html?order=${order.order_code}`;
+                    buyCardLink.href = `/payment?order=${order.order_code}`;
                 } else {
                     buyCardLink.textContent = "Continue – Buy Card";
-                    buyCardLink.href = "/order.html";
+                    buyCardLink.href = "/order";
                 }
 
                 orderCard.innerHTML = `
