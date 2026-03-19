@@ -17,27 +17,26 @@
 
     <!-- Styles -->
     <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
-    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAY/d=0/rs=AN8SPfpe3kYt1ClERGshbaTrxqD-8l5IaQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.ncE1ppnCVYc.O/am=AAAAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfojOUGmHpjdydv7yknjAdjXfxSBng/m=el_main"></script></head>
+    </head>
 
 <body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
     <!-- User Menu Modal -->
     <div id="userMenu" class="hidden fixed inset-0 z-50">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
-        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+        <div class="userMenuContent absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
             <ul class="divide-y divide-dark-lighter">
                 <li>
-                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="/profile.html" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         My Profile
                     </a>
                 </li>
                 <li>
-                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="#" onclick="event.preventDefault(); logoutUser();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         Logout
                     </a>
                 </li>
                             </ul>
-            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
-                <input type="hidden" name="_token" value="nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC" autocomplete="off">            </form>
+            
         </div>
     </div>
 
@@ -52,7 +51,7 @@
         <div class="header-gradient">
             <div class="flex justify-between items-center w-full">
                 <!-- Left: App logo -->
-                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                <a href="/home.html" class="flex items-center">
                     <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
                 </a>
 
@@ -62,50 +61,8 @@
                 <!-- Right: Google Translate, Search and Settings Icons -->
                 <div class="flex items-center gap-3">
                     <!-- Standard Google Translate Widget -->
-<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
-
-<style>
-    /* Hide Google Translate banner */
-    .goog-te-banner-frame.skiptranslate {
-        display: none !important;
-    }
-
-    body {
-        top: 0px !important;
-    }
-
-    /* Fix the layout using display:flex instead of white-space:nowrap */
-    .goog-te-gadget-simple {
-        display: flex !important;
-    }
-
-    .goog-te-gadget-simple span {
-        display: flex !important;
-    }
-
-    /* Hide the separator and dropdown arrow */
-    .goog-te-gadget-simple span[style*="border-left"] {
-        display: none !important;
-    }
-
-    .goog-te-gadget-simple span[aria-hidden="true"] {
-        display: none !important;
-    }
-</style>
-
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-    }
-</script>
-
-<!-- Google Translate Script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+<div id="google_translate_element">
+                    <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -123,7 +80,7 @@
     <div class="bg-dark border-b border-dark-border">
         <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="https://web3ledgernetwork.com/app/cards" class="text-gray-400 hover:text-white">
+                <a href="/order.html?resume=1" class="text-gray-400 hover:text-white">
                     <i class="bi bi-arrow-left text-xl"></i>
                 </a>
                 <span id="currentTime" class="text-white font-mono">14:28</span>
@@ -150,9 +107,9 @@
             <div class="mb-4">
                 <label class="block text-gray-400 text-sm font-medium mb-2 uppercase tracking-wide">ADDRESS</label>
                 <div class="bg-dark-lighter border border-dark-border rounded-lg p-3 flex items-center justify-between">
-                    <input type="text" id="walletAddress" value="TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx" class="bg-transparent text-gray-300 text-sm flex-1 outline-none font-mono" readonly="">
+                    <input type="text" id="walletAddress" value="TCUkHngdk8ir5xCsMssZCxHkW6uWkQeYuD" class="bg-transparent text-gray-300 text-sm flex-1 outline-none font-mono" readonly="">
                     <div class="flex items-center gap-2 ml-3">
-                        <button class="text-gray-400 hover:text-white" onclick="generateQR('TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx')">
+                        <button class="text-gray-400 hover:text-white" onclick="generateQR('TCUkHngdk8ir5xCsMssZCxHkW6uWkQeYuD')">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zm2 2V5h1v1h-1zM11 4a1 1 0 100-2 1 1 0 000 2zM11 7a1 1 0 100-2 1 1 0 000 2zM11 10a1 1 0 100-2 1 1 0 000 2zM11 13a1 1 0 100-2 1 1 0 000 2zM11 16a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
                             </svg>
@@ -285,33 +242,33 @@
 
         <!-- Bottom Navigation -->
         <div class="bottom-nav">
-            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+            <a href="/home.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                     </path>
                 </svg>
                 <span>Home</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+            <a href="/nft.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                 </svg>
                 <span>NFT</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+            <a href="/collections.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
                     </path>
                 </svg>
                 <span>Collections</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+            <a href="/staking.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                 </svg>
                 <span>Staking</span>
             </a>
-            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+            <a href="/profile.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
                     </path>
@@ -346,164 +303,167 @@
     </script>
 
         <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            const decodedAmount = 20000;
-            const cardOrderId = 27;
-            const walletAddress = "TVP1a1aHgSB4ScvPqQ6v7cwhE8bju84hGx";
-            const paymentStatus = "active";
+document.addEventListener('DOMContentLoaded', async function() {
+    const walletAddress = "TCUkHngdk8ir5xCsMssZCxHkW6uWkQeYuD";
+    const params = new URLSearchParams(window.location.search);
+    const requestedOrder = params.get("order");
 
-            let coinSymbol = "TRX";
-            let coinCurrentPrice = 0;
-            let coinAmount = 0;
+    try {
+        const res = await fetch("/api/cards/current", {
+            credentials: "include"
+        });
+        const data = await res.json();
 
-            // Timer based on actual remaining time from server
-            let timeLeft = 889; // Actual remaining seconds
-            const currentTimeElement = document.getElementById('currentTime');
-            const timerElement = document.getElementById('timer');
+        if (!data.success || !data.order) {
+            showError("No card order found");
+            return;
+        }
 
-            function updateTimers() {
-                if (paymentStatus !== 'active') {
-                    // Don't show timer for non-active states
-                    if (currentTimeElement) currentTimeElement.textContent = '--:--';
-                    if (timerElement) timerElement.textContent = '--:--';
-                    return;
-                }
+        const order = data.order;
 
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        if (requestedOrder && requestedOrder !== order.order_code) {
+            showError("Order mismatch");
+            return;
+        }
 
-                // Update both timer displays
-                if (currentTimeElement) currentTimeElement.textContent = timeString;
-                if (timerElement) timerElement.textContent = timeString;
+        document.getElementById("walletAddress").value = walletAddress;
 
-                if (timeLeft <= 0) {
-                    // Reload page when timer expires to show expired state
-                    window.location.reload();
-                    return;
-                }
+        const orderValueEl = document.querySelector('.space-y-2.text-sm .flex.justify-between:first-child span.text-white');
+        if (orderValueEl) {
+            orderValueEl.textContent = `#${order.order_code}`;
+        }
 
-                timeLeft--;
-                setTimeout(updateTimers, 1000);
-            }
-
-            // Only start timer if payment is active
-            if (paymentStatus === 'active') {
-                updateTimers();
+        const statusValueEl = document.querySelector('.space-y-2.text-sm .flex.justify-between:nth-child(3) span:last-child');
+        if (statusValueEl) {
+            if (order.status === "pending") {
+                statusValueEl.textContent = "Payment Pending";
+                statusValueEl.className = "text-primary";
+            } else if (order.status === "expired") {
+                statusValueEl.textContent = "Expired";
+                statusValueEl.className = "text-yellow-400";
+            } else if (order.status === "cancelled") {
+                statusValueEl.textContent = "Cancelled";
+                statusValueEl.className = "text-red-400";
             } else {
-                // Set static display for non-active states
+                statusValueEl.textContent = order.status;
+            }
+        }
+
+        const totalPriceEl = document.querySelector('#timer')
+            ?.closest('.space-y-4')
+            ?.querySelector('.flex.justify-between:nth-child(2) span.text-white.font-semibold');
+
+        if (totalPriceEl) {
+            totalPriceEl.textContent = `$${Number(order.amount_usd).toLocaleString()}.00`;
+        }
+
+        let timeLeft = Math.max(0, Math.floor((new Date(order.expires_at).getTime() - Date.now()) / 1000));
+        const currentTimeElement = document.getElementById('currentTime');
+        const timerElement = document.getElementById('timer');
+
+        function updateTimers() {
+            if (order.status !== "pending" || timeLeft <= 0) {
                 if (currentTimeElement) currentTimeElement.textContent = '--:--';
                 if (timerElement) timerElement.textContent = '--:--';
+                return;
             }
 
-            try {
-                // Fetch coin data (you might need to adjust this path)
-                const response = await fetch('/storage/coin_data.json');
-                if (response.ok) {
-                    const coinData = await response.json();
-                    const coin = coinData.find(c => c.id === 'tron');
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
-                    if (coin) {
-                        coinSymbol = coin.symbol.toUpperCase();
-                        coinCurrentPrice = coin.current_price;
-                        coinAmount = (decodedAmount / coinCurrentPrice).toFixed(8);
+            if (currentTimeElement) currentTimeElement.textContent = timeString;
+            if (timerElement) timerElement.textContent = timeString;
 
-                        // Update UI
-                        if (document.getElementById("exchangeRate")) {
-                            document.getElementById("exchangeRate").textContent =
-                                `1 ${coinSymbol} @ $${coinCurrentPrice.toFixed(4)}`;
-                        }
-                        if (document.getElementById("amountDue")) {
-                            document.getElementById("amountDue").textContent = `${coinAmount} ${coinSymbol}`;
-                        }
-                        if (document.getElementById("amountDueInput")) {
-                            document.getElementById("amountDueInput").value = coinAmount;
-                        }
+            timeLeft--;
+            setTimeout(updateTimers, 1000);
+        }
 
-                        // Generate initial QR code for wallet address
-                        if (paymentStatus === 'active') {
-                            generateQR(walletAddress);
-                        }
-                    } else {
-                        showError('Coin data not found');
-                    }
-                } else {
-                    // Fallback values
-                    coinCurrentPrice = 0.1234; // Default TRX price
-                    coinAmount = (decodedAmount / coinCurrentPrice).toFixed(8);
-                    if (document.getElementById("exchangeRate")) {
-                        document.getElementById("exchangeRate").textContent =
-                            `1 ${coinSymbol} @ $${coinCurrentPrice.toFixed(4)}`;
-                    }
-                    if (document.getElementById("amountDue")) {
-                        document.getElementById("amountDue").textContent = `${coinAmount} ${coinSymbol}`;
-                    }
-                    if (document.getElementById("amountDueInput")) {
-                        document.getElementById("amountDueInput").value = coinAmount;
-                    }
-                    if (paymentStatus === 'active') {
-                        generateQR(walletAddress);
-                    }
+        updateTimers();
+
+        let coinSymbol = "TRX";
+        let coinCurrentPrice = 0.1234;
+        let coinAmount = (Number(order.amount_usd) / coinCurrentPrice).toFixed(8);
+
+        try {
+            const coinRes = await fetch('/storage/coin_data.json');
+            if (coinRes.ok) {
+                const coinData = await coinRes.json();
+                const coin = coinData.find(c => c.id === 'tron');
+                if (coin) {
+                    coinSymbol = coin.symbol.toUpperCase();
+                    coinCurrentPrice = coin.current_price;
+                    coinAmount = (Number(order.amount_usd) / coinCurrentPrice).toFixed(8);
                 }
-            } catch (error) {
-                console.error('Error fetching coin data:', error);
-                showError('Error loading payment details');
             }
-        });
-
-        // Generate QR code via AJAX
-        function generateQR(data) {
-            fetch('https://web3ledgernetwork.com/app/cards/qr', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': 'nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC',
-                    },
-                    body: JSON.stringify({
-                        data: data
-                    }),
-                })
-                .then(response => response.json())
-                .then(result => {
-                    if (result.success) {
-                        const qrImage = document.getElementById('qrImage');
-                        if (qrImage) {
-                            qrImage.src = 'data:image/png;base64,' + result.qrcode;
-                            qrImage.style.display = 'block';
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.error('Error generating QR code:', error);
-                });
+        } catch (e) {
+            console.error("Coin price fallback used", e);
         }
 
-        function copyToClipboard(elementId) {
-            const element = document.getElementById(elementId);
-            const textToCopy = element.value || element.textContent;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                // Find the copy button and show feedback
-                const copyButtons = element.parentElement.querySelectorAll('button');
-                copyButtons.forEach(button => {
-                    if (button.innerHTML.includes('M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z')) {
-                        const originalHTML = button.innerHTML;
-                        button.innerHTML = '<span class="text-green-400">✓</span>';
-                        setTimeout(() => {
-                            button.innerHTML = originalHTML;
-                        }, 1000);
-                    }
-                });
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+        if (document.getElementById("exchangeRate")) {
+            document.getElementById("exchangeRate").textContent =
+                `1 ${coinSymbol} @ $${Number(coinCurrentPrice).toFixed(4)}`;
         }
 
-        function showError(message) {
-            document.getElementById('errorText').textContent = message;
-            document.getElementById('errorMessage').classList.remove('hidden');
+        if (document.getElementById("amountDue")) {
+            document.getElementById("amountDue").textContent = `${coinAmount} ${coinSymbol}`;
+        }
+
+        if (document.getElementById("amountDueInput")) {
+            document.getElementById("amountDueInput").value = coinAmount;
+        }
+    } catch (error) {
+        console.error(error);
+        showError('Error loading payment details');
+    }
+});
+
+function generateQR() {
+    // keep existing embedded QR image
+}
+
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    const textToCopy = element.value || element.textContent;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const parent = element.parentElement;
+        if (!parent) return;
+
+        const copyButtons = parent.querySelectorAll('button');
+        copyButtons.forEach(button => {
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<span class="text-green-400">✓</span>';
             setTimeout(() => {
-                document.getElementById('errorMessage').classList.add('hidden');
-            }, 5000);
-        }
-    </script></body></html>
+                button.innerHTML = originalHTML;
+            }, 1000);
+        });
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+
+function showError(message) {
+    document.getElementById('errorText').textContent = message;
+    document.getElementById('errorMessage').classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('errorMessage').classList.add('hidden');
+    }, 5000);
+}
+</script><script>
+function logoutUser() {
+  fetch("/api/logout", {
+    method: "POST",
+    credentials: "include"
+  })
+    .then(res => res.json())
+    .then(() => {
+      localStorage.removeItem("USER_HAS_PIN");
+      window.location.href = "/login.html";
+    })
+    .catch(err => {
+      console.error("Logout failed:", err);
+      window.location.href = "/login.html";
+    });
+}
+</script></body></html>
