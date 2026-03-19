@@ -38,7 +38,7 @@
     }
 
     if (textEl) textEl.textContent = "Connecting...";
-    if (manualBtn) manualBtn.classList.remove("hidden");
+    if (manualBtn) manualBtn.classList.add("hidden");
 
     show("connectLoadingModal");
 	setTimeout(() => {
