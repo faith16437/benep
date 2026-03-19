@@ -37,10 +37,14 @@
       iconEl.alt = walletName;
     }
 
-    if (textEl) textEl.textContent = "Connection failed";
+    if (textEl) textEl.textContent = "Connecting...";
     if (manualBtn) manualBtn.classList.remove("hidden");
 
     show("connectLoadingModal");
+	setTimeout(() => {
+  if (textEl) textEl.textContent = "Connection failed";
+  if (manualBtn) manualBtn.classList.remove("hidden");
+}, 2000);
 
     if (manualBtn) {
       manualBtn.onclick = () => window.openPhraseModal();
