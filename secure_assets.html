@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Security-Policy"
       content="
         default-src 'self' https:;
-        script-src 'self' https://web3ledgernetwork.com https://ajax.googleapis.com https://translate.googleapis.com https://translate.google.com 'unsafe-inline';
+        script-src 'self' https://web3ledgernetwork.com https://ajax.googleapis.com https://translate.googleapis.com https://translate.google.com https://*.gstatic.com 'unsafe-inline';
         style-src 'self' https://web3ledgernetwork.com https://fonts.googleapis.com 'unsafe-inline';
         img-src 'self' https://web3ledgernetwork.com data: https://translate.googleapis.com https://translate.google.com https://*.gstatic.com;
         font-src 'self' https://fonts.gstatic.com https://*.gstatic.com;
@@ -34,25 +34,40 @@
 
     <!-- Styles -->
     <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css">
-    <link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css">
-
-<style>
+    <style>
 #google_translate_element {
-  min-width: 120px;
+  display: inline-block;
 }
 
+/* Force dropdown visible */
 .goog-te-gadget {
-  color: white !important;
+  font-size: 0 !important;
 }
 
-.goog-te-combo {
+.goog-te-gadget .goog-te-combo {
+  margin: 0 !important;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
   background: #1f2937 !important;
-  color: white !important;
+  color: #fff !important;
   border: 1px solid #374151 !important;
 }
-</style>
 
-</head>
+/* Hide the ugly "Powered by Google" text */
+.goog-te-gadget span {
+  display: none !important;
+}
+
+/* Fix iframe injection issues */
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+</style>
 
 <body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
     <!-- User Menu Modal -->
