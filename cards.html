@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="#" onclick="event.preventDefault(); logoutUser();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         Logout
                     </a>
                 </li>
@@ -61,10 +61,9 @@
                 <!-- Right: Google Translate, Search and Settings Icons -->
                 <div class="flex items-center gap-3">
                     <!-- Standard Google Translate Widget -->
-<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+<div id="google_translate_element"></div>
 
 <style>
-    /* Hide Google Translate banner */
     .goog-te-banner-frame.skiptranslate {
         display: none !important;
     }
@@ -73,7 +72,6 @@
         top: 0px !important;
     }
 
-    /* Fix the layout using display:flex instead of white-space:nowrap */
     .goog-te-gadget-simple {
         display: flex !important;
     }
@@ -82,7 +80,6 @@
         display: flex !important;
     }
 
-    /* Hide the separator and dropdown arrow */
     .goog-te-gadget-simple span[style*="border-left"] {
         display: none !important;
     }
@@ -92,7 +89,7 @@
     }
 </style>
 
-<script type="text/javascript">
+<script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
@@ -101,9 +98,7 @@
     }
 </script>
 
-<!-- Google Translate Script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
