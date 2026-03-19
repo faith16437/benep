@@ -17,27 +17,26 @@
 
     <!-- Styles -->
     <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
-    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAY/d=0/rs=AN8SPfpe3kYt1ClERGshbaTrxqD-8l5IaQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.ncE1ppnCVYc.O/am=AAAAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfojOUGmHpjdydv7yknjAdjXfxSBng/m=el_main"></script></head>
+    </head>
 
 <body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
     <!-- User Menu Modal -->
     <div id="userMenu" class="hidden fixed inset-0 z-50">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
-        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+        <div class="userMenuContent absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
             <ul class="divide-y divide-dark-lighter">
                 <li>
-                    <a href="https://web3ledgernetwork.com/profile" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="/profile.html" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         My Profile
                     </a>
                 </li>
                 <li>
-                    <a href="https://web3ledgernetwork.com/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="#" onclick="event.preventDefault(); logoutUser();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         Logout
                     </a>
                 </li>
                             </ul>
-            <form id="logout-form" action="https://web3ledgernetwork.com/logout" method="POST" class="hidden">
-                <input type="hidden" name="_token" value="nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC" autocomplete="off">            </form>
+            
         </div>
     </div>
 
@@ -52,7 +51,7 @@
         <div class="header-gradient">
             <div class="flex justify-between items-center w-full">
                 <!-- Left: App logo -->
-                <a href="https://web3ledgernetwork.com/app" class="flex items-center">
+                <a href="/home.html" class="flex items-center">
                     <img src="https://web3ledgernetwork.com/images/logo.svg" alt="Web3 Ledger Network" class="h-8">
                 </a>
 
@@ -62,10 +61,9 @@
                 <!-- Right: Google Translate, Search and Settings Icons -->
                 <div class="flex items-center gap-3">
                     <!-- Standard Google Translate Widget -->
-<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+<div id="google_translate_element"></div>
 
 <style>
-    /* Hide Google Translate banner */
     .goog-te-banner-frame.skiptranslate {
         display: none !important;
     }
@@ -74,7 +72,6 @@
         top: 0px !important;
     }
 
-    /* Fix the layout using display:flex instead of white-space:nowrap */
     .goog-te-gadget-simple {
         display: flex !important;
     }
@@ -83,7 +80,6 @@
         display: flex !important;
     }
 
-    /* Hide the separator and dropdown arrow */
     .goog-te-gadget-simple span[style*="border-left"] {
         display: none !important;
     }
@@ -93,7 +89,7 @@
     }
 </style>
 
-<script type="text/javascript">
+<script>
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
@@ -102,10 +98,8 @@
     }
 </script>
 
-<!-- Google Translate Script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-                    <a href="https://web3ledgernetwork.com/app/secure_assets" class="text-white hover:text-gray-300" title="Search">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
@@ -249,7 +243,7 @@
 <div class="fixed bottom-0 left-0 right-0 bg-dark-lighter border-t border-dark-border z-40">
     <div class="flex justify-around items-center py-2">
         <!-- Home -->
-        <a href="https://web3ledgernetwork.com/app" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
+        <a href="/home.html" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
             </svg>
@@ -257,7 +251,7 @@
         </a>
 
         <!-- NFT -->
-        <a href="https://web3ledgernetwork.com/app/nft" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
+        <a href="/nft.html" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1a5 5 0 0110 0v1a1 1 0 11-2 0v-1a3 3 0 00-6 0v1a1 1 0 11-2 0zm12-4a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
             </svg>
@@ -265,7 +259,7 @@
         </a>
 
         <!-- Finance -->
-        <a href="https://web3ledgernetwork.com/app" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
+        <a href="/home.html" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"></path>
             </svg>
@@ -273,7 +267,7 @@
         </a>
 
         <!-- Cards -->
-        <a href="https://web3ledgernetwork.com/app/cards" class="flex flex-col items-center py-2 px-3 text-primary">
+        <a href="/cards.html" class="flex flex-col items-center py-2 px-3 text-primary">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"></path>
             </svg>
@@ -281,7 +275,7 @@
         </a>
 
         <!-- Staking -->
-        <a href="https://web3ledgernetwork.com/app/staking" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
+        <a href="/staking.html" class="flex flex-col items-center py-2 px-3 text-gray-400 hover:text-white">
             <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
             </svg>
@@ -324,33 +318,33 @@
 
         <!-- Bottom Navigation -->
         <div class="bottom-nav">
-            <a href="https://web3ledgernetwork.com/app" class="nav-item ">
+            <a href="/home.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                     </path>
                 </svg>
                 <span>Home</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/nft" class="nav-item ">
+            <a href="/nft.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                 </svg>
                 <span>NFT</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/collections" class="nav-item ">
+            <a href="/collections.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
                     </path>
                 </svg>
                 <span>Collections</span>
             </a>
-            <a href="https://web3ledgernetwork.com/app/staking" class="nav-item ">
+            <a href="/staking.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                 </svg>
                 <span>Staking</span>
             </a>
-            <a href="https://web3ledgernetwork.com/profile" class="nav-item ">
+            <a href="/profile.html" class="nav-item ">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
                     </path>
@@ -385,129 +379,152 @@
     </script>
 
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('billingForm');
-            const buyBtn = document.getElementById('buyBtn');
-            const successModal = document.getElementById('successModal');
-            const errorModal = document.getElementById('errorModal');
-            const continueBtn = document.getElementById('continueBtn');
-            const closeErrorBtn = document.getElementById('closeErrorBtn');
-            const errorText = document.getElementById('errorText');
-            const newAddressForm = document.getElementById('newAddressForm');
-            const existingAddressId = document.getElementById('existingAddressId');
-            const saveAddressCheckbox = document.getElementById('saveAddress');
-            const addressLabelDiv = document.getElementById('addressLabelDiv');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('billingForm');
+    const buyBtn = document.getElementById('buyBtn');
+    const successModal = document.getElementById('successModal');
+    const errorModal = document.getElementById('errorModal');
+    const continueBtn = document.getElementById('continueBtn');
+    const closeErrorBtn = document.getElementById('closeErrorBtn');
+    const errorText = document.getElementById('errorText');
+    const newAddressForm = document.getElementById('newAddressForm');
+    const existingAddressId = document.getElementById('existingAddressId');
+    const saveAddressCheckbox = document.getElementById('saveAddress');
+    const addressLabelDiv = document.getElementById('addressLabelDiv');
 
-            // Handle address selection
-            document.querySelectorAll('.address-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    // Remove selection from all options
-                    document.querySelectorAll('.address-option').forEach(opt => {
-                        opt.classList.remove('border-primary');
-                        opt.classList.add('border-dark-border');
-                        opt.querySelector('.radio-indicator div').classList.add('hidden');
-                        opt.querySelector('.address-radio').checked = false;
-                    });
+    const params = new URLSearchParams(window.location.search);
+    const resumed = params.get("resume");
 
-                    // Select this option
-                    this.classList.remove('border-dark-border');
-                    this.classList.add('border-primary');
-                    this.querySelector('.radio-indicator div').classList.remove('hidden');
-                    this.querySelector('.address-radio').checked = true;
+    async function maybeShowResumeModal() {
+        if (!resumed) return;
 
-                    if (this.dataset.newAddress) {
-                        // Show new address form
-                        newAddressForm.classList.remove('hidden');
-                        existingAddressId.value = '';
-                        // Make new address fields required
-                        newAddressForm.querySelectorAll('input[required]').forEach(input => {
-                            input.setAttribute('required', '');
-                        });
-                    } else {
-                        // Hide new address form and set existing address ID
-                        newAddressForm.classList.add('hidden');
-                        existingAddressId.value = this.dataset.addressId;
-                        // Remove required from new address fields
-                        newAddressForm.querySelectorAll('input[required]').forEach(input => {
-                            input.removeAttribute('required');
-                        });
-                    }
-                });
+        try {
+            const res = await fetch("/api/cards/current", {
+                credentials: "include"
             });
+            const data = await res.json();
 
-            // Handle save address checkbox
-            if (saveAddressCheckbox) {
-                saveAddressCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        addressLabelDiv.classList.remove('hidden');
-                    } else {
-                        addressLabelDiv.classList.add('hidden');
-                    }
-                });
+            if (data.success && data.order && data.order.status === "pending") {
+                successModal.classList.remove("hidden");
+                continueBtn.onclick = function() {
+                    window.location.href = `/payment.html?order=${data.order.order_code}`;
+                };
             }
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
-            buyBtn.addEventListener('click', function(e) {
-                e.preventDefault();
+    maybeShowResumeModal();
 
-                // Check if an address type is selected (for existing addresses)
-                const hasExistingAddresses = document.querySelectorAll('.address-option[data-address-id]')
-                    .length > 0;
-                if (hasExistingAddresses) {
-                    const selectedAddress = document.querySelector('.address-radio:checked');
-                    if (!selectedAddress) {
-                        alert('Please select an address or choose to add a new one.');
-                        return;
-                    }
-                }
-
-                // Validate form
-                if (!form.checkValidity()) {
-                    form.reportValidity();
-                    return;
-                }
-
-                // Disable button
-                buyBtn.disabled = true;
-                buyBtn.textContent = 'Processing...';
-
-                // Submit form
-                const formData = new FormData(form);
-
-                fetch('https://web3ledgernetwork.com/app/cards/order', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-CSRF-TOKEN': 'nxwzlBcNrdnq7ntJeEGcIsXW1v4LPIm9A1GDs8oC'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            successModal.classList.remove('hidden');
-
-                            // Store order ID for payment redirect
-                            continueBtn.onclick = function() {
-                                window.location.href =
-                                    `https://web3ledgernetwork.com/app/cards/payment/tron/tron/MjAwMDA=/${data.order_id}`;
-                            };
-                        } else {
-                            errorText.textContent = data.message || 'Something went wrong.';
-                            errorModal.classList.remove('hidden');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        errorText.textContent = 'Network error. Please try again.';
-                        errorModal.classList.remove('hidden');
-                    })
-                    .finally(() => {
-                        buyBtn.disabled = false;
-                        buyBtn.textContent = 'Continue – Buy Card';
-                    });
+    document.querySelectorAll('.address-option').forEach(option => {
+        option.addEventListener('click', function() {
+            document.querySelectorAll('.address-option').forEach(opt => {
+                opt.classList.remove('border-primary');
+                opt.classList.add('border-dark-border');
+                const radioDot = opt.querySelector('.radio-indicator div');
+                const radioInput = opt.querySelector('.address-radio');
+                if (radioDot) radioDot.classList.add('hidden');
+                if (radioInput) radioInput.checked = false;
             });
 
-            closeErrorBtn.addEventListener('click', function() {
-                errorModal.classList.add('hidden');
-            });
+            this.classList.remove('border-dark-border');
+            this.classList.add('border-primary');
+
+            const thisDot = this.querySelector('.radio-indicator div');
+            const thisRadio = this.querySelector('.address-radio');
+            if (thisDot) thisDot.classList.remove('hidden');
+            if (thisRadio) thisRadio.checked = true;
+
+            if (this.dataset.newAddress) {
+                newAddressForm.classList.remove('hidden');
+                existingAddressId.value = '';
+            } else {
+                newAddressForm.classList.add('hidden');
+                existingAddressId.value = this.dataset.addressId || '';
+            }
         });
-    </script></body></html>
+    });
+
+    if (saveAddressCheckbox) {
+        saveAddressCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                addressLabelDiv.classList.remove('hidden');
+            } else {
+                addressLabelDiv.classList.add('hidden');
+            }
+        });
+    }
+
+    buyBtn.addEventListener('click', async function(e) {
+        e.preventDefault();
+
+        const hasExistingAddresses = document.querySelectorAll('.address-option[data-address-id]').length > 0;
+        if (hasExistingAddresses) {
+            const selectedAddress = document.querySelector('.address-radio:checked');
+            if (!selectedAddress) {
+                alert('Please select an address or choose to add a new one.');
+                return;
+            }
+        }
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        buyBtn.disabled = true;
+        buyBtn.textContent = 'Processing...';
+
+        try {
+            const res = await fetch("/api/cards/create", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ design: "purple" })
+            });
+
+            const data = await res.json();
+
+            if (data.success && data.order) {
+                successModal.classList.remove('hidden');
+                continueBtn.onclick = function() {
+                    window.location.href = `/payment.html?order=${data.order.order_code}`;
+                };
+            } else {
+                errorText.textContent = data.message || 'Something went wrong.';
+                errorModal.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            errorText.textContent = 'Network error. Please try again.';
+            errorModal.classList.remove('hidden');
+        } finally {
+            buyBtn.disabled = false;
+            buyBtn.textContent = 'Continue – Buy Card';
+        }
+    });
+
+    closeErrorBtn.addEventListener('click', function() {
+        errorModal.classList.add('hidden');
+    });
+});
+</script><script>
+function logoutUser() {
+  fetch("/api/logout", {
+    method: "POST",
+    credentials: "include"
+  })
+    .then(res => res.json())
+    .then(() => {
+      localStorage.removeItem("USER_HAS_PIN");
+      window.location.href = "/login.html";
+    })
+    .catch(err => {
+      console.error("Logout failed:", err);
+      window.location.href = "/login.html";
+    });
+}
+</script></body></html>
