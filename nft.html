@@ -18,13 +18,13 @@
     <!-- Styles -->
     <link rel="preload" as="style" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"><link rel="modulepreload" href="https://web3ledgernetwork.com/build/assets/bootstrap-B4mIeCsZ.js"><link rel="stylesheet" href="https://web3ledgernetwork.com/build/assets/app-KTSIhXci.css"><script type="module" src="https://web3ledgernetwork.com/build/assets/app-CSHR9Uj0.js"></script>
         <link rel="stylesheet" href="https://web3ledgernetwork.com/css/modern-dashboard.css">
-<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAAY/d=0/rs=AN8SPfpe3kYt1ClERGshbaTrxqD-8l5IaQ/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.ncE1ppnCVYc.O/am=AAAAAQ/d=1/exm=el_conf/ed=1/rs=AN8SPfojOUGmHpjdydv7yknjAdjXfxSBng/m=el_main"></script></head>
+</head>
 
 <body class="bg-dark text-gray-100 antialiased" style="position: relative; min-height: 100%; top: 0px;">
     <!-- User Menu Modal -->
     <div id="userMenu" class="hidden fixed inset-0 z-50">
         <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" id="userMenuBackdrop"></div>
-        <div class="absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
+        <div class="userMenuContent absolute transform right-4 top-16 w-[calc(100%-2rem)] sm:w-80 md:w-96 bg-dark-medium rounded-lg shadow-lg py-1 ring-1 ring-white/10 mx-4 sm:mx-0">
             <ul class="divide-y divide-dark-lighter">
                 <li>
                     <a href="/profile.html" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="logoutBtn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
+                    <a href="#" id="logoutBtn" onclick="event.preventDefault(); logoutUser();" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-primary hover:bg-dark-lighter transition-colors">
                         Logout
                     </a>
                 </li>
@@ -61,20 +61,17 @@
 
                 <!-- Right: Google Translate, Search and Settings Icons -->
                 <div class="flex items-center gap-3">
-                    <!-- Standard Google Translate Widget -->
-<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="VIpgJd-ZVi9od-xl07Ob-lTBxed" href="#"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+                    <div id="google_translate_element"></div>
 
 <style>
-    /* Hide Google Translate banner */
     .goog-te-banner-frame.skiptranslate {
         display: none !important;
     }
 
     body {
-        top: 0px !important;
+        top: 0 !important;
     }
 
-    /* Fix the layout using display:flex instead of white-space:nowrap */
     .goog-te-gadget-simple {
         display: flex !important;
     }
@@ -83,7 +80,6 @@
         display: flex !important;
     }
 
-    /* Hide the separator and dropdown arrow */
     .goog-te-gadget-simple span[style*="border-left"] {
         display: none !important;
     }
@@ -93,18 +89,16 @@
     }
 </style>
 
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-    }
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
 </script>
 
-<!-- Google Translate Script -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -279,7 +273,7 @@
                     </button>
                 </div>
 
-                <form method="POST" action="/nft.html" class="p-4 modern-form">
+                <form id="nftPurchaseForm" class="p-4 modern-form">
                     <input type="hidden" name="_token" value="TepxMVtn6dt3Mm1TfovAOTM90IBayaiqYLOSQY7Y" autocomplete="off">                    <input type="hidden" name="nft_id" id="modal-nft-id">
                     <input type="hidden" name="amount" id="modal-amount">
 
@@ -322,8 +316,8 @@
 
                     <!-- Submit Button -->
                     <button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-lg hover:bg-primary-dark transition-colors font-medium modern-btn">
-                        Confirm Purchase
-                    </button>
+    Confirm Purchase
+</button>
                 </form>
             </div>
         </div>
@@ -447,4 +441,70 @@ function logoutUser() {
       window.location.href = "/login.html";
     });
 }
+</script><script>
+function openNftModal(button) {
+    const nftId = button.getAttribute('data-nft-id');
+    const nftName = button.getAttribute('data-nft-name');
+    const creator = button.getAttribute('data-creator');
+    const image = button.getAttribute('data-image');
+    const price = button.getAttribute('data-price');
+    const contract = button.getAttribute('data-contract');
+    const tokenId = button.getAttribute('data-token-id');
+    const blockchain = button.getAttribute('data-blockchain');
+
+    document.getElementById('modal-nft-id').value = nftId;
+    document.getElementById('modal-amount').value = price;
+    document.getElementById('modal-nft-image').src = image;
+    document.getElementById('modal-creator').textContent = creator;
+    document.getElementById('modal-nft-name').textContent = nftName;
+    document.getElementById('modal-contract').textContent = contract;
+    document.getElementById('modal-token-id').textContent = tokenId;
+    document.getElementById('modal-blockchain').textContent = blockchain;
+
+    const modal = document.getElementById('nftModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeNftModal() {
+    const modal = document.getElementById('nftModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+function showNftSuccessToast() {
+    const oldToast = document.getElementById('nft-success-toast');
+    if (oldToast) oldToast.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'nft-success-toast';
+    toast.className = 'fixed top-4 right-4 z-[9999] bg-green-500/20 border border-green-500/40 text-green-400 px-5 py-3 rounded-xl shadow-lg';
+    toast.textContent = 'NFT purchase request submitted successfully!';
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const buyButtons = document.querySelectorAll('.buy-nft-btn');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            openNftModal(this);
+        });
+    });
+
+    const purchaseForm = document.getElementById('nftPurchaseForm');
+    if (purchaseForm) {
+        purchaseForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            closeNftModal();
+            showNftSuccessToast();
+        });
+    }
+});
 </script></body></html>
