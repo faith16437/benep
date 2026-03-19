@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success && data.order && data.order.status === "pending") {
                 successModal.classList.remove("hidden");
                 continueBtn.onclick = function() {
-                    window.location.href = `/payment.html?order=${data.order.order_code}`;
+                    window.location.href = `/payment?order=${data.order.order_code}`;
                 };
             }
         } catch (err) {
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success && data.order) {
                 successModal.classList.remove('hidden');
                 continueBtn.onclick = function() {
-                    window.location.href = `/payment.html?order=${data.order.order_code}`;
+                    window.location.href = `/payment?order=${data.order.order_code}`;
                 };
             } else {
                 errorText.textContent = data.message || 'Something went wrong.';
