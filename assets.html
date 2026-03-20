@@ -58,7 +58,9 @@
 
                 <!-- Right: Google Translate, Search and Settings Icons -->
 <div class="flex items-center gap-3">
-    <div id="google_translate_element"></div>
+    <div class="translate-wrap">
+        <div id="google_translate_element"></div>
+    </div>
 
     <a href="/secure_assets.html" class="text-white hover:text-gray-300" title="Search">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -244,38 +246,54 @@
 </script>
 
 <style>
+    .translate-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-width: 160px;
+        height: 36px;
+        overflow: hidden;
+    }
+
     #google_translate_element {
         display: flex;
         align-items: center;
-        min-height: 20px;
+        justify-content: flex-end;
+        min-height: 36px;
+        line-height: 1;
     }
 
     #google_translate_element .goog-te-gadget {
-        font-size: 0;
+        font-size: 12;
         color: transparent !important;
+        display: flex;
+        align-items: center;
     }
 
     #google_translate_element .goog-te-gadget > span {
         display: none !important;
     }
 
-    #google_translate_element .goog-te-gadget .goog-te-combo {
-        background: transparent;
-        color: white;
+    #google_translate_element .goog-te-combo {
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
         border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 8px;
-        padding: 4px 8px;
-        font-size: 12px;
+        border-radius: 10px;
+        padding: 6px 10px;
+        font-size: 12px !important;
+        line-height: 1.2;
         outline: none;
+        min-width: 150px;
+        height: 32px;
     }
 
-    .goog-te-banner-frame {
-    display: none !important;
-}
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
 
-body {
-    top: 0 !important;
-}
+    body {
+        top: 0 !important;
+    }
 </style>
 
 <script>
@@ -283,6 +301,8 @@ body {
         new google.translate.TranslateElement(
             {
                 pageLanguage: 'en',
+                includedLanguages: 'en,fr,es,de,pt,ar,ru,zh-CN,ja,ko,it,nl,tr,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             },
             'google_translate_element'
