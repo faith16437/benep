@@ -34,24 +34,37 @@
 
   const ids = Object.values(coins).join(",");
 
-  const res = await fetch(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
-  );
-  const data = await res.json();
+  async function updatePrices() {
+  try {
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
+    );
 
-  Object.entries(coins).forEach(([symbol, id]) => {
-    if (!data[id]) return;
+    const data = await res.json();
 
-    const price = data[id].usd;
-    const change = data[id].usd_24h_change;
+    Object.entries(coins).forEach(([symbol, id]) => {
+      if (!data[id]) return;
 
-    document.querySelectorAll(`.${symbol}_price`).forEach(el => {
-      el.textContent = `$${price.toLocaleString()}`;
+      const price = data[id].usd;
+      const change = data[id].usd_24h_change;
+
+      document.querySelectorAll(`.${symbol}_price`).forEach(el => {
+        el.textContent = `$${price.toLocaleString()}`;
+      });
+
+      document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
+        el.textContent = `${change.toFixed(2)}%`;
+        el.style.color = change >= 0 ? "green" : "red";
+      });
     });
 
-    document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
-      el.textContent = `${change.toFixed(2)}%`;
-      el.style.color = change >= 0 ? "green" : "red";
-    });
-  });
-})();
+  } catch (err) {
+    console.error("Home price update failed:", err);
+  }
+}
+
+// run once
+updatePrices();
+
+// run every 60s (safe)
+setInterval(updatePrices, 60000);
