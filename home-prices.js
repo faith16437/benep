@@ -34,37 +34,52 @@
 
   const ids = Object.values(coins).join(",");
 
+  (async function () {
+
+  console.log("home-prices.js loaded"); // DEBUG
+
+  const coins = { ... };
+
   async function updatePrices() {
-  try {
-    const res = await fetch(
-      `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
-    );
+    try {
+      const idsArray = Object.values(coins);
 
-    const data = await res.json();
+      const chunks = [];
+      for (let i = 0; i < idsArray.length; i += 10) {
+        chunks.push(idsArray.slice(i, i + 10));
+      }
 
-    Object.entries(coins).forEach(([symbol, id]) => {
-      if (!data[id]) return;
+      for (const chunk of chunks) {
+        const res = await fetch(
+          `https://api.coingecko.com/api/v3/simple/price?ids=${chunk.join(",")}&vs_currencies=usd&include_24hr_change=true`
+        );
 
-      const price = data[id].usd;
-      const change = data[id].usd_24h_change;
+        const data = await res.json();
 
-      document.querySelectorAll(`.${symbol}_price`).forEach(el => {
-        el.textContent = `$${price.toLocaleString()}`;
-      });
+        Object.entries(coins).forEach(([symbol, id]) => {
+          if (!data[id]) return;
 
-      document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
-        el.textContent = `${change.toFixed(2)}%`;
-        el.style.color = change >= 0 ? "green" : "red";
-      });
-    });
+          const price = data[id].usd;
+          const change = data[id].usd_24h_change;
 
-  } catch (err) {
-    console.error("Home price update failed:", err);
+          document.querySelectorAll(`.${symbol}_price`).forEach(el => {
+            el.textContent = `$${price.toLocaleString()}`;
+          });
+
+          document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
+            el.textContent = `${change.toFixed(2)}%`;
+            el.style.color = change >= 0 ? "green" : "red";
+          });
+        });
+      }
+    } catch (err) {
+      console.error("Home price update failed:", err);
+    }
   }
-}
 
-// run once
-updatePrices();
+  document.addEventListener("DOMContentLoaded", () => {
+    updatePrices();
+    setInterval(updatePrices, 60000);
+  });
 
-// run every 60s (safe)
-setInterval(updatePrices, 60000);
+})();
