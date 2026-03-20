@@ -288,5 +288,19 @@ if (tvContainer) {
 
   applyIcon();
   updateAsset();
-  setInterval(updateAsset, 30000);
+  let updating = false;
+
+async function safeUpdate() {
+  if (updating) return;
+  updating = true;
+
+  await updateAsset();
+
+  setTimeout(() => {
+    updating = false;
+    safeUpdate();
+  }, 60000); // 60 seconds (safe)
+}
+
+safeUpdate();
 })();
