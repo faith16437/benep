@@ -253,19 +253,22 @@
   }
 
   async function updateAsset() {
-    try {
-      const res = await fetch(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${asset.geckoId}&vs_currencies=usd&include_24hr_change=true`
-      );
-      const data = await res.json();
-      if (!data[asset.geckoId]) return;
+  try {
+    const res = await fetch("https://round-poetry-6598.officeusps368.workers.dev/api/prices");
+    const data = await res.json();
 
-      applyLabels(data[asset.geckoId].usd, data[asset.geckoId].usd_24h_change);
-      applyIcon();
-    } catch (err) {
-      console.error("Price update failed:", err);
-    }
+    if (!data[asset.geckoId]) return;
+
+    applyLabels(
+      data[asset.geckoId].usd,
+      data[asset.geckoId].usd_24h_change
+    );
+
+    applyIcon();
+  } catch (err) {
+    console.error("Price update failed:", err);
   }
+}
 
   const tvContainer = document.getElementById("tradingview-widget-container");
 if (tvContainer) {
