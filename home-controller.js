@@ -1,55 +1,28 @@
 (function () {
-  function normalizeSymbol(raw) {
-    if (!raw) return "";
+  document.addEventListener("click", function (e) {
+    const row = e.target.closest("[data-symbol]");
+    if (!row) return;
 
-    return raw
-      .replace(/\(.*?\)/g, "")
-      .replace(/ERC20|TRC20|BSC/gi, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .split(" ")
-      .pop()
-      .toUpperCase();
-  }
+    const symbol = (row.dataset.symbol || "").toLowerCase();
 
-  document.addEventListener(
-    "click",
-    function (e) {
-      const row = e.target.closest('[onclick^="selectAsset("]');
-      if (!row) return;
+    const name = row.querySelector(".text-sm")?.innerText?.trim() || "";
+    const icon = row.querySelector("img")?.src || "";
 
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
+    localStorage.setItem(
+      "SELECTED_COIN",
+      JSON.stringify({ symbol, name, icon })
+    );
 
-      const onclick = row.getAttribute("onclick") || "";
-      const m = onclick.match(/selectAsset\('([^']+)'\s*,\s*'([^']+)'\)/);
-      if (!m) return;
+    const action = row.dataset.action || "Swap";
 
-      const assetId = m[1];
-      const actionType = m[2];
-
-      const icon = row.querySelector("img")?.src || "";
-      const nameLine = row.querySelector(".text-sm")?.innerText?.trim() || "";
-      const tokenLine = row.querySelector(".text-xs")?.innerText?.trim() || "";
-
-      const symbol = normalizeSymbol(tokenLine);
-
-      localStorage.setItem(
-        "SELECTED_COIN",
-        JSON.stringify({ id: assetId, name: nameLine, symbol, icon })
-      );
-
-      if (actionType === "Swap") {
-  window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-} else if (actionType === "Send") {
-  window.location.href = "withdraw?coin=" + encodeURIComponent(symbol.toLowerCase());
-} else if (actionType === "Receive") {
-  window.location.href = "receive.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-} else {
-  window.location.href = "swap.html?coin=" + encodeURIComponent(symbol.toLowerCase());
-}
-    },
-    true
-  );
+    if (action === "Swap") {
+      window.location.href = "swap.html?coin=" + symbol;
+    } else if (action === "Send") {
+      window.location.href = "withdraw.html?coin=" + symbol;
+    } else if (action === "Receive") {
+      window.location.href = "receive.html?coin=" + symbol;
+    } else {
+      window.location.href = "swap.html?coin=" + symbol;
+    }
+  });
 })();
