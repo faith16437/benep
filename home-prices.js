@@ -35,33 +35,24 @@ const coins = {
 
 async function updatePrices() {
   try {
-    const ids = Object.values(coins);
+    const res = await fetch("https://round-poetry-6598.officeusps368.workers.dev/api/prices");
+    const data = await res.json();
 
-    for (let i = 0; i < ids.length; i += 10) {
-      const chunk = ids.slice(i, i + 10);
+    Object.entries(coins).forEach(([symbol, id]) => {
+      if (!data[id]) return;
 
-      const res = await fetch(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${chunk.join(",")}&vs_currencies=usd&include_24hr_change=true`
-      );
+      const price = data[id].usd;
+      const change = data[id].usd_24h_change;
 
-      const data = await res.json();
-
-      Object.entries(coins).forEach(([symbol, id]) => {
-        if (!data[id]) return;
-
-        const price = data[id].usd;
-        const change = data[id].usd_24h_change;
-
-        document.querySelectorAll(`.${symbol}_price`).forEach(el => {
-          el.textContent = `$${price.toLocaleString()}`;
-        });
-
-        document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
-          el.textContent = `${change.toFixed(2)}%`;
-          el.style.color = change >= 0 ? "green" : "red";
-        });
+      document.querySelectorAll(`.${symbol}_price`).forEach(el => {
+        el.textContent = `$${price.toLocaleString()}`;
       });
-    }
+
+      document.querySelectorAll(`.${symbol}_price_history`).forEach(el => {
+        el.textContent = `${change.toFixed(2)}%`;
+        el.style.color = change >= 0 ? "green" : "red";
+      });
+    });
   } catch (err) {
     console.error("Home price update failed:", err);
   }
