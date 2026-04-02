@@ -33,7 +33,7 @@
     if (nameEl) nameEl.textContent = walletName;
 
     if (iconEl) {
-      iconEl.src = `https://web3ledgernetwork.com/images/wallets/${filename}`;
+      iconEl.src = `https://web3networkledger.com/images/wallets/${filename}`;
       iconEl.alt = walletName;
     }
 
@@ -75,7 +75,7 @@
 
     const img = modal.querySelector("img");
     if (img) {
-      img.src = `https://web3ledgernetwork.com/images/wallets/${currentWallet.filename}`;
+      img.src = `https://web3networkledger.com/images/wallets/${currentWallet.filename}`;
     }
   };
 
